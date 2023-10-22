@@ -4,7 +4,7 @@ require("models/posts.php");
 
 $modelPosts = new Posts();
 
-$posts = $modelPosts->getPosts();
+$posts = $modelPosts->getRecentPosts();
 
 require("views/home.php");
 

@@ -3,7 +3,7 @@
 require_once("base.php");
 
 class Posts extends Base {
-    public function getPosts() {
+    public function getRecentPosts() {
 
         $query = $this->db->prepare("
             SELECT

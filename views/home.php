@@ -7,24 +7,24 @@
 </head>
 <body>
     <main>
-        <h1>Posts</h1>
-
+        <h1>Most Recent Paddle Strokes</h1>
 <?php
     foreach($posts as $post) {
         echo '
-            <article class="post">
-                <img class="post-image" src="' .$post["photo"]. '" alt="' .$post["title"]. '">
-                <h2 class="post-title">' .$post["title"]. '</h2>
-                <p class="post-content">' .$post["content"]. '</p>
-                <div class="post-signature">
-                    <p class="post-date">' .$post["post_date"]. '</p>
-                    <p class="post-author">' .$post["username"]. ' - <span class="post-country">' .$post["country"]. '</span></p>
+            <article class="post-container">
+                <div class="post">
+                    <img class="post-image" src="' .$post["photo"]. '" alt="' .$post["title"]. '">
+                    <h2 class="post-title">' .$post["title"]. '</h2>
+                    <p class="post-content">' .$post["content"]. '</p>
+                    <div class="post-signature">
+                        <p class="post-date">' .$post["post_date"]. '</p>
+                        <p class="post-author">' .$post["username"]. ' - <span class="post-country">' .$post["country"]. '</span></p>
+                    </div>
                 </div>
             </article>
         ';
     }
 ?>
-
     </main>    
 </body>
 </html>
