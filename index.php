@@ -1,6 +1,6 @@
 <?php
 
-// session_start();
+session_start();
 
 define("ENV", parse_ini_file(".env"));
 define("ROOT", "");

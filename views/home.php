@@ -13,7 +13,7 @@
         echo '
             <article class="post-container">
                 <div class="post">
-                    <img class="post-image" src="' .$post["photo"]. '" alt="' .$post["title"]. '">
+                    <img class="post-image" src="../images/posts/' .$post["photo"]. ' " alt="' .$post["title"]. ' ">
                     <h2 class="post-title">' .$post["title"]. '</h2>
                     <p class="post-content">' .$post["content"]. '</p>
                     <div class="post-signature">
@@ -23,6 +23,14 @@
                 </div>
             </article>
         ';
+    }
+?>
+
+<?php
+    if(isset($_POST["email"])){
+?>
+        <p><a href="<?= ROOT ?>/logout/">Logout</a></p>
+<?php
     }
 ?>
     </main>    
