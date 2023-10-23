@@ -13,7 +13,10 @@ class Posts extends Base {
                 p.photo,
                 p.post_date,
                 u.username,
-                c.name AS country
+                c.name AS country,
+                (SELECT COUNT(*)
+                FROM likes
+                WHERE likes.post_id = p.post_id) AS like_count
             FROM
                 posts AS p
             INNER JOIN

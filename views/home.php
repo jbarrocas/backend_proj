@@ -21,6 +21,9 @@
                         <p class="post-author">' .$post["username"]. ' - <span class="post-country">' .$post["country"]. '</span></p>
                     </div>
                 </div>
+                <div>
+                    <p>' .$post["like_count"]. ' likes</p>
+                </div>
             </article>
         ';
     }
