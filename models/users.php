@@ -19,6 +19,33 @@ class Users extends Base
 
         return $query->fetch();
     }
+
+    public function createUser($data) {
+
+        $query = $this->db->prepare("
+            INSERT INTO users
+            (first_name,
+            last_name,
+            username,
+            email,
+            password,
+            country_id)
+            VALUES(?, ?, ?, ?, ?, ?)
+        ");
+
+        $query->execute([
+            $data["first_name"],
+            $data["last_name"],
+            $data["username"],
+            $data["email"],
+            password_hash($data["password"], PASSWORD_DEFAULT),
+            $data["country_id"]
+        ]);
+
+        $data["user_id"] = $this->db->lastInsertId();
+
+        return $data;
+        }
 }
 
 ?>

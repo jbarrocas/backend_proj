@@ -22,7 +22,7 @@ if( isset($_POST["send"]) ) {
             password_verify($_POST["password"], $user["password"])
         ) {
             $_SESSION["user_id"] = $user["user_id"];
-            header("Location:" .ROOT. "/home/");
+            header("Location: /");
         }
         else {
             $message = "Email or Password incorrect";
@@ -32,6 +32,8 @@ if( isset($_POST["send"]) ) {
         $message = "Complete the form correctly";
     }
 }
+
+print_r($_SESSION);
 
 require("views/login.php");
 

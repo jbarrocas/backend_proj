@@ -6,19 +6,19 @@ require("models/likes.php");
 
 if( isset($_POST["request"]) ) {
 
-    if( $_POST["request"] === "likeCheck") {
+    // if( $_POST["request"] === "likeCheck") {
 
-        $modelLikes = new Likes();
-        $likeCheck = $modelLikes->getLikesByPostAndUser($_POST["post_id"], $_SESSION["user_id"]);
+    //     $modelLikes = new Likes();
+    //     $likeCheck = $modelLikes->getLikesByPostAndUser($_POST["post_id"], $_SESSION["user_id"]);
     
-        if( $likeCheck["total_count"] > 0) {
+    //     if( $likeCheck["total_count"] > 0) {
 
-            echo '{"message":"liked"}';
-        }
-        else {
-            echo '{"message":"unliked"}';
-        }
-    }
+    //         echo '{"message":"liked"}';
+    //     }
+    //     else {
+    //         echo '{"message":"unliked"}';
+    //     }
+    // }
 
     if(
         $_POST["request"] === "createLike" &&

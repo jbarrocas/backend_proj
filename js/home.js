@@ -8,51 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const likeButton = document.getElementById("likeBtn" + post.id);
 
-        fetch("../requests/", {
-            method: "POST",
-            headers: {
-                "Content-Type":"application/x-www-form-urlencoded"
-            },
-            body: "request=likeCheck&post_id=" + post.id
-        })
-        .then( response => response.json())
-        .then( result => {
-            if(result.message === "liked") {
+        console.log(likeButton);
 
-                likeButton.setAttribute("data-like", "liked");
-                likeButton.innerHTML = "liked";
-            }
-            else {
-                likeButton.removeAttribute("data-like");
-                likeButton.innerHTML = "unliked";
-            }
-        })
-        .catch(error => alert("Unexpected error"));
+        console.log(likeButton.dataset.user);
+
+        if(likeButton.dataset.user.length > 0) {
+
+            likeButton.setAttribute("data-like", "liked");
+            likeButton.innerHTML = "liked";
+        }
+        else {
+            likeButton.removeAttribute("data-like");
+            likeButton.innerHTML = "unliked";
+        }
 
     
         button.addEventListener("click", () => {
         
-            if(likeButton.hasAttribute("data-like")) {
-
-                fetch("../requests/", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type":"application/x-www-form-urlencoded"
-                    },
-                    body: "request=deleteLike&post_id=" + post.id
-                })
-                .then( response => response.json())
-                .then( result => {
-                    if(result.message === "deleted") {
-
-                        likeButton.removeAttribute("data-like");
-                        likeButton.innerHTML = "unliked";
-                    }
-                })
-                .catch(error => alert("Unexpected error"));
-
-            }
-            else if(!likeButton.hasAttribute("data-like")) {
+            if(!likeButton.hasAttribute("data-like")) {
 
                 fetch("../requests/", {
                     method: "POST",
@@ -67,6 +40,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         likeButton.setAttribute("data-like", "liked");
                         likeButton.innerHTML = "liked";
+                    }
+                })
+                .catch(error => alert("Unexpected error"));
+
+            }
+            else if(likeButton.hasAttribute("data-like")) {
+                
+                fetch("../requests/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":"application/x-www-form-urlencoded"
+                    },
+                    body: "request=deleteLike&post_id=" + post.id
+                })
+                .then( response => response.json())
+                .then( result => {
+                    if(result.message === "deleted") {
+
+                        likeButton.removeAttribute("data-like");
+                        likeButton.innerHTML = "unliked";
                     }
                 })
                 .catch(error => alert("Unexpected error"));
