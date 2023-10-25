@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaddlePics</title>
+    <script src="/js/home.js"></script>
 </head>
 <body>
     <main>
@@ -12,7 +13,7 @@
     foreach($posts as $post) {
         echo '
             <article class="post-container">
-                <div class="post">
+                <div class="post" id="' .$post["post_id"]. '">
                     <img class="post-image" src="../images/posts/' .$post["photo"]. ' " alt="' .$post["title"]. ' ">
                     <h2 class="post-title">' .$post["title"]. '</h2>
                     <p class="post-content">' .$post["content"]. '</p>
@@ -22,7 +23,8 @@
                     </div>
                 </div>
                 <div>
-                    <p>' .$post["like_count"]. ' likes</p>
+                    <button id="likeBtn'.$post["post_id"].'" type="button" name="like" aria-label="Paddle This">Paddle This</button>
+                    <p>' .$post["like_count"]. ' paddles</p>
                 </div>
             </article>
         ';
