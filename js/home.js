@@ -8,10 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const likeButton = document.getElementById("likeBtn" + post.id);
 
-        console.log(likeButton);
-
-        console.log(likeButton.dataset.user);
-
         if(likeButton.dataset.user.length > 0) {
 
             likeButton.setAttribute("data-like", "liked");
@@ -40,6 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         likeButton.setAttribute("data-like", "liked");
                         likeButton.innerHTML = "liked";
+
+                        const likesNumber = document.getElementById("likesNumber" + post.id);
+
+                        const oldNumber = likesNumber.innerHTML;
+                
+                        const newNumber = parseInt(oldNumber) + 1;
+                
+                        likesNumber.innerHTML = newNumber;
                     }
                 })
                 .catch(error => alert("Unexpected error"));
@@ -60,6 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         likeButton.removeAttribute("data-like");
                         likeButton.innerHTML = "unliked";
+
+                        const likesNumber = document.getElementById("likesNumber" + post.id);
+
+                        const oldNumber = likesNumber.innerHTML;
+                
+                        const newNumber = parseInt(oldNumber) - 1;
+                
+                        likesNumber.innerHTML = newNumber;
                     }
                 })
                 .catch(error => alert("Unexpected error"));
