@@ -11,7 +11,7 @@
             <div class="logo-container">
                 <img class="logo" src="/images/assets/PaddlePicsLogoDarkMode.png" alt="PaddlePicsLogo">
                 <h1 class="site-motto" >Explore, Share, Connect. The Paddler's Photo Community!</h1>
-                <img class="post-pics" src="/images/assets/PicCollage.png" alt="PaddlePics examples">
+                <img class="post-pics" src="/images/assets/PicCollage_600px.png" alt="PaddlePics examples">
             </div>
             <div class="form-container">
                 <form class="register-form" method="POST" action="/register/">
@@ -24,7 +24,7 @@
                     <select class="register-select" name="country_id" required>
 <?php
     foreach($countries as $country) {
-        $selected = $country["country_id"] === "PT" ? " selected" : "";
+        $selected = $country["country_id"] === "PT" ? "selected" : "";
 
         echo '
             <option value="' .$country["country_id"]. '"' .$selected. '>' .$country["name"]. '</option>
@@ -34,7 +34,7 @@
                     </select>
                     <label>
                     <input type="checkbox" name="agrees" required>
-                        Aceita os nossos Termos?
+                        Agree to our Terms?
                     </label>
                     <button class="register-button" type="submit" name="send">Sign Up</button>
                 </form>
@@ -45,7 +45,7 @@
 ?>
                 <div class="login-button-container">
                     <p>Have an account?</p>
-                    <div><a href="/login"></a></div>
+                    <div><a href="/login">Login</a></div>
                 </div>
             </div>
         </div>

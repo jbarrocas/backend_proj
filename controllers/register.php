@@ -59,8 +59,6 @@ if (isset ($_POST["send"])){
     }
 }
 
-print_r($_SESSION);
-
 require("views/register.php");
 
 ?>

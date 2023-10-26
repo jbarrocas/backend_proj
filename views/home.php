@@ -8,6 +8,9 @@
 </head>
 <body>
     <main>
+<?php
+    require("templates/menu.php");
+?>
         <h1>Most Recent Paddle Strokes</h1>
 <?php
     foreach($posts as $post) {
@@ -28,14 +31,6 @@
                 </div>
             </article>
         ';
-    }
-?>
-
-<?php
-    if(isset($_SESSION["user_id"])){
-?>
-        <p><a href="/logout/">Logout</a></p>
-<?php
     }
 ?>
     </main>    

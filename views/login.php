@@ -11,7 +11,7 @@
             <div class="logo-container">
                 <img class="logo" src="/images/assets/PaddlePicsLogoDarkMode.png" alt="">
                 <h1 class="site-motto" >Explore, Share, Connect. The Paddler's Photo Community!</h1>
-                <img class="post-pics" src="/images/assets/PicCollage.png" alt="PaddlePics examples">
+                <img class="post-pics" src="/images/assets/PicCollage_600px.png" alt="PaddlePics examples">
             </div>
             <div class="form-container">
                 <form class="login-form" method="POST" action="/login/">
@@ -22,7 +22,7 @@
                 </form>
                 <div class="reg-button-container">
                     <p>Don't have an account?</p>
-                    <div><a href="/register"></a></div>
+                    <div><a href="/register">Register</a></div>
                 </div>
             </div>
         </div>
