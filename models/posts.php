@@ -3,6 +3,7 @@
 require_once("base.php");
 
 class Posts extends Base {
+
     public function getRecentPosts() {
 
         $query = $this->db->prepare("
@@ -36,6 +37,33 @@ class Posts extends Base {
         );
 
         return $query->fetchAll();
+    }
+
+    public function getPostById($id) {
+
+        $query = $this->db->prepare("
+            SELECT
+                p.title,
+                p.content,
+                p.photo,
+                p.post_date,
+                u.username,
+                c.name AS country
+            FROM
+                posts AS p
+            INNER JOIN
+                users AS u USING(user_id)
+            INNER JOIN
+                countries AS c USING(country_id)
+            WHERE
+                p.post_id = ?
+        ");
+
+        $query->execute(
+            [$id]
+        );
+
+        return $query->fetch();
     }
 }
 

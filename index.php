@@ -3,7 +3,7 @@
 session_start();
 
 define("ENV", parse_ini_file(".env"));
-define("ROOT", "");
+define("ROOT", "/");
 
 $url_parts = explode("/", $_SERVER["REQUEST_URI"]);
 

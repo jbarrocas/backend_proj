@@ -9,7 +9,7 @@ if(!isset($_SESSION["user_id"])) {
 }
 else {
     require("models/posts.php");
-    require("models/likes.php");
+    require("models/comments.php");
 
     $modelPosts = new Posts();
     $posts = $modelPosts->getRecentPosts();

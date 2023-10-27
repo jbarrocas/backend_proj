@@ -28,6 +28,7 @@
                 <div>
                     <button id="likeBtn'.$post["post_id"].'" type="button" data-user="' .$post["liked"]. '" name="like" aria-label="Paddle This">Paddle This</button>
                     <p id="likeCount' .$post["post_id"]. '"><span id="likesNumber' .$post["post_id"]. '">' .$post["like_count"]. '</span> paddles</p>
+                    <div><a href="/postdetail/' .$post["post_id"]. '">Comment</a></div>
                 </div>
             </article>
         ';
