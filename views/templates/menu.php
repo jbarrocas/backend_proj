@@ -3,7 +3,7 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/stroke/">Stroke a Pic</a></li>
+            <li><a href="/post/">Stroke a Pic</a></li>
             <li><a href="/favorite/">My Favorite Paddlers</a></li>
             <li><a href="/glide/">Glide Through</a></li>
             <li><a href="/profile/">My Profile</a></li>

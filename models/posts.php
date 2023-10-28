@@ -65,6 +65,30 @@ class Posts extends Base {
 
         return $query->fetch();
     }
+
+    public function createPost($data) {
+
+        $query = $this->db->prepare("
+            INSERT INTO posts
+            (title,
+            content,
+            photo,
+            user_id)
+            VALUES(?, ?, ?, ?)
+        ");
+
+        $query->execute([
+            $data["title"],
+            $data["content"],
+            $_FILES["photo"],
+            $_SESSION["user_id"]
+        ]);
+
+        $_SESSION["post_id"] = $this->db->lastInsertId();
+        
+
+        // return $data;
+    }
 }
 
 ?>
