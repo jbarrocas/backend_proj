@@ -9,9 +9,9 @@
     <main>
         <div class="login-container">
             <div class="logo-container">
-                <img class="logo" src="/images/assets/PaddlePicsLogoDarkMode.png" alt="">
-                <h1 class="site-motto" >Explore, Share, Connect. The Paddler's Photo Community!</h1>
-                <img class="post-pics" src="/images/assets/PicCollage_600px.png" alt="PaddlePics examples">
+                <img class="logo" src="/images/assets/PostapolAFLogoDark_400.png" alt="">
+                <h1 class="site-motto" >Sharing One Picture at a Time!</h1>
+                <img class="post-pics" src="/images/assets/PicCollage_600px.png" alt="Posts examples">
             </div>
             <div class="form-container">
                 <form class="login-form" method="POST" action="/login/">

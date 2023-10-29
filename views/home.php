@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PaddlePics</title>
+    <title>Postapol</title>
     <script src="/js/home.js"></script>
 </head>
 <body>
@@ -11,7 +11,7 @@
 <?php
     require("templates/menu.php");
 ?>
-        <h1>Most Recent Paddle Strokes</h1>
+        <h1>Recent</h1>
 <?php
     foreach($posts as $post) {
         echo '
@@ -26,8 +26,8 @@
                     </div>
                 </div>
                 <div>
-                    <button id="likeBtn'.$post["post_id"].'" type="button" data-user="' .$post["liked"]. '" name="like" aria-label="Paddle This">Paddle This</button>
-                    <p id="likeCount' .$post["post_id"]. '"><span id="likesNumber' .$post["post_id"]. '">' .$post["like_count"]. '</span> paddles</p>
+                    <button id="likeBtn'.$post["post_id"].'" type="button" data-user="' .$post["liked"]. '" name="like" aria-label="Paddle This">Like</button>
+                    <p id="likeCount' .$post["post_id"]. '"><span id="likesNumber' .$post["post_id"]. '">' .$post["like_count"]. '</span> likes</p>
                     <div><a href="/postdetail/' .$post["post_id"]. '">Comment</a></div>
                 </div>
             </article>

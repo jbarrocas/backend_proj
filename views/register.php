@@ -9,8 +9,8 @@
     <main>
         <div class="register-container">
             <div class="logo-container">
-                <img class="logo" src="/images/assets/PaddlePicsLogoDarkMode.png" alt="PaddlePicsLogo">
-                <h1 class="site-motto" >Explore, Share, Connect. The Paddler's Photo Community!</h1>
+                <img class="logo" src="/images/assets/PostapolAFLogoDark_400.png" alt="PaddlePicsLogo">
+                <h1 class="site-motto" >Sharing One Picture at a Time!</h1>
                 <img class="post-pics" src="/images/assets/PicCollage_600px.png" alt="PaddlePics examples">
             </div>
             <div class="form-container">

@@ -1,12 +1,12 @@
 <menu>
-    <img class="logo" src="/images/assets/PaddlePicsLogoDarkMode_400px.png" alt="">
+    <img class="logo" src="/images/assets/PostapolAFLogoDark_400.png" alt="">
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/post/">Stroke a Pic</a></li>
-            <li><a href="/favorite/">My Favorite Paddlers</a></li>
-            <li><a href="/glide/">Glide Through</a></li>
-            <li><a href="/profile/">My Profile</a></li>
+            <li><a href="/create/">Create</a></li>
+            <li><a href="/favorite/">Favorites</a></li>
+            <li><a href="/explore/">Explore</a></li>
+            <li><a href="/profile/">Profile</a></li>
           
 <?php
     if(isset($_SESSION["user_id"])){

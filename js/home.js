@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if(likeButton.dataset.user.length > 0) {
 
             likeButton.setAttribute("data-like", "liked");
-            likeButton.innerHTML = "liked";
+            likeButton.innerHTML = "Liked";
         }
         else {
             likeButton.removeAttribute("data-like");
-            likeButton.innerHTML = "unliked";
+            likeButton.innerHTML = "Like";
         }
 
     
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(result.message === "created") {
 
                         likeButton.setAttribute("data-like", "liked");
-                        likeButton.innerHTML = "liked";
+                        likeButton.innerHTML = "Liked";
 
                         const likesNumber = document.getElementById("likesNumber" + post.id);
 
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(result.message === "deleted") {
 
                         likeButton.removeAttribute("data-like");
-                        likeButton.innerHTML = "unliked";
+                        likeButton.innerHTML = "Like";
 
                         const likesNumber = document.getElementById("likesNumber" + post.id);
 

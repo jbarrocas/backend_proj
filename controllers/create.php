@@ -41,6 +41,6 @@ if( isset($_POST["send"]) ) {
     }
 }
 
-require("views/post.php");
+require("views/create.php");
 
 ?>

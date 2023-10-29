@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post a Pic</title>
+    <title>Create</title>
 </head>
 <body>
     <main>
+<?php
+    require("templates/menu.php");
+?>
         <div class="create-post-container">
-            <h1>Post a Pic</h1>
+            <h1>Create</h1>
             <form method="POST" action="/post/" enctype=multipart/form-data>
                 <input type="text" name="title" required>
                 <input type="text" name="content" required>
