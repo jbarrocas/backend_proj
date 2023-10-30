@@ -84,10 +84,9 @@ class Posts extends Base {
             $_SESSION["user_id"]
         ]);
 
-        $_SESSION["post_id"] = $this->db->lastInsertId();
-        
+        $_SESSION["post_id"] = $this->db->lastInsertId();        
 
-        // return $data;
+        return $data;
     }
 }
 

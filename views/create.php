@@ -12,11 +12,16 @@
 ?>
         <div class="create-post-container">
             <h1>Create</h1>
-            <form method="POST" action="/post/" enctype=multipart/form-data>
-                <input type="text" name="title" required>
-                <input type="text" name="content" required>
+<?php
+    if( isset($message) ) {
+        echo '<p role="alert">' .$message. '</p>';
+    }
+?>
+            <form method="POST" action="/create/" enctype=multipart/form-data>
+                <input type="text" name="title" placeholder="Title" minlength="3" maxlength="50" required>
+                <input type="text" name="content" Placeholder="Content" minlength="10" maxlength="255" required>
                 <input type="file" name="photo" id="photo" accept="<?= implode(",", $allowed_formats) ?>" required>
-                <input type="submit" value="Post" name="send">
+                <input type="submit" value="post" name="send">
             </form>
         </div>
     </main>    
