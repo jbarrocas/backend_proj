@@ -6,10 +6,10 @@ class Likes extends Base
 {
 
     public function getLikesByPostAndUser($post_id, $user_id) {
+        
         $query = $this->db->prepare("
             SELECT 
-                COUNT(*) AS total_count,
-                post_id, user_id
+                COUNT(*) AS total_count
             FROM
                 likes
             WHERE
@@ -26,7 +26,7 @@ class Likes extends Base
         $query = $this->db->prepare("
             INSERT INTO likes
             (post_id, user_id)
-            VALUES(?,?)
+            VALUES(?, ?)
         ");
 
         $query->execute([

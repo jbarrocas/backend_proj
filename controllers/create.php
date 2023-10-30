@@ -1,7 +1,5 @@
 <?php
 
-var_dump($_SESSION);
-
 $allowed_formats = [
     "jpeg" => "image/jpeg",
     "png" => "image/png"

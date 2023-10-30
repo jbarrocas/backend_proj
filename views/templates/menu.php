@@ -6,7 +6,7 @@
             <li><a href="/create/">Create</a></li>
             <li><a href="/favorite/">Favorites</a></li>
             <li><a href="/explore/">Explore</a></li>
-            <li><a href="/profile/">Profile</a></li>
+            <li><a href="/myprofile/">My Profile</a></li>
           
 <?php
     if(isset($_SESSION["user_id"])){

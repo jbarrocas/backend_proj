@@ -9,10 +9,9 @@ if(!isset($_SESSION["user_id"])) {
 }
 else {
     require("models/posts.php");
-    require("models/comments.php");
 
-    $modelPosts = new Posts();
-    $posts = $modelPosts->getRecentPosts();
+    $modelRecentPosts = new Posts();
+    $recentPosts = $modelRecentPosts->getRecentPosts();
 }
 
 require("views/home.php");

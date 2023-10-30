@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
             if(!likeButton.hasAttribute("data-like")) {
 
-                fetch("../requests/", {
+                fetch("/requests/", {
                     method: "POST",
                     headers: {
                         "Content-Type":"application/x-www-form-urlencoded"
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             else if(likeButton.hasAttribute("data-like")) {
                 
-                fetch("../requests/", {
+                fetch("/requests/", {
                     method: "POST",
                     headers: {
                         "Content-Type":"application/x-www-form-urlencoded"

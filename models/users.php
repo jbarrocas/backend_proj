@@ -20,6 +20,26 @@ class Users extends Base
         return $query->fetch();
     }
 
+    public function getById($user_id) {
+
+        $query = $this->db->prepare("
+            SELECT
+                u.user_id,
+                u.username,
+                c.name AS country
+            FROM
+                users AS u
+            INNER JOIN
+                countries AS c USING(country_id)
+            WHERE
+                user_id = ?
+        ");
+
+        $query->execute([ $user_id ]);
+
+        return $query->fetch();
+    }
+
     public function createUser($data) {
 
         $query = $this->db->prepare("
