@@ -60,6 +60,7 @@ class Posts extends Base {
 
         $query = $this->db->prepare("
             SELECT
+                p.post_id,
                 p.title,
                 p.content,
                 p.photo,

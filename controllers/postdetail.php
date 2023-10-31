@@ -22,9 +22,28 @@ else {
     $modelComments = new Comments();
     $comments = $modelComments->getCommentsByPostId($id);
 
-    if( empty($post) ) {
-        http_response_code(404);
-        die("Not found");
+    if( isset($_POST["send_comment"])) {
+
+        foreach($_POST as $key => $value){
+            $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
+        }
+
+        if(
+            !empty($_POST["content"]) &&
+            mb_strlen($_POST["content"]) >= 3 &&
+            mb_strlen($_POST["content"]) <= 222
+        ) {
+
+            $postComment = $modelComments->createComment(
+                $_POST["content"],
+                $id,
+                $_SESSION["user_id"]
+            );
+        }
+
+        $commentId = $_SESSION["comment_id"];
+
+        header("Location: /postdetail/" . $id . ".#comment" . $commentId);
     }
 }
 

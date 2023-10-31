@@ -8,6 +8,7 @@ class Comments extends Base
 
         $query = $this->db->prepare("
             SELECT
+                c.comment_id,
                 c.content,
                 c.comment_date,
                 c.parent_id,
@@ -31,7 +32,7 @@ class Comments extends Base
         return $query->fetchAll();
     }
 
-    public function createComment($data) {
+    public function createComment($content, $id, $user_id) {
 
         $query = $this->db->prepare("
             INSERT INTO comments
@@ -42,14 +43,12 @@ class Comments extends Base
         ");
 
         $query->execute([
-            $data["content"],
-            $data["post_id"],
-            $data["user_id"]
+            $content,
+            $id,
+            $user_id
         ]);
 
-        $data["comment_id"] = $this->db->lastInsertId();
-
-        return $data;
+        $_SESSION["comment_id"] = $this->db->lastInsertId();
     }
 }
 
