@@ -66,6 +66,7 @@ class Posts extends Base {
                 p.photo,
                 p.post_date,
                 u.username,
+                u.user_id,
                 c.name AS country
             FROM
                 posts AS p
