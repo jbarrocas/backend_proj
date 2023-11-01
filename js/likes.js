@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const likeButtons = document.querySelectorAll('button[name="like"');
+    const likeButtons = document.querySelectorAll('button[name="like"]');
 
     for(let button of likeButtons) {
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create</title>
+    <script src="/js/create.js"></script>
 </head>
 <body>
     <main>
@@ -21,7 +22,7 @@
                 <input type="text" name="title" placeholder="Title" minlength="3" maxlength="50" required>
                 <input type="text" name="content" Placeholder="Content" minlength="10" maxlength="255" required>
                 <input type="file" name="photo" id="photo" accept="<?= implode(",", $allowed_formats) ?>" required>
-                <input type="submit" value="post" name="send">
+                <input type="submit" value="post" name="send" onclick="validateFileSize()">
             </form>
         </div>
     </main>    
