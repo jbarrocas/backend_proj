@@ -6,22 +6,29 @@ if(!isset($_SESSION["user_id"])) {
 
 }
 else {
-    require("models/users.php");
-    require("models/posts.php");
-    require("models/follows.php");
 
-    $modelUser = new Users();
-    $user = $modelUser->getById($id);
+    if($_SESSION["user_id"] == $id) {
 
-    $modelPosts = new Posts();
-    $postsCount = $modelPosts->getPostsCountByUser($id);
-    $recentPostsByUsers = $modelPosts->getPostsByUser($_SESSION["user_id"], $id);
+        header("Location:/myprofile/");
+    }
+    else {
 
-    $modelFollows = new Follows();
-    $followersCount = $modelFollows->getFollowersById($id);
-    $followsCount = $modelFollows->getFollowsById($id);
-    $followerCheck = $modelFollows->getFollowerByFollowed($id, $_SESSION["user_id"]);
+        require("models/users.php");
+        require("models/posts.php");
+        require("models/follows.php");
     
+        $modelUser = new Users();
+        $user = $modelUser->getById($id);
+    
+        $modelPosts = new Posts();
+        $postsCount = $modelPosts->getPostsCountByUser($id);
+        $recentPostsByUsers = $modelPosts->getPostsByUser($_SESSION["user_id"], $id);
+    
+        $modelFollows = new Follows();
+        $followersCount = $modelFollows->getFollowersById($id);
+        $followsCount = $modelFollows->getFollowsById($id);
+        $followerCheck = $modelFollows->getFollowerByFollowed($id, $_SESSION["user_id"]);
+    }    
 }
 
 

@@ -75,6 +75,7 @@ class Posts extends Base {
                 countries AS c USING(country_id)
             WHERE
                 p.post_id = ?
+            LIMIT 20
         ");
 
         $query->execute(
