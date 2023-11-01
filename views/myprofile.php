@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <script src="/js/likes.js"></script>
+    <!-- <script src="/js/myprofile.js"></script> -->
 </head>
 <body>
     <main>
@@ -14,8 +15,8 @@
         <h1>My Profile</h1>
         <div>
             <div>
-                <img src="/images/assets/ProfileGenericPic.png" alt="">
-                <div><a href="/views/changephoto/">Change</a></div>
+                <img id="userPhoto" src="/images/users/<?=$user["photo"]?>" alt="">
+                <div><a href="/changephoto/">Change</a></div>
             </div>
             <div>
                 <p ><?=$user["username"]?></p>
@@ -24,7 +25,7 @@
                 <div id="<?=$user["user_id"]?>">
                     <p><span id="followersNumber"><?=$followersCount["total_count"]?></span> Followers</p>
                     <p>Following <?=$followsCount["total_count"]?></p>
-                    <div><a href="/views/editdetails/">Edit Details</a></div>
+                    <div><a href="/editdetails/">Edit Details</a></div>
                 </div>
             </div>
         </div>
