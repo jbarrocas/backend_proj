@@ -14,7 +14,7 @@
 ?>
         <h1>Profile</h1>
         <div>
-            <img src="/images/assets/ProfileGenericPic.png" alt="">
+            <img src="<?=$user["photo"]?>" alt="">
             <div>
                 <p ><?=$user["username"]?></p>
                 <p><?=$user["country"]?></p>

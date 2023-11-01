@@ -26,6 +26,7 @@ class Users extends Base
             SELECT
                 u.user_id,
                 u.username,
+                u.photo,
                 c.name AS country
             FROM
                 users AS u
@@ -65,7 +66,26 @@ class Users extends Base
         $data["user_id"] = $this->db->lastInsertId();
 
         return $data;
-        }
+    }
+
+    public function updatePhoto($data, $user_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                users
+            SET
+                photo = ?
+            WHERE
+                user_id = ?
+        ");
+
+        $query->execute([
+            $_FILES["photo"],
+            $user_id
+        ]);
+
+        return $data;
+    }
 }
 
 ?>
