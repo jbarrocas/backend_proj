@@ -26,7 +26,11 @@ class Users extends Base
             SELECT
                 u.user_id,
                 u.username,
+                u.first_name,
+                u.last_name,
+                u.email,
                 u.photo,
+                u.password,
                 c.name AS country
             FROM
                 users AS u
@@ -81,6 +85,33 @@ class Users extends Base
 
         $query->execute([
             $_FILES["photo"],
+            $user_id
+        ]);
+
+        return $data;
+    }
+
+    public function updatedetails($data, $user_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                users
+            SET
+                first_name = ?,
+                last_name = ?,
+                email = ?,
+                password = ?,
+                country_id = ?
+            WHERE
+                user_id = ?
+        ");
+
+        $query->execute([
+            $data["first_name"],
+            $data["last_name"],
+            $data["email"],
+            password_hash($data["password"], PASSWORD_DEFAULT),
+            $data["country_id"],            
             $user_id
         ]);
 
