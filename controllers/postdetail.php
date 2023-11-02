@@ -30,7 +30,7 @@ else {
 
         if(
             !empty($_POST["content"]) &&
-            mb_strlen($_POST["content"]) >= 3 &&
+            mb_strlen($_POST["content"]) >= 10 &&
             mb_strlen($_POST["content"]) <= 222
         ) {
 
@@ -39,11 +39,14 @@ else {
                 $id,
                 $_SESSION["user_id"]
             );
+
+            $commentId = $_SESSION["comment_id"];
+
+            header("Location: /postdetail/" . $id . ".#comment" . $commentId);
         }
-
-        $commentId = $_SESSION["comment_id"];
-
-        header("Location: /postdetail/" . $id . ".#comment" . $commentId);
+        else {
+            $message = "The comment must have between 10 and 222 characters";
+        }
     }
 }
 

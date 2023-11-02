@@ -11,6 +11,11 @@
     require("templates/menu.php");
 ?>
         <h1>Post detail</h1>
+<?php
+    if( isset($message) ) {
+        echo '<p role="alert">' .$message. '</p>';
+    }
+?>
         <article class="post-container">
             <div id="<?= $post["post_id"]?>" class="post">
                 <img class="post-image" src="/images/posts/<?=$post["photo"]?>" alt="">
