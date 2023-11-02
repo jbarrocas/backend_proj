@@ -31,7 +31,8 @@ class Users extends Base
                 u.email,
                 u.photo,
                 u.password,
-                c.name AS country
+                c.name AS country,
+                c.country_id
             FROM
                 users AS u
             INNER JOIN
