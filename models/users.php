@@ -4,11 +4,28 @@ require_once("base.php");
 
 class Users extends Base
 {
+    public function getByUsername($username) {
+
+        $query = $this->db->prepare("
+            SELECT
+                username
+            FROM
+                users
+            WHERE
+                username = ?
+        ");
+
+        $query->execute([ $username ]);
+
+        return $query->fetch();
+    }
+
     public function getByEmail($email) {
 
         $query = $this->db->prepare("
             SELECT
-                user_id, password
+                user_id,
+                password
             FROM
                 users
             WHERE

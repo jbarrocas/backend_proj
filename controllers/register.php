@@ -39,34 +39,43 @@ if (isset ($_POST["send"])){
                         mb_strlen($_POST["password"]) <= 1000
                     ) {
                         if(
+                            mb_strlen($_POST["username"]) >= 3 &&
+                            mb_strlen($_POST["username"]) <= 33 &&
                             mb_strlen($_POST["first_name"]) >= 3 &&
                             mb_strlen($_POST["first_name"]) <= 22 &&
                             mb_strlen($_POST["last_name"]) >= 2 &&
                             mb_strlen($_POST["last_name"]) <= 22 &&
-                            mb_strlen($_POST["username"]) >= 3 &&
-                            mb_strlen($_POST["username"]) <= 33 &&
                             in_array($_POST["country_id"], $country_codes)
                         ) {
-                    
+
                             require("models/users.php");
-                    
-                            $model = new Users();		
-                            $user = $model->getByEmail( $_POST["email"] );
-                    
-                            if(empty($user)){
-                    
-                                $createdUser = $model->createUser($_POST);
-                                $_SESSION["user_id"] = $createdUser["user_id"];
-                                
-                                header("Location: /");
+
+                            $model = new Users();
+                            $user = $model->getByUsername($_POST["username"]);
+
+                            if(empty($user)) {
+
+                                $user = $model->getByEmail( $_POST["email"] );
+
+                                if(empty($user)) {
+    
+                                    $createdUser = $model->createUser($_POST);
+                                    $_SESSION["user_id"] = $createdUser["user_id"];
+    
+                                    header("Location: /");
+                                }
+                                else{
+                                    $message = "This email already has an account";
+                                }
                             }
-                            else{
-                                $message = "This email already has an account";
+                            else {
+                                $message = "This username is already taken";
                             }
                         }
-                        else{
+                        else {
                             $message = "Respect the size of the fields";
                         }
+                        
                     }
                     else{
                         $message = "Your password must have at least 8 digits";
