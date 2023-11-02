@@ -1,5 +1,7 @@
 <?php
 
+require("models/users.php");
+
 $allowed_formats = [
     "jpeg" => "image/jpeg",
     "png" => "image/png"
@@ -10,6 +12,9 @@ if(!isset($_SESSION["user_id"])) {
     header("Location:/login/");
 }
 else {
+
+    $model = new Users();
+    $user = $model->getById($_SESSION["user_id"]);
 
     if( isset($_POST["send"]) ) {
 
@@ -28,9 +33,6 @@ else {
 
             $_FILES["photo"] = $filename;
 
-            require("models/users.php");
-
-            $model = new Users();
             $user = $model->updatePhoto($_POST, $_SESSION["user_id"]);    
 
             header("Location: /myprofile/");
