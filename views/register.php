@@ -24,7 +24,7 @@
                     <select class="register-select" name="country_id" required>
 <?php
     foreach($countries as $country) {
-        $selected = $country["country_id"] === "PT" ? "selected" : "";
+        $selected = $country["country_id"] === "US" ? "selected" : "";
 
         echo '
             <option value="' .$country["country_id"]. '"' .$selected. '>' .$country["name"]. '</option>
