@@ -20,7 +20,7 @@
 ?>
             <form method="POST" action="/create/" enctype=multipart/form-data>
                 <input type="text" name="title" placeholder="Title" minlength="3" maxlength="50" required>
-                <input type="text" name="content" Placeholder="Content" minlength="10" maxlength="255" required>
+                <input type="text" name="content" Placeholder="Content" minlength="10" maxlength="222" required>
                 <input type="file" name="photo" id="photo" accept="<?= implode(",", $allowed_formats) ?>" required>
                 <input type="submit" value="post" name="send" onclick="validateFileSize()">
             </form>
