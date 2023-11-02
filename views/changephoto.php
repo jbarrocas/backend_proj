@@ -13,6 +13,11 @@
 ?>
         <h1>Change your profile photo</h1>
         <img src="/images/users/<?=$user["photo"]?>" alt="">
+<?php
+    if( isset($message)) {
+        echo ' <p role="alert">' .$message.' </p>';
+    }
+?>
         <form method="POST" action="/changephoto/" enctype=multipart/form-data>
             <input type="file" name="photo" id="photo" accept="<?= implode(",", $allowed_formats) ?>" required>
             <button type="submit" name="send" onclick="validateFileSize()">Submit Photo</button>
