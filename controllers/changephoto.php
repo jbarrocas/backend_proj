@@ -5,32 +5,39 @@ $allowed_formats = [
     "png" => "image/png"
 ];
 
-if( isset($_POST["send"]) ) {
-        
-    if(
-        $_FILES["photo"]["error"] === 0 &&
-        $_FILES["photo"]["size"] > 0 &&
-        $_FILES["photo"]["size"] <= 1 * 1024 * 1024 &&
-        in_array($_FILES["photo"]["type"], $allowed_formats)
-    ) {
+if(!isset($_SESSION["user_id"])) {
 
-        $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
+    header("Location:/login/");
+}
+else {
 
-        $filename = $_SESSION["user_id"] . "." . $file_extension;
+    if( isset($_POST["send"]) ) {
 
-        move_uploaded_file($_FILES["photo"]["tmp_name"], "./images/users/" . $filename);
-        
-        $_FILES["photo"] = $filename;
+        if(
+            $_FILES["photo"]["error"] === 0 &&
+            $_FILES["photo"]["size"] > 0 &&
+            $_FILES["photo"]["size"] <= 1 * 1024 * 1024 &&
+            in_array($_FILES["photo"]["type"], $allowed_formats)
+        ) {
 
-        require("models/users.php");
+            $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
 
-        $model = new Users();
-        $user = $model->updatePhoto($_POST, $_SESSION["user_id"]);    
+            $filename = $_SESSION["user_id"] . "." . $file_extension;
 
-        header("Location: /myprofile/");
-    }
-    else {
-        $message = "Fill in all the fields";
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "./images/users/" . $filename);
+
+            $_FILES["photo"] = $filename;
+
+            require("models/users.php");
+
+            $model = new Users();
+            $user = $model->updatePhoto($_POST, $_SESSION["user_id"]);    
+
+            header("Location: /myprofile/");
+        }
+        else {
+            $message = "Fill in all the fields";
+        }
     }
 }
 

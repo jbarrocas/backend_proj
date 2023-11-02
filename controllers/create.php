@@ -5,42 +5,49 @@ $allowed_formats = [
     "png" => "image/png"
 ];
 
-if( isset($_POST["send"]) ) {
+if(!isset($_SESSION["user_id"])) {
 
-    foreach($_POST as $key => $value) {
-        $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
-    }
-        
-    if(
-        !empty($_POST["title"]) &&
-        !empty($_POST["content"]) &&
-        mb_strlen($_POST["title"]) >= 3 &&
-        mb_strlen($_POST["title"]) <= 50 &&
-        mb_strlen($_POST["content"]) >= 10 &&
-        mb_strlen($_POST["content"]) <= 255 &&
-        $_FILES["photo"]["error"] === 0 &&
-        $_FILES["photo"]["size"] > 0 &&
-        $_FILES["photo"]["size"] <= 1 * 1024 * 1024 &&
-        in_array($_FILES["photo"]["type"], $allowed_formats)
-    ) {
+    header("Location:/login/");
+}
+else {
 
-        $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
+    if( isset($_POST["send"]) ) {
 
-        $filename = date("YmdHis") . "_" . mt_rand(100000, 999999) . "." .$file_extension;
+        foreach($_POST as $key => $value) {
+            $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
+        }
 
-        move_uploaded_file($_FILES["photo"]["tmp_name"], "./images/posts/" . $filename);
-        
-        $_FILES["photo"] = $filename;
+        if(
+            !empty($_POST["title"]) &&
+            !empty($_POST["content"]) &&
+            mb_strlen($_POST["title"]) >= 3 &&
+            mb_strlen($_POST["title"]) <= 50 &&
+            mb_strlen($_POST["content"]) >= 10 &&
+            mb_strlen($_POST["content"]) <= 255 &&
+            $_FILES["photo"]["error"] === 0 &&
+            $_FILES["photo"]["size"] > 0 &&
+            $_FILES["photo"]["size"] <= 1 * 1024 * 1024 &&
+            in_array($_FILES["photo"]["type"], $allowed_formats)
+        ) {
 
-        require("models/posts.php");
+            $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
 
-        $model = new Posts();
-        $user = $model->createPost($_POST);    
+            $filename = date("YmdHis") . "_" . mt_rand(100000, 999999) . "." .$file_extension;
 
-        header("Location: /postdetail/" . $_SESSION["post_id"]);
-    }
-    else {
-        $message = "Fill in all the fields";
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "./images/posts/" . $filename);
+
+            $_FILES["photo"] = $filename;
+
+            require("models/posts.php");
+
+            $model = new Posts();
+            $user = $model->createPost($_POST);    
+
+            header("Location: /postdetail/" . $_SESSION["post_id"]);
+        }
+        else {
+            $message = "Fill in all the fields";
+        }
     }
 }
 

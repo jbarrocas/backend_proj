@@ -100,7 +100,6 @@ class Users extends Base
                 first_name = ?,
                 last_name = ?,
                 email = ?,
-                password = ?,
                 country_id = ?
             WHERE
                 user_id = ?
@@ -110,7 +109,6 @@ class Users extends Base
             $data["first_name"],
             $data["last_name"],
             $data["email"],
-            password_hash($data["password"], PASSWORD_DEFAULT),
             $data["country_id"],            
             $user_id
         ]);
