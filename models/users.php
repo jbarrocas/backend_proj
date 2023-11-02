@@ -91,7 +91,7 @@ class Users extends Base
         return $data;
     }
 
-    public function updatedetails($data, $user_id) {
+    public function updateDetails($data, $user_id) {
 
         $query = $this->db->prepare("
             UPDATE
@@ -110,6 +110,25 @@ class Users extends Base
             $data["last_name"],
             $data["email"],
             $data["country_id"],            
+            $user_id
+        ]);
+
+        return $data;
+    }
+
+    public function updatePassword($data, $user_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                users
+            SET
+                password = ?
+            WHERE
+                user_id = ?
+        ");
+
+        $query->execute([
+            password_hash($data["new_password"], PASSWORD_DEFAULT),
             $user_id
         ]);
 

@@ -40,7 +40,7 @@ else {
             in_array($_POST["country_id"], $country_codes)
         ) {
         
-    		$userdetails = $model->updatedetails( $_POST, $_SESSION["user_id"] );
+    		$userdetails = $model->updateDetails( $_POST, $_SESSION["user_id"] );
         
             header("Location: /myprofile/");
         
