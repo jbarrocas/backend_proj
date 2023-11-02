@@ -1,5 +1,10 @@
 <?php
 
+if( empty($id) || !is_numeric($id) ){
+    http_response_code(400);
+    die("Invalid Request");
+}
+
 if(!isset($_SESSION["user_id"])) {
 
     header("Location:/login/");

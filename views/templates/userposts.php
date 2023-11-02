@@ -15,6 +15,7 @@
                     <button id="likeBtn'.$recentPostsByUser["post_id"].'" type="button" data-user="' .$recentPostsByUser["liked"]. '" name="like" aria-label="Like">Like</button>
                     <p id="likeCount' .$recentPostsByUser["post_id"]. '"><span id="likesNumber' .$recentPostsByUser["post_id"]. '">' .$recentPostsByUser["like_count"]. '</span> likes</p>
                     <div><a href="/postdetail/' .$recentPostsByUser["post_id"]. '">Comment</a></div>
+                    <p id="commentsCount"><Span id="commentsNumber">' .$recentPostsByUser["comments_count"]. '</span> comments</p>
                 </div>
             </article>
         ';

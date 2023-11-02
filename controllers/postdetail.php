@@ -2,7 +2,7 @@
 
 if( empty($id) || !is_numeric($id) ){
     http_response_code(400);
-    die("Request Inválido");
+    die("Invalid Request");
 }
 
 

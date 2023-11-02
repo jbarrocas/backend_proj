@@ -35,7 +35,10 @@ class Posts extends Base {
                 likes.user_id AS liked,
                 (SELECT COUNT(*)
                 FROM likes
-                WHERE likes.post_id = p.post_id) AS like_count                
+                WHERE likes.post_id = p.post_id) AS like_count,
+                (SELECT COUNT(*)
+                FROM comments
+                WHERE comments.post_id = p.post_id) AS comments_count 
             FROM
                 posts AS p
             INNER JOIN
@@ -101,7 +104,10 @@ class Posts extends Base {
                 likes.user_id AS liked,
                 (SELECT COUNT(*)
                 FROM likes
-                WHERE likes.post_id = p.post_id) AS like_count                
+                WHERE likes.post_id = p.post_id) AS like_count,
+                (SELECT COUNT(*)
+                FROM comments
+                WHERE comments.post_id = p.post_id) AS comments_count           
             FROM
                 posts AS p
             INNER JOIN
