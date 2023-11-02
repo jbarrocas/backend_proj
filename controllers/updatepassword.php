@@ -58,6 +58,6 @@ else {
     }
 }
 
-require("views/changepassword.php");
+require("views/updatepassword.php");
 
 ?>

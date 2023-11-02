@@ -16,7 +16,7 @@
         <div>
             <div>
                 <img id="userPhoto" src="/images/users/<?=$user["photo"]?>" alt="">
-                <div><a href="/changephoto/">Change</a></div>
+                <div><a href="/updatephoto/">Change</a></div>
             </div>
             <div>
                 <p ><?=$user["username"]?></p>
@@ -25,7 +25,7 @@
                 <div id="<?=$user["user_id"]?>">
                     <p><span id="followersNumber"><?=$followersCount["total_count"]?></span> Followers</p>
                     <p>Following <?=$followsCount["total_count"]?></p>
-                    <div><a href="/editdetails/">Edit Details</a></div>
+                    <div><a href="/updatedetails/">Update Details</a></div>
                 </div>
             </div>
         </div>

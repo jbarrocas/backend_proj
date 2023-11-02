@@ -49,6 +49,6 @@ else {
     }
 }
 
-require("views/changephoto.php");
+require("views/updatephoto.php");
 
 ?>

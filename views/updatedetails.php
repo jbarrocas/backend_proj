@@ -17,7 +17,7 @@
         echo '<p role="alert">' .$message. '</p>';
     }
 ?>
-                <form class="details-form" method="POST" action="/editdetails/">
+                <form class="details-form" method="POST" action="/updatedetails/">
                     <input class="details-input" type="text" name="first_name" placeholder="First Name" value="<?= $user["first_name"] ?>" required minlength="3" maxlength="22">
                     <input class="details-input" type="text" name="last_name" placeholder="Last Name" value="<?= $user["last_name"] ?>" required minlength="2" maxlength="22">
                     <input class="details-input" type="email" name="email" placeholder="Email" value="<?= $user["email"] ?>" required>
@@ -35,7 +35,7 @@
                     </select>
                     <button class="update-button" type="submit" name="send">Update Details</button>
                 </form>
-                <p><a href="/changepassword/">Change Password</a></p>
+                <p><a href="/updatepassword/">Change Password</a></p>
 <?php
     if( isset($message) ) {
         echo '<p role="alert">' . $message . '</p>';

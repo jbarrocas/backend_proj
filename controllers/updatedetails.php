@@ -63,6 +63,6 @@ else {
     }
 }
 
-require("views/editdetails.php");
+require("views/updatedetails.php");
 
 ?>
