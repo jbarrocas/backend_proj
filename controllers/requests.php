@@ -4,6 +4,7 @@ header("Content-Type: application/json");
 
 require("models/likes.php");
 require("models/follows.php");
+require("models/posts.php");
 
 if( isset($_POST["request"]) ) {
 
@@ -57,6 +58,19 @@ if( isset($_POST["request"]) ) {
         $follow = $model->deleteFollow($_POST["user_id"], $_SESSION["user_id"]);
 
         echo '{"message":"unfollowed"}';
+    }
+
+    if(
+        $_POST["request"] === "deletePost" &&
+        !empty($_POST["post_id"]) &&
+        is_numeric($_POST["post_id"])
+
+    ) {
+
+        $model = new Posts();
+        $like = $model->delete($_POST["post_id"]);
+
+        echo '{"message":"deleted"}';
     }
 }
 

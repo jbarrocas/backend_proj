@@ -155,6 +155,16 @@ class Posts extends Base {
 
         return $data;
     }
+
+    public function delete($id) {
+
+        $query = $this->db->prepare("
+            DELETE FROM posts
+            WHERE post_id = ?
+        ");
+
+        return $query->execute([$id]);
+    }
 }
 
 ?>

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <script src="/js/likes.js"></script>
-    <!-- <script src="/js/myprofile.js"></script> -->
+    <script src="/js/posts.js"></script>
+
 </head>
 <body>
     <main>
@@ -30,7 +31,7 @@
             </div>
         </div>
 <?php
-    require("templates/userposts.php");
+    require("templates/ownedposts.php");
 ?>
     </main>
     
