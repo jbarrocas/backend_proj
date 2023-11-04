@@ -19,7 +19,7 @@
                 <p ><?=$user["username"]?></p>
                 <p><?=$user["country"]?></p>
                 <p><?=$postsCount["posts_count"]?> posts</p>
-                <div id="<?=$user["user_id"]?>">
+                <div data-user_id="<?=$user["user_id"]?>">
                     <p><span id="followersNumber"><?=$followersCount["total_count"]?></span> Followers</p>
                     <p>Following <?=$followsCount["total_count"]?></p>
                     <button id="followBtn" type="button" data-user="<?= $followerCheck ?>" name="follow" aria-label="Follow">Follow</button>

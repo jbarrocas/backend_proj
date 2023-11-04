@@ -35,7 +35,7 @@
                     </select>
                     <button class="update-button" type="submit" name="send">Update Details</button>
                 </form>
-                <p><a href="/updatepassword/">Change Password</a></p>
+                <p><a href="/updatepassword/">Update Password</a></p>
 <?php
     if( isset($message) ) {
         echo '<p role="alert">' . $message . '</p>';

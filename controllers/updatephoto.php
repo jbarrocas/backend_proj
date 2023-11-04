@@ -24,23 +24,23 @@ else {
             if(
                 $_FILES["photo"]["error"] === 0 &&
                 $_FILES["photo"]["size"] > 0 &&
-                $_FILES["photo"]["size"] <= 1 * 1024 * 1024                
+                $_FILES["photo"]["size"] <= 2 * 1024 * 1024                
             ) {
     
                 $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
     
-                $filename = $_SESSION["user_id"] . "." . $file_extension;
+                $filename = $_SESSION["user_id"] . "_user_profile_photo." . $file_extension;
     
                 move_uploaded_file($_FILES["photo"]["tmp_name"], "./images/users/" . $filename);
     
-                $_FILES["photo"] = $filename;
+                $post["photo"] = $filename;
     
-                $user = $model->updatePhoto($_POST, $_SESSION["user_id"]);    
+                $model->updatePhoto($post, $_SESSION["user_id"]);    
     
                 header("Location: /myprofile/");
             }
             else {
-                $message = "File size must be less than 1 MB";
+                $message = "File size must be less than 2 MB";
             }
         }
         else {

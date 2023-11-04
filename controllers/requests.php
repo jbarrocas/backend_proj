@@ -12,11 +12,10 @@ if( isset($_POST["request"]) ) {
         $_POST["request"] === "createLike" &&
         !empty($_POST["post_id"]) &&
         is_numeric($_POST["post_id"])
-
     ) {
 
         $model = new Likes();
-        $like = $model->createLike($_POST["post_id"], $_SESSION["user_id"]);
+        $model->createLike($_POST["post_id"], $_SESSION["user_id"]);
 
         echo '{"message":"created"}';
     }
@@ -25,11 +24,10 @@ if( isset($_POST["request"]) ) {
         $_POST["request"] === "deleteLike" &&
         !empty($_POST["post_id"]) &&
         is_numeric($_POST["post_id"])
-
     ) {
 
         $model = new Likes();
-        $like = $model->deleteLike($_POST["post_id"], $_SESSION["user_id"]);
+        $model->deleteLike($_POST["post_id"], $_SESSION["user_id"]);
 
         echo '{"message":"deleted"}';
     }
@@ -38,11 +36,10 @@ if( isset($_POST["request"]) ) {
         $_POST["request"] === "createFollower" &&
         !empty($_POST["user_id"]) &&
         is_numeric($_POST["user_id"])
-
     ) {
 
         $model = new Follows();
-        $follow = $model->createFollow($_POST["user_id"], $_SESSION["user_id"]);
+        $model->createFollow($_POST["user_id"], $_SESSION["user_id"]);
 
         echo '{"message":"followed"}';
     }
@@ -51,11 +48,10 @@ if( isset($_POST["request"]) ) {
         $_POST["request"] === "deleteFollower" &&
         !empty($_POST["user_id"]) &&
         is_numeric($_POST["user_id"])
-
     ) {
 
         $model = new Follows();
-        $follow = $model->deleteFollow($_POST["user_id"], $_SESSION["user_id"]);
+        $model->deleteFollow($_POST["user_id"], $_SESSION["user_id"]);
 
         echo '{"message":"unfollowed"}';
     }
@@ -64,11 +60,10 @@ if( isset($_POST["request"]) ) {
         $_POST["request"] === "deletePost" &&
         !empty($_POST["post_id"]) &&
         is_numeric($_POST["post_id"])
-
     ) {
 
         $model = new Posts();
-        $like = $model->delete($_POST["post_id"]);
+        $model->delete($_POST["post_id"]);
 
         echo '{"message":"deleted"}';
     }

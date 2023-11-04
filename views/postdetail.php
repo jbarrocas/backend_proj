@@ -11,13 +11,8 @@
     require("templates/menu.php");
 ?>
         <h1>Post detail</h1>
-<?php
-    if( isset($message) ) {
-        echo '<p role="alert">' .$message. '</p>';
-    }
-?>
         <article class="post-container">
-            <div id="<?= $post["post_id"]?>" class="post">
+            <div data-post_id="<?= $post["post_id"]?>" class="post">
                 <img class="post-image" src="/images/posts/<?=$post["photo"]?>" alt="">
                 <h2 class="post-title"><?=$post["title"]?></h2>
                 <p class="post-content"><?=$post["content"]?></p>
@@ -27,6 +22,11 @@
                 </div>
             </div>
         </article>
+<?php
+    if( isset($message) ) {
+        echo '<p role="alert">' .$message. '</p>';
+    }
+?>
         <form class="comment-Form" method="POST" action="/postdetail/<?= $post["post_id"]?>">
             <textarea id="commentContent" placeholder="Write your comment" cols="74" rows="3" minlength="10" maxlength="222" name="content"></textarea>
             <button id="sendComment" type="submit" name="send_comment">Send</button>

@@ -36,7 +36,7 @@ else {
                         password_verify($_POST["old_password"], $user["password"])
                     ) {
 
-                        $user = $model->updatePassword($_POST, $_SESSION["user_id"]);    
+                        $model->updatePassword($_POST, $_SESSION["user_id"]);    
         
                         header("Location: /myprofile/");                        
                     }

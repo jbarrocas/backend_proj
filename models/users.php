@@ -102,7 +102,7 @@ class Users extends Base
         ");
 
         $query->execute([
-            $_FILES["photo"],
+            $data["photo"],
             $user_id
         ]);
 

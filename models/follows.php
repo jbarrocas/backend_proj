@@ -14,11 +14,11 @@ class Follows extends Base
                 follows
             WHERE
                followed_id = ?
-    ");
+        ");
 
-    $query->execute([$id]);
+        $query->execute([$id]);
 
-    return $query->fetch();
+        return $query->fetch();
     }
 
     public function getFollowsById($id) {
@@ -30,11 +30,11 @@ class Follows extends Base
                 follows
             WHERE
                follower_id = ?
-    ");
+        ");
 
-    $query->execute([$id]);
+        $query->execute([$id]);
 
-    return $query->fetch();
+        return $query->fetch();
     }
 
     public function getFollowerByFollowed($followed_id, $follower_id) {
@@ -46,14 +46,14 @@ class Follows extends Base
                 follows
             WHERE
                followed_id = ? AND follower_id = ?
-    ");
+        ");
 
-    $query->execute([
-        $followed_id,
-        $follower_id
-    ]);
+        $query->execute([
+            $followed_id,
+            $follower_id
+        ]);
 
-    return $query->fetch();
+        return $query->fetch();
     }
 
     public function createFollow($followed_id, $follower_id) {

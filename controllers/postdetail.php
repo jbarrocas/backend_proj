@@ -19,6 +19,11 @@ else {
     $modelPosts = new Posts();
     $post = $modelPosts->getPostById($id);
 
+    if( empty($post) ) {
+        http_response_code(404);
+        die("Not found");
+    }
+
     $modelComments = new Comments();
     $comments = $modelComments->getCommentsByPostId($id);
 
@@ -34,15 +39,14 @@ else {
             mb_strlen($_POST["content"]) <= 222
         ) {
 
-            $postComment = $modelComments->createComment(
+            $comment_id = $modelComments->createComment(
                 $_POST["content"],
                 $id,
                 $_SESSION["user_id"]
             );
 
-            $commentId = $_SESSION["comment_id"];
-
-            header("Location: /postdetail/" . $id . ".#comment" . $commentId);
+            // tirar isto e fazer AJAX
+            header("Location: /postdetail/" . $id . ".#comment" . $comment_id);
         }
         else {
             $message = "The comment must have between 10 and 222 characters";

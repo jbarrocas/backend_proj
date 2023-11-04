@@ -147,13 +147,11 @@ class Posts extends Base {
         $query->execute([
             $data["title"],
             $data["content"],
-            $_FILES["photo"],
-            $_SESSION["user_id"]
+            $data["filename"],
+            $data["user_id"]
         ]);
 
-        $_SESSION["post_id"] = $this->db->lastInsertId();        
-
-        return $data;
+        return $this->db->lastInsertId();
     }
 
     public function delete($id) {
@@ -163,7 +161,7 @@ class Posts extends Base {
             WHERE post_id = ?
         ");
 
-        return $query->execute([$id]);
+        $query->execute([$id]);
     }
 }
 

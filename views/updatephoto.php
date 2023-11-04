@@ -20,7 +20,8 @@
 ?>
         <form method="POST" action="/updatephoto/" enctype=multipart/form-data>
             <input type="file" name="photo" id="photo" accept="<?= implode(",", $allowed_formats) ?>" required>
-            <button type="submit" name="send" onclick="validateFileSize()">Submit Photo</button>
+            <button type="submit" name="send" onclick="validateFileSize()">Update Photo</button>
+
         </form>
     </main>    
 </body>

@@ -10,7 +10,7 @@
 <?php
     require("templates/menu.php");
 ?>
-        <h1>Change your password</h1>
+        <h1>Update your password</h1>
 <?php
     if( isset($message)) {
         echo ' <p role="alert">' .$message.' </p>';
@@ -20,7 +20,7 @@
             <input class="register-input" type="password" name="old_password" placeholder="Old Password" required minlength="8" maxlength="1000">
             <input class="register-input" type="password" name="new_password" placeholder="New Password" required minlength="8" maxlength="1000">
             <input class="register-input" type="password" name="new_password_confirm" placeholder="New Password Confirmation" required minlength="8" maxlength="1000">
-            <button type="submit" name="send">Change Password</button>
+            <button type="submit" name="send">Update Password</button>
         </form>
     </main>    
 </body>

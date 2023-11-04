@@ -24,6 +24,11 @@ else {
     
         $modelUser = new Users();
         $user = $modelUser->getById($id);
+
+        if( empty($user) ) {
+            http_response_code(404);
+            die("Not found");
+        }
     
         $modelPosts = new Posts();
         $postsCount = $modelPosts->getPostsCountByUser($id);

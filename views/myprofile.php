@@ -23,7 +23,7 @@
                 <p ><?=$user["username"]?></p>
                 <p><?=$user["country"]?></p>
                 <p><?=$postsCount["posts_count"]?> posts</p>
-                <div id="<?=$user["user_id"]?>">
+                <div data-user_id="<?=$user["user_id"]?>">
                     <p><span id="followersNumber"><?=$followersCount["total_count"]?></span> Followers</p>
                     <p>Following <?=$followsCount["total_count"]?></p>
                     <div><a href="/updatedetails/">Update Details</a></div>

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for(let button of deleteButtons) {
 
-        const postId = button.parentNode.previousElementSibling.id;
+        const post_id = button.parentNode.previousElementSibling.dataset.post_id;
 
         button.addEventListener("click", () => {
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: {
                         "Content-Type":"application/x-www-form-urlencoded"
                     },
-                    body: "request=deletePost&post_id=" + postId
+                    body: "request=deletePost&post_id=" + post_id
                 })
                 .then( response => response.json() )
                 .then( result => {

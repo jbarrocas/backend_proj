@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for(let button of likeButtons) {
 
-        const post = button.parentNode.parentNode.firstElementChild;
+        const post_id = button.parentNode.parentNode.firstElementChild.dataset.post_id;
 
-        const likeButton = document.getElementById("likeBtn" + post.id);
+        const likeButton = document.getElementById("likeBtn" + post_id);
 
         if(likeButton.dataset.user.length > 0) {
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: {
                         "Content-Type":"application/x-www-form-urlencoded"
                     },
-                    body: "request=createLike&post_id=" + post.id
+                    body: "request=createLike&post_id=" + post_id
                 })
                 .then( response => response.json())
                 .then( result => {
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         likeButton.setAttribute("data-like", "liked");
                         likeButton.innerHTML = "Liked";
 
-                        const likesNumber = document.getElementById("likesNumber" + post.id);
+                        const likesNumber = document.getElementById("likesNumber" + post_id);
 
                         const oldNumber = likesNumber.innerHTML;
                 
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: {
                         "Content-Type":"application/x-www-form-urlencoded"
                     },
-                    body: "request=deleteLike&post_id=" + post.id
+                    body: "request=deleteLike&post_id=" + post_id
                 })
                 .then( response => response.json())
                 .then( result => {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         likeButton.removeAttribute("data-like");
                         likeButton.innerHTML = "Like";
 
-                        const likesNumber = document.getElementById("likesNumber" + post.id);
+                        const likesNumber = document.getElementById("likesNumber" + post_id);
 
                         const oldNumber = likesNumber.innerHTML;
                 

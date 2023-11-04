@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const button = document.querySelector('button[name="follow"]');
 
-    const user = button.parentNode;
+    const user_id = button.parentNode.dataset.user_id;
 
     const followButton = document.getElementById("followBtn");
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: {
                     "Content-Type":"application/x-www-form-urlencoded"
                 },
-                body: "request=createFollower&user_id=" + user.id
+                body: "request=createFollower&user_id=" + user_id
             })
             .then( response => response.json())
             .then( result => {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: {
                     "Content-Type":"application/x-www-form-urlencoded"
                 },
-                body: "request=deleteFollower&user_id=" + user.id
+                body: "request=deleteFollower&user_id=" + user_id
             })
             .then( response => response.json())
             .then( result => {

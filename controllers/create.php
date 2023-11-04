@@ -33,7 +33,7 @@ else {
                         if(
                             $_FILES["photo"]["error"] === 0 &&
                             $_FILES["photo"]["size"] > 0 &&
-                            $_FILES["photo"]["size"] <= 1 * 1024 * 1024
+                            $_FILES["photo"]["size"] <= 2 * 1024 * 1024
                         ) {
                 
                             $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
@@ -41,18 +41,20 @@ else {
                             $filename = date("YmdHis") . "_" . mt_rand(100000, 999999) . "." .$file_extension;
                 
                             move_uploaded_file($_FILES["photo"]["tmp_name"], "./images/posts/" . $filename);
-                
-                            $_FILES["photo"] = $filename;
+
+                            $post = $_POST;
+                            $post["filename"] = $filename;
+                            $post["user_id"] = $_SESSION["user_id"];
                 
                             require("models/posts.php");
                 
                             $model = new Posts();
-                            $user = $model->createPost($_POST);    
+                            $post_id = $model->createPost($post);
                 
-                            header("Location: /postdetail/" . $_SESSION["post_id"]);
+                            header("Location: /postdetail/" . $post_id);
                         }
                         else {
-                            $message = "File size must be less than 1 MB";
+                            $message = "File size must be less than 2 MB";
                         }
                 }
                 else {
