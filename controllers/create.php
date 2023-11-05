@@ -1,7 +1,7 @@
 <?php
 
 $allowed_formats = [
-    "jpeg" => "image/jpeg",
+    "jpg" => "image/jpeg",
     "png" => "image/png"
 ];
 

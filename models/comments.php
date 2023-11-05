@@ -48,7 +48,7 @@ class Comments extends Base
             $user_id
         ]);
 
-        return $this->db->lastInsertId();
+        return $data;
     }
 }
 

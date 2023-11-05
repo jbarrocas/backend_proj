@@ -1,5 +1,6 @@
 <FilesMatch "\.(htm|html|css|js|php)$">
 AddDefaultCharset UTF-8
+php_value date.timezone 'Europe/Lisbon'
 </FilesMatch>
 Options +FollowSymLinks -MultiViews
 <IfModule mod_rewrite.c>

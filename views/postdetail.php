@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
+    <script src="/js/comments.js"></script>
 </head>
 <body>
     <main>
 <?php
     require("templates/menu.php");
 ?>
+        
         <h1>Post detail</h1>
         <article class="post-container">
             <div data-post_id="<?= $post["post_id"]?>" class="post">
@@ -22,15 +24,23 @@
                 </div>
             </div>
         </article>
+
 <?php
     if( isset($message) ) {
         echo '<p role="alert">' .$message. '</p>';
     }
 ?>
-        <form class="comment-Form" method="POST" action="/postdetail/<?= $post["post_id"]?>">
-            <textarea id="commentContent" placeholder="Write your comment" cols="74" rows="3" minlength="10" maxlength="222" name="content"></textarea>
-            <button id="sendComment" type="submit" name="send_comment">Send</button>
+
+        <form id="commentForm" action="/requests/">
+            <input id="commentContent" type="text" placeholder="Write your comment" minlength="10" maxlength="222" name="content">
+            <button id="sendComment" type="button" name="send">Send Comment</button>
         </form>
+        <p id="commentConfirmation"></p>
+        <div id="sentComment">
+                <p id="sentContent"></p>
+                <p id="sentUsername"></p>
+                <p><time id="sentDate"></time></p>
+        </div>
 <?php
     foreach($comments as $comment) {
         echo '
