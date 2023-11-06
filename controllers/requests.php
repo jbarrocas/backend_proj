@@ -103,6 +103,37 @@ if( isset($_POST["request"]) ) {
         ];
 
         echo json_encode($array);
+
+    }
+
+    if(
+        $_POST["request"] === "createReply" &&
+        !empty($_POST["content"]) &&
+        mb_strlen($_POST["content"]) >= 10 &&
+        mb_strlen($_POST["content"]) <= 222
+    ) {
+
+        $modelComment = new Comments();
+        $reply = $modelComment->createReply(
+            $_POST,
+            $_SESSION["user_id"]
+        );
+
+        $modelUser = new Users();
+        $user = $modelUser->getById($_SESSION["user_id"]);
+
+        $username = $user["username"];
+        $country = $user["country"];
+        $date = date("Y-m-d H:i:s");
+
+        $array = [
+            "message" => "replied",
+            "username" => $username,
+            "country" => $country,
+            "date" => $date
+        ];
+
+        echo json_encode($array);
     }
 }
 

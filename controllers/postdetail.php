@@ -25,8 +25,9 @@ else {
     }
 
     $modelComments = new Comments();
-    $comments = $modelComments->getCommentsByPostId($id);
 
+    $comments = $modelComments->getCommentsByPostId($id);
+    
 }
 
 
