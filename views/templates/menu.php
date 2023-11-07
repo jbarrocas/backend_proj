@@ -6,7 +6,6 @@
         <li><a href="/">Home</a></li>
         <li><a href="/create/">Create</a></li>
         <li><a href="/favorites/">Favorites</a></li>
-        <li><a href="/explore/">Explore</a></li>
         <li><a href="/myprofile/">My Profile</a></li>
           
 <?php
