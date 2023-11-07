@@ -14,7 +14,10 @@ class Comments extends Base
                 c.parent_id,
                 p.post_id,
                 u.username,
-                co.name AS country
+                co.name AS country,
+            CASE WHEN c.parent_id IS NOT NULL
+            THEN c.parent_id
+            ELSE comment_id END AS order_id
             FROM
                 comments AS c
             INNER JOIN
@@ -24,38 +27,12 @@ class Comments extends Base
             INNER JOIN
                 countries as co USING(country_id)
             WHERE
-                p.post_id = ? AND c.parent_id IS NULL
+                p.post_id = ?
+            ORDER BY
+                order_id, c.comment_id
             ");
 
         $query->execute([$id]);
-
-        return $query->fetchAll();
-    }
-
-    public function getRepliesByCommentId($comment_id) {
-
-        $query = $this->db->prepare("
-            SELECT
-                c.comment_id,
-                c.content,
-                c.comment_date,
-                c.parent_id,
-                p.post_id,
-                u.username,
-                co.name AS country
-            FROM
-                comments AS c
-            INNER JOIN
-                users AS u USING(user_id)
-            INNER JOIN
-                posts as p USING(post_id)
-            INNER JOIN
-                countries as co USING(country_id)
-            WHERE
-                c.parent_id = ?
-            ");
-
-        $query->execute([$comment_id]);
 
         return $query->fetchAll();
     }

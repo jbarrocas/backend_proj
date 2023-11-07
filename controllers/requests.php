@@ -103,7 +103,6 @@ if( isset($_POST["request"]) ) {
         ];
 
         echo json_encode($array);
-
     }
 
     if(

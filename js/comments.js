@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const button = document.querySelector('button[name="send"]');
+    const button = document.querySelector('button[name="sendComment"]');
 
     button.addEventListener("click", () => {
 
@@ -22,10 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if(result.message === "commented") {
 
-                const comment_confirmation = document.getElementById("commentConfirmation");
-
-                comment_confirmation.innerHTML = "Comment sent";
-
                 const comment_content = document.getElementById("sentContent");
 
                 comment_content.innerHTML = content;
@@ -38,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 comment_date.innerHTML = result.date;
 
+                form.remove();
+
             }
         })
         .catch( error => alert("Unexpected error"));
@@ -46,9 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    const replyButtons = document.querySelectorAll('button[name="sendReply"]');
+    const sendReplyButtons = document.querySelectorAll('button[name="sendReply"]');
 
-    for(let button of replyButtons) {
+    for(let button of sendReplyButtons) {
 
         button.addEventListener("click", () => {
 
@@ -59,8 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const parent_id = form.previousElementSibling.dataset.comment_id;
 
             const replyContent = form.firstElementChild.value;
-
-            console.log(post_id);
 
             fetch("/requests/", {
                 method: "POST",
@@ -73,23 +69,22 @@ document.addEventListener("DOMContentLoaded", () => {
             .then( result => {
     
                 if(result.message === "replied") {
+    
+                    const reply_content = document.getElementById("sentReplyContent" + parent_id);
 
+                    console.log(reply_content);
     
-                    // const comment_confirmation = document.getElementById("replyConfirmation");
+                    reply_content.innerHTML = replyContent;
     
-                    // comment_confirmation.innerHTML = "Reply sent";
+                    const reply_username = document.getElementById("sentReplyUsername" + parent_id);
     
-                    // const comment_content = document.getElementById("sentReply");
+                    reply_username.innerHTML = result.username + " - " + result.country;
     
-                    // comment_content.innerHTML = content;
+                    const reply_comment_date = document.getElementById("sentReplyDate" + parent_id);
     
-                    // const username = document.getElementById("sentReplyUsername");
-    
-                    // username.innerHTML = result.username + " - " + result.country;
-    
-                    // const comment_date = document.getElementById("sentReplyDate");
-    
-                    // comment_date.innerHTML = result.date;
+                    reply_comment_date.innerHTML = result.date;
+
+                    form.classList.add("hide");
     
                 }
             })
@@ -99,8 +94,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const replyButtons = document.querySelectorAll('button[name="reply"]');
+
+    for(let button of replyButtons) {
+
+        const form = button.parentNode.parentNode.nextElementSibling;
+
+        const parent_id = form.dataset.reply_check;
+
+        const comment = form.previousElementSibling;
+
+        if(parent_id !== "") {
+
+            form.remove();
+            comment.classList.add("comment-reply");
+            button.remove();
 
 
+        }
 
-    
+        button.addEventListener("click", () => {
+
+            form.classList.toggle("hide");
+        });
+    }    
 });
