@@ -133,6 +133,52 @@ class Posts extends Base {
         return $query->fetchAll();
     }
 
+    public function getPostsByFollower($user_id, $follower_id) {
+
+        $query = $this->db->prepare("
+            SELECT
+                p.post_id,
+                p.title,
+                p.content,
+                p.photo,
+                p.post_date,
+                u.username,
+                u.user_id,
+                c.name AS country,
+                likes.user_id AS liked,
+                (SELECT COUNT(*)
+                FROM likes
+                WHERE likes.post_id = p.post_id) AS like_count,
+                (SELECT COUNT(*)
+                FROM comments
+                WHERE comments.post_id = p.post_id) AS comments_count           
+            FROM
+                posts AS p
+            INNER JOIN
+                users AS u USING(user_id)
+            INNER JOIN
+                countries AS c USING(country_id)
+            LEFT JOIN
+                follows ON follows.followed_id = p.user_id
+            LEFT JOIN
+                likes ON likes.post_id = p.post_id AND likes.user_id = ?
+            WHERE
+                follows.follower_id = ?
+            ORDER BY
+                p.post_id DESC
+            LIMIT 20
+        ");
+
+        $query->execute(
+            [
+                $user_id,
+                $follower_id
+            ]
+        );
+
+        return $query->fetchAll();
+    }
+
     public function createPost($data) {
 
         $query = $this->db->prepare("
