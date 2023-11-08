@@ -52,7 +52,7 @@
                     <p><time>' .$comment["comment_date"]. '</time></p>
                     <div id="action">
                         <button id="reply" type="button" name="reply">Reply</button>
-                        <button id="reportComment" type="button" name="report_comment">Report</button>
+                        <div><a href="/reportcomment/' .$comment["comment_id"]. '">Report</a></div>
                     </div>
                 </div>
                 <form id="replyForm" class="reply-form hide" action="/requests/" data-reply_check="' .$comment["parent_id"]. '">

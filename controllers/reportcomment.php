@@ -5,9 +5,9 @@ require("models/report_subjects.php");
 $modelReportSubjects = new Report_Subjects();
 $subjects = $modelReportSubjects->get();
 
-require("models/posts.php");
-$modelPosts = new Posts();
-$post = $modelPosts->getPostById($id);
+require("models/comments.php");
+$modelComments = new Comments();
+$comment = $modelComments->getCommentById($id);
 
 
 $reportsSubjects = [];
@@ -35,7 +35,7 @@ else {
 
             require("models/reports.php");
             $model = new Reports();
-            $model->createReport($id, $_SESSION["user_id"], $_POST["subject"]);
+            $model->createCommentReport($id, $_SESSION["user_id"], $_POST["subject"]);
 
             $message = "Report sent. Thanks for your cooperation.";
 
@@ -50,6 +50,6 @@ else {
 
 }
 
-require("views/reportpost.php");
+require("views/reportcomment.php");
 
 ?>

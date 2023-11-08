@@ -37,6 +37,30 @@ class Comments extends Base
         return $query->fetchAll();
     }
 
+    public function getCommentById($id) {
+
+        $query = $this->db->prepare("
+            SELECT
+                c.comment_id,
+                c.content,
+                c.comment_date,
+                p.post_id,
+                u.username
+            FROM
+                comments AS c
+            INNER JOIN
+                users AS u USING(user_id)
+            INNER JOIN
+                posts as p USING(post_id)
+            WHERE
+                c.comment_id = ?
+            ");
+
+        $query->execute([$id]);
+
+        return $query->fetch();
+    }
+
     public function createComment($data, $id, $user_id) {
 
         $query = $this->db->prepare("
