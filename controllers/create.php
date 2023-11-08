@@ -1,8 +1,7 @@
 <?php
 
 $allowed_formats = [
-    "jpg" => "image/jpeg",
-    "png" => "image/png"
+    "jpg" => "image/jpeg"
 ];
 
 if(!isset($_SESSION["user_id"])) {
@@ -39,8 +38,13 @@ else {
                             $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
                 
                             $filename = date("YmdHis") . "_" . mt_rand(100000, 999999) . "." .$file_extension;
-                
-                            move_uploaded_file($_FILES["photo"]["tmp_name"], "./images/posts/" . $filename);
+
+                            $image = $_FILES["photo"]["tmp_name"];
+
+                            $image_save_path = "./images/posts/" . $filename;
+
+                            require("functions/imageresize.php");
+                            CroppedImage($image, 640, 640, $image_save_path);
 
                             $post = $_POST;
                             $post["filename"] = $filename;
