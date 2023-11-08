@@ -14,11 +14,11 @@
                 </div>
             </div>
             <div>
-                <button id="likeBtn'.$favoritePost["post_id"].'" type="button" data-user="' .$favoritePost["liked"]. '" name="like" aria-label="Like">Like</button>
+                <button id="likeBtn'.$favoritePost["post_id"].'" type="button" data-user="' .$favoritePost["liked"]. '" name="like">Like</button>
                 <p id="likeCount' .$favoritePost["post_id"]. '"><span id="likesNumber' .$favoritePost["post_id"]. '">' .$favoritePost["like_count"]. '</span> likes</p>
                 <div><a href="/postdetail/' .$favoritePost["post_id"]. '">Comment</a></div>
                 <p><Span>' .$favoritePost["comments_count"]. '</span> comments</p>
-                <button id="deletePostBtn" type="button" name="delete" aria-label="Delete Post">Delete Post</button>
+                <button id="deletePostBtn" type="button" name="delete">Delete Post</button>
             </div>
         </article>
         ';

@@ -24,8 +24,11 @@ function CroppedImage($image_orig,$new_image_width,$new_image_height,$image_save
    $created_crop = imagecreatetruecolor(round($new_width), round($new_height)); 
    
    imagecopyresampled($created_crop, $created_image, 0, 0, 0, 0, $new_width, $new_height, $width_orig, $height_orig);
-   $cropped_image = imagecreatetruecolor($new_image_width, $new_image_height); 
-   imagecopyresampled($cropped_image, $created_crop, 0, 0, ($width_middle-($new_image_width/2)), ($height_middle-($new_image_height/2)), $new_image_width, $new_image_height, $new_image_width, $new_image_height);
+
+   $cropped_image = imagecreatetruecolor($new_image_width, $new_image_height);
+   
+   imagecopyresampled($cropped_image, $created_crop, 0, 0, ($width_middle-($new_image_width/2)),
+      ($height_middle-($new_image_height/2)), $new_image_width, $new_image_height, $new_image_width, $new_image_height);
 
    imagedestroy($created_crop);
    imagedestroy($created_image);
