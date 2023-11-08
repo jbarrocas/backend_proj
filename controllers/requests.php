@@ -69,7 +69,13 @@ if( isset($_POST["request"]) ) {
     ) {
 
         $model = new Posts();
+        $post = $model->getPostById($_POST["post_id"]);
+
         $model->delete($_POST["post_id"]);
+
+        $image = "images/posts/" . $post["photo"];
+
+        unlink($image);
 
         echo '{"message":"deleted"}';
     }
