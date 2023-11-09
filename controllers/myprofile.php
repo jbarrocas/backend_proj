@@ -20,9 +20,8 @@ else {
     $modelFollows = new Follows();
     $followersCount = $modelFollows->getFollowersById($_SESSION["user_id"]);
     $followsCount = $modelFollows->getFollowsById($_SESSION["user_id"]);
-    
-}
 
+}
 
 require("views/myprofile.php");
 

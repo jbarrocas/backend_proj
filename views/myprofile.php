@@ -27,6 +27,7 @@
                     <p><span id="followersNumber"><?=$followersCount["total_count"]?></span> Followers</p>
                     <p>Following <?=$followsCount["total_count"]?></p>
                     <div><a href="/updatedetails/">Update Details</a></div>
+                    <div><a href="/deleteaccount/">Delete Account</a></div>
                 </div>
             </div>
         </div>

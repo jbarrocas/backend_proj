@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Post</title>
-    <script src="/js/report.js"></script>
+    <title>Delete Account</title>
+    <!-- <script src="/js/report.js"></script> -->
 </head>
 <body>
     <main>
 <?php
     require("templates/menu.php");
 ?>
-        <h1>Report Post</h1>
+        <h1>Delete Account</h1>
 <?php
     if( isset($message)) {
         echo ' <p id="message" role="alert">' .$message .'</p>';
     }
 ?>
-        <form class="" method="POST" action="/reportpost/<?= $post["post_id"] ?>" name="form">
+        <form class="" method="POST" action="/deleteaccount/" name="form">
+            <label for="subject">What's the reason?</label>
             <select class="report-select" name="subject" required>
 <?php
     foreach($subjects as $subject) {
@@ -28,7 +29,8 @@
     }
 ?>
             </select>
-            <button type="submit" name="send">Report</button>
+            <textarea name="delete_motive" id="motive" placeholder="Explain why (optional)" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
+            <button type="submit" name="send">Delete</button>
         </form>
     </main>    
 </body>
