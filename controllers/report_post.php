@@ -33,8 +33,8 @@ else {
             in_array($_POST["subject"], $reportsSubjects)
         ) {
 
-            require("models/reports.php");
-            $model = new Reports();
+            require("models/post_reports.php");
+            $model = new Post_Reports();
             $model->createReport($id, $_SESSION["user_id"], $_POST["subject"]);
 
             $message = "Report sent. Thanks for your cooperation.";
@@ -50,6 +50,6 @@ else {
 
 }
 
-require("views/reportpost.php");
+require("views/report_post.php");
 
 ?>

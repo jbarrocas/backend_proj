@@ -18,6 +18,8 @@
                     <p id="likeCount' .$recentPostsByUser["post_id"]. '"><span id="likesNumber' .$recentPostsByUser["post_id"]. '">' .$recentPostsByUser["like_count"]. '</span> likes</p>
                     <div><a href="/postdetail/' .$recentPostsByUser["post_id"]. '">Comment</a></div>
                     <p><Span>' .$recentPostsByUser["comments_count"]. '</span> comments</p>
+                    <div><a href="/report_post/' .$recentPostsByUser["post_id"]. '">Report</a></div>
+
                 </div>
             </article>
         ';

@@ -18,7 +18,7 @@
                     <p id="likeCount' .$recentPost["post_id"]. '"><span id="likesNumber' .$recentPost["post_id"]. '">' .$recentPost["like_count"]. '</span> likes</p>
                     <div><a href="/postdetail/' .$recentPost["post_id"]. '">Comment</a></div>
                     <p><Span>' .$recentPost["comments_count"]. '</span> comments</p>
-                    <div><a href="/reportpost/' .$recentPost["post_id"]. '">Report</a></div>
+                    <div><a href="/report_post/' .$recentPost["post_id"]. '">Report</a></div>
                 </div>
             </article>
         ';

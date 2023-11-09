@@ -18,7 +18,7 @@
                 <p id="likeCount' .$favoritePost["post_id"]. '"><span id="likesNumber' .$favoritePost["post_id"]. '">' .$favoritePost["like_count"]. '</span> likes</p>
                 <div><a href="/postdetail/' .$favoritePost["post_id"]. '">Comment</a></div>
                 <p><Span>' .$favoritePost["comments_count"]. '</span> comments</p>
-                <button id="deletePostBtn" type="button" name="delete">Delete Post</button>
+                <div><a href="/report_post/' .$favoritePost["post_id"]. '">Report</a></div>
             </div>
         </article>
         ';

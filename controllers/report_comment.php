@@ -26,6 +26,11 @@ else {
         die("Invalid Request");
     }
 
+    if( empty($comment)) {
+        http_response_code(404);
+        die("Not Found");
+    }
+
     if(isset($_POST["send"])) {
 
         if(
@@ -33,9 +38,9 @@ else {
             in_array($_POST["subject"], $reportsSubjects)
         ) {
 
-            require("models/reports.php");
-            $model = new Reports();
-            $model->createCommentReport($id, $_SESSION["user_id"], $_POST["subject"]);
+            require("models/comments_reports.php");
+            $model = new Comments_Reports();
+            $model->createReport($id, $_SESSION["user_id"], $_POST["subject"]);
 
             $message = "Report sent. Thanks for your cooperation.";
 
@@ -44,12 +49,8 @@ else {
             $message = "Choose a subject for report";
         }
     }
-
-    
-
-
 }
 
-require("views/reportcomment.php");
+require("views/report_comment.php");
 
 ?>

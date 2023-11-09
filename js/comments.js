@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 comment_date.innerHTML = result.date;
 
                 form.remove();
-
             }
         })
         .catch( error => alert("Unexpected error"));
@@ -71,8 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(result.message === "replied") {
     
                     const reply_content = document.getElementById("sentReplyContent" + parent_id);
-
-                    console.log(reply_content);
     
                     reply_content.innerHTML = replyContent;
     
@@ -84,8 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
                     reply_comment_date.innerHTML = result.date;
 
-                    form.classList.add("hide");
-    
+                    form.classList.add("hide");    
                 }
             })
             .catch( error => alert("Unexpected error"));
@@ -109,8 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
             form.remove();
             comment.classList.add("comment-reply");
             button.remove();
-
-
         }
 
         button.addEventListener("click", () => {

@@ -14,7 +14,6 @@ if(!isset($_SESSION["user_id"])) {
 else {
 
     require("models/posts.php");
-    require("models/comments.php");
 
     $modelPosts = new Posts();
     $post = $modelPosts->getPostById($id);
@@ -24,8 +23,8 @@ else {
         die("Not found");
     }
 
+    require("models/comments.php");
     $modelComments = new Comments();
-
     $comments = $modelComments->getCommentsByPostId($id);
     
 }
