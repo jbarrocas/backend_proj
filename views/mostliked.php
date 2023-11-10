@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postapol</title>
+    <title>Most Liked Posts</title>
     <script src="/js/likes.js"></script>
 </head>
 <body>
@@ -11,9 +11,9 @@
 <?php
     require("templates/menu.php");
 ?>
-        <h1>Most Recent Posts</h1>
+        <h1>Most Liked Posts</h1>
 <?php
-    require("templates/recentPosts.php");
+    require("templates/mostLikedPosts.php");
 ?>
     </main>    
 </body>

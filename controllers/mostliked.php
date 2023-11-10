@@ -12,9 +12,8 @@ else {
 
     $posts = new Posts();
     $mostLikedPosts = $posts->getMostLikedPosts($_SESSION["user_id"]);
-    $recentPosts = $posts->getRecentPosts($_SESSION["user_id"]);
 }
 
-require("views/home.php");
+require("views/mostliked.php");
 
 ?>

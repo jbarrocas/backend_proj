@@ -20,7 +20,7 @@ class Posts extends Base {
         return $query->fetch();
     }
 
-    public function getRecentPosts() {
+    public function getRecentPosts($user_id) {
 
         $query = $this->db->prepare("
             SELECT
@@ -49,15 +49,56 @@ class Posts extends Base {
                 likes ON likes.post_id = p.post_id AND likes.user_id = ?
             ORDER BY
                 p.post_id DESC
-            LIMIT 20
+            LIMIT 10 OFFSET 0
         ");
 
         $query->execute(
-            [$_SESSION["user_id"]]
+            [$user_id]
         );
 
-        return $query->fetchAll();
+        return $query->fetchAll();;
     }
+
+    public function getMostLikedPosts($user_id) {
+
+        $query = $this->db->prepare("
+            SELECT
+                p.post_id,
+                p.title,
+                p.content,
+                p.photo,
+                p.post_date,
+                u.username,
+                u.user_id,
+                c.name AS country,
+                likes.user_id AS liked,
+                (SELECT COUNT(*)
+                FROM likes
+                WHERE likes.post_id = p.post_id) AS like_count,
+                (SELECT COUNT(*)
+                FROM comments
+                WHERE comments.post_id = p.post_id) AS comments_count 
+            FROM
+                posts AS p
+            INNER JOIN
+                users AS u USING(user_id)
+            INNER JOIN
+                countries AS c USING(country_id)
+            LEFT JOIN
+                likes ON likes.post_id = p.post_id AND likes.user_id = ?
+            ORDER BY
+                like_count DESC
+            LIMIT 3 OFFSET 0
+        ");
+
+        $query->execute(
+            [$user_id]
+        );
+
+        return $query->fetchAll();;
+    }
+
+
 
     public function getPostById($id) {
 
