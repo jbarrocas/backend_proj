@@ -5,13 +5,10 @@ require("models/deleteaccountsubjects.php");
 $modelDeleteSubjects = new Delete_Subjects();
 $subjects = $modelDeleteSubjects->get();
 
-
 $deleteSubjects = [];
 foreach($subjects as $subject){
     $deleteSubjects[] = $subject["name"];
 }
-
-print_r($deleteSubjects);
 
 if(!isset($_SESSION["user_id"])) {
 
