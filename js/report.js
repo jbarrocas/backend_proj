@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const message = document.getElementById("message");
 
-    if(message && message.innerHTML !== "") {
+    if(message && message.textContent !== "") {
 
         form.remove();
     }

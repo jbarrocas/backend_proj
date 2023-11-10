@@ -24,15 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const comment_content = document.getElementById("sentContent");
 
-                comment_content.innerHTML = content;
+                comment_content.textContent = content;
 
                 const username = document.getElementById("sentUsername");
 
-                username.innerHTML = result.username + " - " + result.country;
+                username.textContent = result.username + " - " + result.country;
 
                 const comment_date = document.getElementById("sentDate");
 
-                comment_date.innerHTML = result.date;
+                comment_date.textContent = result.date;
 
                 form.remove();
             }
@@ -71,15 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
     
                     const reply_content = document.getElementById("sentReplyContent" + parent_id);
     
-                    reply_content.innerHTML = replyContent;
+                    reply_content.textContent = replyContent;
     
                     const reply_username = document.getElementById("sentReplyUsername" + parent_id);
     
-                    reply_username.innerHTML = result.username + " - " + result.country;
+                    reply_username.textContent = result.username + " - " + result.country;
     
                     const reply_comment_date = document.getElementById("sentReplyDate" + parent_id);
     
-                    reply_comment_date.innerHTML = result.date;
+                    reply_comment_date.textContent = result.date;
 
                     form.classList.add("hide");    
                 }

@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if(followButton.dataset.user.length > 0) {
         followButton.setAttribute("data-follow", "followed");
-        followButton.innerHTML = "Followed";
+        followButton.textContent = "Followed";
     }
     else {
-        followButton.innerHTML = "Follow";
+        followButton.textContent = "Follow";
         followButton.removeAttribute("data-follow");
     }
 
@@ -34,15 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                    followButton.setAttribute("data-follow", "followed");
 
-                   followButton.innerHTML = "Followed";
+                   followButton.textContent = "Followed";
 
                     const followersNumber = document.getElementById("followersNumber");
 
-                    const oldNumber = followersNumber.innerHTML;
+                    const oldNumber = followersNumber.textContent;
 
                     const newNumber = parseInt(oldNumber) + 1;
 
-                    followersNumber.innerHTML = newNumber;
+                    followersNumber.textContent = newNumber;
                 }
             })
             .catch(error => alert("Unexpected error"));
@@ -63,15 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(result.message === "unfollowed") {
 
                     followButton.removeAttribute("data-follow");
-                    followButton.innerHTML = "Follow";
+                    followButton.textContent = "Follow";
 
                     const followersNumber = document.getElementById("followersNumber");
 
-                    const oldNumber = followersNumber.innerHTML;
+                    const oldNumber = followersNumber.textContent;
             
                     const newNumber = parseInt(oldNumber) - 1;
             
-                    followersNumber.innerHTML = newNumber;
+                    followersNumber.textContent = newNumber;
                 }
             })
             .catch(error => alert("Unexpected error"));

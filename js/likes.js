@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if(likeButton.dataset.user.length > 0) {
 
             likeButton.setAttribute("data-like", "liked");
-            likeButton.innerHTML = "Liked";
+            likeButton.textContent = "Liked";
         }
         else {
             likeButton.removeAttribute("data-like");
-            likeButton.innerHTML = "Like";
+            likeButton.textContent = "Like";
         }
 
     
@@ -35,15 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(result.message === "created") {
 
                         likeButton.setAttribute("data-like", "liked");
-                        likeButton.innerHTML = "Liked";
+                        likeButton.textContent = "Liked";
 
                         const likesNumber = document.getElementById("likesNumber" + post_id);
 
-                        const oldNumber = likesNumber.innerHTML;
+                        const oldNumber = likesNumber.textContent;
                 
                         const newNumber = parseInt(oldNumber) + 1;
                 
-                        likesNumber.innerHTML = newNumber;
+                        likesNumber.textContent = newNumber;
                     }
                 })
                 .catch(error => alert("Unexpected error"));
@@ -63,15 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(result.message === "deleted") {
 
                         likeButton.removeAttribute("data-like");
-                        likeButton.innerHTML = "Like";
+                        likeButton.textContent = "Like";
 
                         const likesNumber = document.getElementById("likesNumber" + post_id);
 
-                        const oldNumber = likesNumber.innerHTML;
+                        const oldNumber = likesNumber.textContent;
                 
                         const newNumber = parseInt(oldNumber) - 1;
                 
-                        likesNumber.innerHTML = newNumber;
+                        likesNumber.textContent = newNumber;
                     }
                 })
                 .catch(error => alert("Unexpected error"));

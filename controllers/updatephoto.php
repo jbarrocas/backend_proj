@@ -3,7 +3,7 @@
 require("models/users.php");
 
 $allowed_formats = [
-    "jpeg" => "image/jpeg"
+    "jpg" => "image/jpeg"
 ];
 
 if(!isset($_SESSION["user_id"])) {

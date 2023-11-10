@@ -41,6 +41,9 @@ else {
 
             $modelUser->deleteUser($_SESSION["user_id"]);
 
+            $image = "images/users/" . $user["photo"];
+            unlink($image);
+
             session_unset();
 
             session_destroy();
