@@ -2,7 +2,11 @@
     display: none;
 }
 
-.comment-reply {
+.comment {
     margin-left: 40px;
+}
+
+.comment-reply {
+    margin-left: 80px;
 }
 

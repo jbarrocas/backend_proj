@@ -46,7 +46,7 @@
 <?php
     foreach($comments as $comment) {
         echo '            
-                <div id="comment" data-comment_id="' .$comment["comment_id"]. '">
+                <div id="comment" class="comment" data-comment_id="' .$comment["comment_id"]. '">
                     <p>' .$comment["content"]. '</p>
                     <p>' .$comment["username"]. ' - ' .$comment["country"]. '</p>
                     <p><time>' .$comment["comment_date"]. '</time></p>
