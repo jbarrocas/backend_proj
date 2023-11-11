@@ -15,6 +15,9 @@
 <?php
     require("templates/recentPosts.php");
 ?>
+        <form action="/home/" method="get">
+            <button type="submit" name="page_number" value="<?= $next_page ?>">See More</button>
+        </form>
     </main>    
 </body>
 </html>

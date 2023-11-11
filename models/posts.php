@@ -20,7 +20,7 @@ class Posts extends Base {
         return $query->fetch();
     }
 
-    public function getRecentPosts($user_id) {
+    public function getRecentPosts($user_id, $limit, $offset) {
 
         $query = $this->db->prepare("
             SELECT
@@ -49,14 +49,28 @@ class Posts extends Base {
                 likes ON likes.post_id = p.post_id AND likes.user_id = ?
             ORDER BY
                 p.post_id DESC
-            LIMIT 10 OFFSET 0
+            LIMIT ? OFFSET ?
         ");
 
-        $query->execute(
-            [$user_id]
-        );
+        $query->bindParam(1, $user_id, PDO::PARAM_INT);
+        $query->bindParam(2, $limit, PDO::PARAM_INT);
+        $query->bindParam(3, $offset, PDO::PARAM_INT);
+        
+        $query->execute();
 
-        return $query->fetchAll();;
+        return $query->fetchAll();
+    }
+
+    public function getPostsCount() {
+
+        $query = $this->db->prepare("
+            SELECT COUNT(*) AS posts_count
+            FROM posts
+        ");
+
+        $query->execute();
+
+        return $query->fetchAll();
     }
 
     public function getMostLikedPosts($user_id) {
