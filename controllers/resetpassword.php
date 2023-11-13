@@ -10,7 +10,7 @@ if( isset($_POST["reset_password"]) ) {
 
     $email = $_POST["email"];
 
-    $url = "http://localhost/createnewpassword/?token=" . $token . "&email=" . $email;
+    $url = "http://". ENV["ROOT"] ."/createnewpassword/?token=" . $token . "&email=" . $email;
 
     $expires_at = time() + (30 * 60);
 
