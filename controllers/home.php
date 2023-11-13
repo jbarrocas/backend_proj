@@ -9,7 +9,7 @@ if(!isset($_SESSION["user_id"])) {
 }
 else {
 
-    $limit = 2;
+    $limit = 3;
     $offset = 0;
 
     require("models/posts.php");
@@ -32,7 +32,7 @@ else {
         $page_number = 1;
     }
 
-    if($page_number < 1) {
+    if($page_number < 1 || $page_number > $pages_number) {
 
         $page_number = 1;
     }

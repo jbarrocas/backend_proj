@@ -14,6 +14,10 @@
         <h1>Your favorites</h1>
 <?php
     require("templates/favoritePosts.php");
+
+    if( isset($info_message) ) {
+        echo '<p role="alert">' .$info_message. '</p>';
+    }
 ?>
     </main>    
 </body>
