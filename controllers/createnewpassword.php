@@ -37,12 +37,15 @@ if( isset($_POST["createpassword"]) ) {
             $actual_date = time();
     
             if(
-                $actual_date <= $reset["expires_at"] &&
-                password_verify($token, $reset["token"])
+                $actual_date > $reset["expires_at"] ||
+                !password_verify($token, $reset["token"])
             ) {
+                $message = "Invalid token.";
+            }
+            else {
     
                 if(
-                    empty($_POST["new_password"]) &&
+                    empty($_POST["new_password"]) ||
                     empty($_POST["new_password_confirm"])
                 ) {
                     $message = "Fill in all the fields";
@@ -57,9 +60,9 @@ if( isset($_POST["createpassword"]) ) {
                     else {
             
                         if(
-                            mb_strlen($_POST["new_password"]) < 8 &&
-                            mb_strlen($_POST["new_password"]) > 1000 &&
-                            mb_strlen($_POST["new_password_confirm"]) < 8 &&
+                            mb_strlen($_POST["new_password"]) < 8 ||
+                            mb_strlen($_POST["new_password"]) > 1000 ||
+                            mb_strlen($_POST["new_password_confirm"]) < 8 ||
                             mb_strlen($_POST["new_password_confirm"]) > 1000
                         ) {
                             $message = "Password must have at least 8 digits";
@@ -74,9 +77,6 @@ if( isset($_POST["createpassword"]) ) {
                         }
                     }
                 }
-            }
-            else {
-                $message = "You do not have a valid token.";
             }
         }
     }

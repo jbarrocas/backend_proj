@@ -42,7 +42,7 @@ if( isset($_POST["reset_password"]) ) {
             $message = '<p>To reset your password click in the link below.</p>
                         <div><a href="' .$url. '">Click here to reset your password.</a></div>';
 
-            require("functions/emailsend.php");
+            require("functions/sendemail.php");
             sendEmail($_POST["email"], $user["first_name"], $user["last_name"], $subject, $message);
 
             $message = "Email sent. Check your email.";
