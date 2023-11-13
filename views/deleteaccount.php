@@ -29,7 +29,7 @@
     }
 ?>
             </select>
-            <textarea name="delete_motive" id="motive" placeholder="Explain why (optional)" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
+            <textarea name="delete_motive" id="motive" placeholder="Tell us why (optional)" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
             <button type="submit" name="send">Delete</button>
         </form>
     </main>    

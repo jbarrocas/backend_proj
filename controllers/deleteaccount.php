@@ -23,9 +23,12 @@ else {
         }
 
         if(
-            !empty($_POST["subject"]) &&
-            in_array($_POST["subject"], $deleteSubjects)
+            empty($_POST["subject"]) ||
+            !in_array($_POST["subject"], $deleteSubjects)
         ) {
+            $message = "Choose a subject for report";
+        }
+        else {
 
             require("models/users.php");
             $modelUser = new Users();
@@ -49,10 +52,6 @@ else {
             session_destroy();
 
             header("Location: /login/");
-
-        }
-        else {
-            $message = "Choose a subject for report";
         }
     }
 }
