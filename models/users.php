@@ -25,6 +25,8 @@ class Users extends Base
         $query = $this->db->prepare("
             SELECT
                 user_id,
+                first_name,
+                last_name,
                 password
             FROM
                 users

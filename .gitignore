@@ -1,9 +1,14 @@
+# directories
 images/
+tralha/
+vendor/
 
+# secret files
 .env
 
+# icon
 favicon.ico
 
+#files
 .txt
 
-tralha/

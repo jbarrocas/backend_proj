@@ -18,11 +18,11 @@
                     <input class="login-input" type="email" name="email" placeholder="Email" required>
                     <input class="login-input" type="password" name="password" placeholder="Password" required minlength="8" maxlength="1000">
                     <button class="login-button" type="submit" name="send">Log In</button>
-                    <p>Forgot password?</p>
+                    <div><a href="/resetpassword/">Forgot password?</a></div>
                 </form>
                 <div class="reg-button-container">
                     <p>Don't have an account?</p>
-                    <div><a href="/register">Register</a></div>
+                    <div><a href="/register/">Register</a></div>
                 </div>
             </div>
         </div>

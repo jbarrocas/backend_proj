@@ -47,7 +47,7 @@
 ?>
                 <div class="login-button-container">
                     <p>Have an account?</p>
-                    <div><a href="/login">Login</a></div>
+                    <div><a href="/login/">Login</a></div>
                 </div>
             </div>
         </div>
