@@ -9,9 +9,10 @@
         <li><a href="/mostliked/">Most Liked</a></li>
         <li><a href="/myprofile/">My Profile</a></li>
         <li><a href="/search/">Search</a></li>
+        <li><a href="/admin/">Admin Area</a></li>
           
 <?php
-    if(isset($_SESSION["user_id"])){
+    if(isset($_SESSION["admin_id"])){
 ?>
         <li><a href="/logout/">Logout</a></li>
 <?php

@@ -27,8 +27,8 @@ if( isset($_POST["send"]) ) {
             mb_strlen($_POST["password"]) <= 1000
         ) {
             require("models/users.php");
-            $model = new Users();
-            $user = $model->getByEmail($_POST["email"]);
+            $modelUsers = new Users();
+            $user = $modelUsers->getByEmail($_POST["email"]);
     
             if(
                 !empty($user) &&
@@ -39,7 +39,22 @@ if( isset($_POST["send"]) ) {
                 header("Location: /");
             }
             else {
-                $message = "Email or Password incorrect";
+
+                require("models/admins.php");
+                $modelAdmins = new Admins();
+                $admin = $modelAdmins->getByEmail($_POST["email"]);
+
+                if(
+                    !empty($admin) &&
+                    $_POST["password"] = $admin["password"] //mudar para password verify quando encriptada
+                ) {
+                    $_SESSION["admin_id"] = $admin["admin_id"];
+                    unset($_SESSION["token"]);
+                    header("Location: /dashboard/");
+                }
+                else {
+                    $message = "Email or Password incorrect";
+                }
             }
         }
         else {
