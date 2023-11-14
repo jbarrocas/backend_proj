@@ -17,6 +17,7 @@
                 <form class="login-form" method="POST" action="/login/">
                     <input class="login-input" type="email" name="email" placeholder="Email" required>
                     <input class="login-input" type="password" name="password" placeholder="Password" required minlength="8" maxlength="1000">
+                    <input type="hidden" name="token" value="<?= $_SESSION["token"] ?>">
                     <button class="login-button" type="submit" name="send">Log In</button>
                     <div><a href="/resetpassword/">Forgot password?</a></div>
                 </form>

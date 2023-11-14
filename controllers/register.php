@@ -19,120 +19,138 @@ $password_confirm = "";
 $country_id = "";
 $agrees = "";
 
-require("functions/inputData.php");
+require("functions/createtoken.php");
 
+if(empty($_SESSION["token"])) {
+    createToken();
+}
 
 if (isset ($_POST["send"])){
 
-    foreach($_POST as $key => $value){
-        $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
+    if($_SESSION["token"] !== $_POST["token"]) {
+
+        http_response_code(401);
+        die("Unauthorized");
     }
+    else {
 
-    if(
-        isset($_POST["agrees"])
-    ) {
-        $agrees = inputData($_POST["agrees"]);
-
+        foreach($_POST as $key => $value){
+            $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
+        }
+    
         if(
-            !empty($_POST["first_name"]) &&
-            !empty($_POST["last_name"]) &&
-            !empty($_POST["username"]) &&
-            !empty($_POST["email"]) &&
-            !empty($_POST["password"]) &&
-            !empty($_POST["country_id"])
+            !isset($_POST["agrees"])
         ) {
-            $first_name = inputData($_POST["first_name"]);
-            $last_name = inputData($_POST["last_name"]);
-            $username = inputData($_POST["username"]);
+            $message = "You need to agree with our terms";
+        }
+        else {
 
+            $agrees = $_POST["agrees"];
+    
             if(
-                filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
+                empty($_POST["first_name"]) ||
+                empty($_POST["last_name"]) ||
+                empty($_POST["username"]) ||
+                empty($_POST["email"]) ||
+                empty($_POST["password"]) ||
+                empty($_POST["country_id"])
             ) {
-                $email = inputData($_POST["email"]);
+                $message = "Fill in all the fields";
+            }
+            else {
 
+                $first_name = $_POST["first_name"];
+                $last_name = $_POST["last_name"];
+                $username = $_POST["username"];
+    
                 if(
-                    $_POST["password"] === $_POST["password_confirm"]
+                    !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
                 ) {
-                    $password = inputData($_POST["password"]);
-                    $password_confirm = inputData($_POST["password_confirm"]);
+                    $message = "Insert a valid email";
+                }
+                else {
 
+                    $email = $_POST["email"];
+    
                     if(
-                        $_POST["captcha"] === $_SESSION["captcha"]
+                        $_POST["password"] !== $_POST["password_confirm"]
                     ) {
+                        $message = "Your password does not match";
+                    }
+                    else {
 
+                        $password = $_POST["password"];
+                        $password_confirm = $_POST["password_confirm"];
+    
                         if(
-                            mb_strlen($_POST["password"]) >= 8 &&
-                            mb_strlen($_POST["password"]) < 1000
+                            $_POST["captcha"] !== $_SESSION["captcha"]
                         ) {
-                            
+                            $message = "Please digit the image carachters correctly";
+                        }
+                        else {
+    
                             if(
-                                mb_strlen($_POST["username"]) >= 3 &&
-                                mb_strlen($_POST["username"]) < 33 &&
-                                mb_strlen($_POST["first_name"]) >= 3 &&
-                                mb_strlen($_POST["first_name"]) < 22 &&
-                                mb_strlen($_POST["last_name"]) >= 2 &&
-                                mb_strlen($_POST["last_name"]) < 22
-                            ) {                                
-
+                                mb_strlen($_POST["password"]) < 8 ||
+                                mb_strlen($_POST["password"]) > 1000
+                            ) {
+                                $message = "Your password must have at least 8 digits";
+                            }
+                            else {
+                                
                                 if(
-                                    in_array($_POST["country_id"], $country_codes)
+                                    mb_strlen($_POST["username"]) < 3 ||
+                                    mb_strlen($_POST["username"]) > 33 ||
+                                    mb_strlen($_POST["first_name"]) < 3 ||
+                                    mb_strlen($_POST["first_name"]) > 22 ||
+                                    mb_strlen($_POST["last_name"]) < 2 ||
+                                    mb_strlen($_POST["last_name"]) > 22
                                 ) {
-                                    
-                                    require("models/users.php");
-                            
-                                    $model = new Users();
-                                    $user = $model->getByUsername($_POST["username"]);
-                            
-                                    if(empty($user)) {
-                            
-                                        $user = $model->getByEmail( $_POST["email"] );
-                            
-                                        if(empty($user)) {
-                            
-                                            $createdUser = $model->createUser($_POST);
-                                            $_SESSION["user_id"] = $createdUser["user_id"];
-                            
-                                            header("Location: /");
+                                    $message = "Respect the minimum and maximum size of the names and username";
+                                }
+                                else {                                
+    
+                                    if(
+                                        !in_array($_POST["country_id"], $country_codes)
+                                    ) {
+                                        $message = "We do not recognize this country";
+                                    }
+                                    else {
+                                        
+                                        require("models/users.php");
+                                
+                                        $model = new Users();
+                                        $user = $model->getByUsername($_POST["username"]);
+                                
+                                        if(!empty($user)){
+                                            $message = "This username is already taken";
                                         }
-                                        else{
-                                            $message = "This email already has an account";
+                                        else {
+                                
+                                            $user = $model->getByEmail( $_POST["email"] );
+                                
+                                            if(!empty($user)) {
+                                                $message = "This email already has an account";
+                                            }
+                                            else {
+                                
+                                                $createdUser = $model->createUser($_POST);
+                                                $_SESSION["user_id"] = $createdUser["user_id"];
+
+                                                unset($_SESSION["token"]);
+                                                unset($_SESSION["captcha"]);
+
+                                                header("Location: /");
+                                            }
                                         }
                                     }
-                                    else{
-                                        $message = "This username is already taken";
-                                    }
-                                }
-                                else{
-                                    $message = "We do not recognize this country";
                                 }
                             }
-                            else{
-                                $message = "Respect the minimum and maximum size of the names and username";
-                            }
-                        }
-                        else{
-                            $message = "Your password must have at least 8 digits";
                         }
                     }
-                    else{
-                        $message = "Please digit the image carachters correctly";
-                    }
-                }
-                else{
-                    $message = "Your password does not match";
                 }
             }
-            else{
-                $message = "Insert a valid email";
-            }
         }
-        else{
-            $message = "Fill in all the fields";
-        }
-    }
-    else{
-        $message = "You need to agree with our terms";
-    }
+    }    
 }
 
 require("views/register.php");

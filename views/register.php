@@ -21,6 +21,7 @@
                     <input class="register-input" type="email" name="email" placeholder="Email" value="<?= $email ?>" required>
                     <input class="register-input" type="password" name="password" placeholder="Password" value="<?= $password ?>" required minlength="8" maxlength="1000">
                     <input class="register-input" type="password" name="password_confirm" placeholder="Password Confirm" value="<?= $password_confirm ?>" required minlength="8" maxlength="1000">
+                    <input type="hidden" name="token" value="<?= $_SESSION["token"] ?>">
                     <select class="register-select" name="country_id" required>
 <?php
     foreach($countries as $country) {

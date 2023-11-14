@@ -20,6 +20,4 @@ imagettftext($image, 26, 0, 20, 45, $color, $font, $text);
 
 imagejpeg($image);
 
-require("views/register.php");
-
 ?>
