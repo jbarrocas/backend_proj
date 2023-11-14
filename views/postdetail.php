@@ -36,6 +36,7 @@
 
             <form id="commentForm" action="/requests/">
                 <textarea id="commentContent" type="text" placeholder="Write your comment" cols="72" rows="3" minlength="10" maxlength="222" name="content"></textarea>
+                <input type="hidden" name="token" value="<?= $_SESSION["token"] ?>">
                 <button id="sendComment" type="button" name="sendComment">Send Comment</button>
             </form>
             <div id="sentComment">
@@ -57,6 +58,7 @@
                 </div>
                 <form id="replyForm" class="reply-form hide" action="/requests/" data-reply_check="' .$comment["parent_id"]. '">
                     <textarea id="replyContent" data-comment_id="' .$comment["comment_id"]. '" type="text" placeholder="Write your reply" cols="72" rows="3" minlength="10" maxlength="222" name="replyContent"></textarea>
+                    <input type="hidden" name="token" value="' .$_SESSION["token"]. '">
                     <button id="sendReply" type="button" name="sendReply">Send Reply</button>
                 </form>
                 <div id="sentReply" class="comment-reply">

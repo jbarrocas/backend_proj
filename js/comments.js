@@ -10,12 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const content = form.firstElementChild.value;
 
+        const token = form.firstElementChild.nextElementSibling.value;
+
         fetch("/requests/", {
             method: "POST",
             headers: {
                 "Content-Type":"application/x-www-form-urlencoded"
             },
-            body: "request=createComment&content=" + content + "&post_id=" + post_id
+            body: "request=createComment&content=" + content + "&post_id=" + post_id + "&token=" + token
         })
         .then( response => response.json())
         .then( result => {
@@ -57,12 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const replyContent = form.firstElementChild.value;
 
+            const token = form.firstElementChild.nextElementSibling.value;
+
             fetch("/requests/", {
                 method: "POST",
                 headers: {
                     "Content-Type":"application/x-www-form-urlencoded"
                 },
-                body: "request=createReply&content=" + replyContent + "&parent_id=" + parent_id + "&post_id=" + post_id
+                body: "request=createReply&content=" + replyContent + "&parent_id=" + parent_id + "&post_id=" + post_id + "&token=" + token
             })
             .then( response => response.json())
             .then( result => {

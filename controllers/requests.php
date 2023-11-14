@@ -8,11 +8,15 @@ require("models/posts.php");
 require("models/comments.php");
 require("models/users.php");
 
+
+
 if( isset($_POST["request"]) ) {
 
     foreach($_POST as $key => $value){
         $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
     }
+
+    // Likes
 
     if(
         $_POST["request"] === "createLike" &&
@@ -38,6 +42,8 @@ if( isset($_POST["request"]) ) {
         echo '{"message":"deleted"}';
     }
 
+    // Follows
+
     if(
         $_POST["request"] === "createFollower" &&
         !empty($_POST["user_id"]) &&
@@ -62,6 +68,8 @@ if( isset($_POST["request"]) ) {
         echo '{"message":"unfollowed"}';
     }
 
+    // Posts
+
     if(
         $_POST["request"] === "deletePost" &&
         !empty($_POST["post_id"]) &&
@@ -80,11 +88,14 @@ if( isset($_POST["request"]) ) {
         echo '{"message":"deleted"}';
     }
 
+    // Comments
+
     if(
         $_POST["request"] === "createComment" &&
         !empty($_POST["content"]) &&
         mb_strlen($_POST["content"]) >= 10 &&
-        mb_strlen($_POST["content"]) <= 222
+        mb_strlen($_POST["content"]) <= 222 &&
+        $_SESSION["token"] === $_POST["token"]
     ) {
 
         $modelComment = new Comments();
@@ -111,11 +122,14 @@ if( isset($_POST["request"]) ) {
         echo json_encode($array);
     }
 
+    // Replies
+
     if(
         $_POST["request"] === "createReply" &&
         !empty($_POST["content"]) &&
         mb_strlen($_POST["content"]) >= 10 &&
-        mb_strlen($_POST["content"]) <= 222
+        mb_strlen($_POST["content"]) <= 222 &&
+        $_SESSION["token"] === $_POST["token"]
     ) {
 
         $modelComment = new Comments();
@@ -140,6 +154,7 @@ if( isset($_POST["request"]) ) {
 
         echo json_encode($array);
     }
+    
 }
 
 

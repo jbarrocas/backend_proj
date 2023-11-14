@@ -1,10 +1,11 @@
 <?php
 
+unset($_SESSION["token"]);
+
 if( empty($id) || !is_numeric($id) ){
     http_response_code(400);
     die("Invalid Request");
 }
-
 
 if(!isset($_SESSION["user_id"])) {
 
@@ -12,6 +13,12 @@ if(!isset($_SESSION["user_id"])) {
 
 }
 else {
+    
+    require("functions/createtoken.php");
+
+    if(empty($_SESSION["token"])) {
+        createToken();
+    }
 
     require("models/posts.php");
 
@@ -25,8 +32,7 @@ else {
 
     require("models/comments.php");
     $modelComments = new Comments();
-    $comments = $modelComments->getCommentsByPostId($id);
-    
+    $comments = $modelComments->getCommentsByPostId($id);    
 }
 
 
