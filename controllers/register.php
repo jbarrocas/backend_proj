@@ -29,6 +29,8 @@ if (isset ($_POST["send"])){
 
     if($_SESSION["token"] !== $_POST["token"]) {
 
+        unset($_SESSION["token"]);
+
         http_response_code(401);
         die("Unauthorized");
     }
