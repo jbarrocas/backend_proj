@@ -15,7 +15,7 @@ require("templates/adminmenu.php");
         <div id="AdminActionArea">            
             <section class="admin-action-area" data-admin="<?= $admin["super_admin"] ?>">
                 <h2>Admin Action Area</h2>
-                <div><a href="/postsreports/">Posts Reports</a></div>
+                <div><a href="/admin_postreports/">Posts Reports</a></div>
                 <div><a href="/commentsreports/">Comments Reports</a></div>
                 <div><a href="/searchposts/">Search Posts</a></div>
                 <div><a href="/report/">Report</a></div>

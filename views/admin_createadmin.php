@@ -8,12 +8,7 @@
 <body>
     <main>
 <?php
-    if(isset($_SESSION["admin_id"])) {
-        require("templates/adminmenu.php");
-    }
-    else {
-        require("templates/menu.php");
-    }
+    require("templates/adminmenu.php");
 ?>
         <h1>Create Admin and User</h1>
         <div class="create-admin-container">
