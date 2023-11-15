@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const super_area = document.getElementById('AdminActionArea').lastElementChild;
 
-        if(!super_admin) {
+        if(super_admin === "false") {
 
             super_area.remove();
         }

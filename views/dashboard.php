@@ -12,16 +12,16 @@
 require("templates/adminmenu.php");
 ?>
         <h1>Admin Dashboard</h1>
-        <div id="AdminActionArea">
-            <h2>Admin Action Area</h2>
+        <div id="AdminActionArea">            
             <section class="admin-action-area" data-admin="<?= $admin["super_admin"] ?>">
+                <h2>Admin Action Area</h2>
                 <div><a href="/postsreports/">Posts Reports</a></div>
                 <div><a href="/commentsreports/">Comments Reports</a></div>
                 <div><a href="/searchposts/">Search Posts</a></div>
                 <div><a href="/report/">Report</a></div>
             </section>
-            <h2>Super Admin Area</h2>
             <section class="super-admin-area" data-admin="<?= $admin["super_admin"] ?>">
+                <h2>Super Admin Area</h2>
                 <div><a href="/deleteaccountreports/">Deleted Accounts Reports</a></div>
                 <div><a href="/admin_createadmin/">Create Admin</a></div>
                 <div><a href="/updateadmin/">Update Admin</a></div>
