@@ -9,7 +9,12 @@
 <body>
     <main>
 <?php
-    require("templates/menu.php");
+    if(isset($_SESSION["admin_id"])) {
+        require("templates/adminmenu.php");
+    }
+    else {
+        require("templates/menu.php");
+    }
 ?>
         <h1>Most Liked Posts</h1>
 <?php

@@ -29,9 +29,14 @@ if( isset($_POST["send"]) ) {
             require("models/users.php");
             $modelUsers = new Users();
             $user = $modelUsers->getByEmail($_POST["email"]);
+
+            require("models/admins.php");
+            $modelAdmins = new Admins();
+            $admin = $modelAdmins->getByEmail($_POST["email"]);
     
             if(
                 !empty($user) &&
+                empty($admin) &&
                 password_verify($_POST["password"], $user["password"])
             ) {
                 $_SESSION["user_id"] = $user["user_id"];
@@ -40,15 +45,13 @@ if( isset($_POST["send"]) ) {
             }
             else {
 
-                require("models/admins.php");
-                $modelAdmins = new Admins();
-                $admin = $modelAdmins->getByEmail($_POST["email"]);
-
                 if(
                     !empty($admin) &&
-                    $_POST["password"] = $admin["password"] //mudar para password verify quando encriptada
+                    !empty($user) &&
+                    password_verify($_POST["password"], $admin["password"])
                 ) {
                     $_SESSION["admin_id"] = $admin["admin_id"];
+                    $_SESSION["user_id"] = $user["user_id"];
                     unset($_SESSION["token"]);
                     header("Location: /dashboard/");
                 }

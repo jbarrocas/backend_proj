@@ -9,7 +9,12 @@
     <main>
         <div class="user-details-container">
 <?php
-    require("templates/menu.php");
+    if(isset($_SESSION["admin_id"])) {
+        require("templates/adminmenu.php");
+    }
+    else {
+        require("templates/menu.php");
+    }
 ?>
             <div class="form-container">
 <?php

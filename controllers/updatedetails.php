@@ -2,6 +2,7 @@
 
 require("models/countries.php");
 require("models/users.php");
+require("models/admins.php");
 
 $modelCountries = new Countries();
 $countries = $modelCountries->get();
@@ -19,8 +20,13 @@ else {
 
     $model = new Users();
     $user = $model->getById($_SESSION["user_id"]);
-    
-    
+
+    if(isset($_SESSION["admin_id"])) {
+
+        $modelAdmins = new Admins();
+        $admin = $modelAdmins->getById($_SESSION["admin_id"]);
+    }
+
     if (isset ($_POST["send"])){
     
         foreach($_POST as $key => $value){
@@ -43,11 +49,23 @@ else {
                     mb_strlen($_POST["last_name"]) <= 22 &&
                     in_array($_POST["country_id"], $country_codes)
                 ) {
+
+                    if(
+                        !empty($user) &&
+                        !empty($admin)
+                    ) {
+
+                        $model->updateDetails( $_POST, $_SESSION["user_id"] );
+                        $modelAdmins->updateDetails( $_POST, $_SESSION["admin_id"] );
+
+                        header("Location: /myprofile/");
+                    }
+                    else {
+
+                        $model->updateDetails( $_POST, $_SESSION["user_id"] );
                 
-                    $model->updateDetails( $_POST, $_SESSION["user_id"] );
-                
-                    header("Location: /myprofile/");
-                
+                        header("Location: /myprofile/");
+                    }
                 }
                 else{
                     $message = "The names must be between 3 and 22 carachters";

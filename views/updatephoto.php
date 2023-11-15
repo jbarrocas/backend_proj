@@ -9,7 +9,12 @@
 <body>
     <main>
 <?php
-    require("templates/menu.php");
+    if(isset($_SESSION["admin_id"])) {
+        require("templates/adminmenu.php");
+    }
+    else {
+        require("templates/menu.php");
+    }
 ?>
         <h1>Change your profile photo</h1>
         <img src="/images/users/<?=$user["photo"]?>" alt="">

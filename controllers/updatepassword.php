@@ -1,15 +1,21 @@
 <?php
 
-require("models/users.php");
-
 if(!isset($_SESSION["user_id"])) {
 
     header("Location:/login/");
 }
 else {
 
+    require("models/users.php");
     $model = new Users();
     $user = $model->getById($_SESSION["user_id"]);
+
+    if(isset($_SESSION["admin_id"])) {
+
+        require("models/admins.php");
+        $modelAdmins = new Admins();
+        $admin = $model->getById($_SESSION["admin_id"]);
+    }
 
     if( isset($_POST["send"]) ) {
 
@@ -33,16 +39,32 @@ else {
                 ) {
 
                     if(
+                        !empty($_SESSION["user_id"]) &&
+                        !empty($_SESSION["admin_id"]) &&
                         password_verify($_POST["old_password"], $user["password"])
                     ) {
 
-                        $model->updatePassword($_POST, $_SESSION["user_id"]);    
-        
-                        header("Location: /myprofile/");                        
+                        $model->updatePassword($_POST, $_SESSION["user_id"]);
+                        $modelAdmins->updatePassword($_POST, $_SESSION["admin_id"]);
+
+                        $message = "Passwords updated.";                     
                     }
                     else {
-                        $message = "Your old password is incorrect";
-                    } 
+
+                        if (
+                            !empty($_SESSION["user_id"]) &&
+                            empty($_SESSION["admin_id"]) &&
+                            password_verify($_POST["old_password"], $user["password"])                
+                        ) {
+
+                            $model->updatePassword($_POST, $_SESSION["user_id"]);
+    
+                            header("Location: /myprofile/");
+                        }
+                        else {
+                            $message = "Old password incorrect.";
+                        }
+                    }
                 }
                 else {
                     $message = "Password must have at least 8 digits";
