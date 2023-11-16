@@ -10,14 +10,11 @@ else {
     $model = new Users();
     $user = $model->getById($_SESSION["user_id"]);
 
-    if(isset($_SESSION["admin_id"])) {
-
-        require("models/admins.php");
-        $modelAdmins = new Admins();
-        $admin = $model->getById($_SESSION["admin_id"]);
-    }
-
     if( isset($_POST["send"]) ) {
+
+        foreach($_POST as $key => $value) {
+            $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
+        }
 
         if(
             !empty($_POST["old_password"]) &&
@@ -38,32 +35,17 @@ else {
                     mb_strlen($_POST["new_password_confirm"]) <= 1000
                 ) {
 
-                    if(
+                    if (
                         !empty($_SESSION["user_id"]) &&
-                        !empty($_SESSION["admin_id"]) &&
-                        password_verify($_POST["old_password"], $user["password"])
+                        password_verify($_POST["old_password"], $user["password"])                
                     ) {
 
                         $model->updatePassword($_POST, $_SESSION["user_id"]);
-                        $modelAdmins->updatePassword($_POST, $_SESSION["admin_id"]);
 
-                        $message = "Passwords updated.";                     
+                        header("Location: /myprofile/");
                     }
                     else {
-
-                        if (
-                            !empty($_SESSION["user_id"]) &&
-                            empty($_SESSION["admin_id"]) &&
-                            password_verify($_POST["old_password"], $user["password"])                
-                        ) {
-
-                            $model->updatePassword($_POST, $_SESSION["user_id"]);
-    
-                            header("Location: /myprofile/");
-                        }
-                        else {
-                            $message = "Old password incorrect.";
-                        }
+                        $message = "Old password incorrect.";
                     }
                 }
                 else {

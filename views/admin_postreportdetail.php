@@ -15,14 +15,10 @@
             <figure>
                 <img src="../images/posts/<?=$postReport["photo"]?>" alt="">
             </figure>
-            <dl>
-                <dt>Title</dt>
-                <dd><?=$postReport["title"]?></dd>
-                <dt>Content</dt>
-                <dd><?=$postReport["content"]?></dd>
-                <dt>Subject of Report</dt>
-                <dd><?=$postReport["subject"]?></dd>
-            </dl>
+            <p>Title: <?=$postReport["title"]?></p>
+            <p>Content: <?=$postReport["content"]?></p>
+            <p>Author: <?=$user["username"]?></p>
+            <p>Report Subject: <?=$postReport["subject"]?></p>
             <div class="action-buttons">
                 <button type="button" name="dismiss">Dismiss</button>
                 <button type="button" name="restrict_privileges">Restrict</button>

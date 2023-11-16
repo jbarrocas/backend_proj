@@ -32,7 +32,7 @@ class Post_Reports extends Base{
                 pr.post_report_id,
                 pr.post_id,
                 pr.subject,
-                pr.user_id AS reported_by,             
+                pr.user_id AS reported_by,        
                 pr.reported_at,
                 p.photo,
                 p.title,

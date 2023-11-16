@@ -27,7 +27,9 @@ class Users extends Base
                 user_id,
                 first_name,
                 last_name,
-                password
+                password,
+                is_admin,
+                is_super_admin
             FROM
                 users
             WHERE
@@ -47,6 +49,10 @@ class Users extends Base
                 u.username,
                 u.first_name,
                 u.last_name,
+                u.created_at,
+                u.is_admin,
+                u.is_super_admin,
+                u.admin_status_updated_at,
                 u.email,
                 u.photo,
                 u.password,
@@ -63,6 +69,35 @@ class Users extends Base
         $query->execute([ $user_id ]);
 
         return $query->fetch();
+    }
+
+    public function getAdmins($is_admin) {
+
+        $query = $this->db->prepare("
+            SELECT
+                user_id,
+                username,
+                first_name,
+                last_name,
+                email,
+                photo,
+                is_admin,
+                is_super_admin,
+                c.name AS country,
+                c.country_id
+            FROM
+                users
+            INNER JOIN
+                countries AS c USING(country_id)
+            WHERE
+                is_admin = ?
+        ");
+
+        $query->execute([
+            $is_admin
+        ]);
+
+        return $query->fetchAll();
     }
 
     public function createUser($data) {
@@ -149,6 +184,28 @@ class Users extends Base
 
         $query->execute([
             password_hash($data["new_password"], PASSWORD_DEFAULT),
+            $user_id
+        ]);
+
+        return $data;
+    }
+
+    public function updateAdminStatus($data, $user_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                users
+            SET
+                is_admin = ?,
+                is_super_admin = ?,
+                admin_status_updated_at = CURRENT_TIMESTAMP
+            WHERE
+                user_id = ?
+        ");
+
+        $query->execute([
+           $data["is_admin"],
+           $data["is_super_admin"],
             $user_id
         ]);
 

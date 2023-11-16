@@ -11,7 +11,7 @@
 <body>
     <main>
 <?php
-    if(isset($_SESSION["admin_id"])) {
+    if(isset($_SESSION["is_admin"]) || isset($_SESSION["is_super_admin"])) {
         require("templates/adminmenu.php");
     }
     else {

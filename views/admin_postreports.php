@@ -33,8 +33,8 @@
         ';
     }
 ?>
+            </table>
         </div>
     </main>
-    </table>
 </body>
 </html>

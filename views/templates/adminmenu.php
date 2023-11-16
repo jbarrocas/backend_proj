@@ -12,7 +12,7 @@
         <li><a href="/dashboard/">Admin Area</a></li>
           
 <?php
-    if(isset($_SESSION["admin_id"])){
+    if(isset($_SESSION["user_id"])){
 ?>
         <li><a href="/logout/">Logout</a></li>
 <?php

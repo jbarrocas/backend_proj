@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <script src="/js/dashboard.js"></script>
 </head>
 <body>
     <main>
@@ -13,20 +12,28 @@ require("templates/adminmenu.php");
 ?>
         <h1>Admin Dashboard</h1>
         <div id="AdminActionArea">            
-            <section class="admin-action-area" data-admin="<?= $admin["super_admin"] ?>">
+            <section class="admin-action-area">
                 <h2>Admin Action Area</h2>
-                <div><a href="/admin_postreports/">Posts Reports</a></div>
-                <div><a href="/commentsreports/">Comments Reports</a></div>
-                <div><a href="/searchposts/">Search Posts</a></div>
-                <div><a href="/report/">Report</a></div>
+                <ul>
+                    <li><a href="/admin_postreports/">Posts Reports</a></li>
+                    <li><a href="/commentsreports/">Comments Reports</a></li>
+                    <li><a href="/searchposts/">Search Posts</a></li>
+                    <li><a href="/report/">Report to Administration</a></li>
+                </ul>
             </section>
-            <section class="super-admin-area" data-admin="<?= $admin["super_admin"] ?>">
+<?php
+    if(isset($_SESSION["is_super_admin"])) {
+        echo '
+            <section class="super-admin-area">
                 <h2>Super Admin Area</h2>
-                <div><a href="/deleteaccountreports/">Deleted Accounts Reports</a></div>
-                <div><a href="/admin_createadmin/">Create Admin</a></div>
-                <div><a href="/updateadmin/">Update Admin</a></div>
-                <div><a href="/deleteadmin/">Delete Admin</a></div>
+                <ul>
+                    <li><a href="/admin_accountreports/">Deleted Accounts Reports</a></li>
+                    <li><a href="/admin_list/">Admins List</a></li>
+                </ul>
             </section>
+        ';
+    }
+?>
         </div>
     </main>    
 </body>

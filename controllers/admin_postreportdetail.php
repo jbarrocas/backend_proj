@@ -5,15 +5,41 @@ if( empty($id) || !is_numeric($id) ){
     die("Invalid Request");
 }
 
+if(
+    !isset($_SESSION["user_id"])
+) {
 
-require("models/post_reports.php");
+    http_response_code(401);
+    die("Unauthorized");
+}
+else {
 
-$model = new Post_Reports();
-$postReport = $model->getReportById($id);
+    if(
+        isset($_SESSION["user_id"]) &&
+        !isset($_SESSION["is_admin"]) &&
+        !isset($_SESSION["is_super_admin"])
+    ) {
 
-if( empty($postReport) ) {
-    http_response_code(404);
-    die("Not found");
+        http_response_code(403);
+        die("Forbidden");
+    }
+    else {
+
+        require("models/post_reports.php");
+
+        $model = new Post_Reports();
+        $postReport = $model->getReportById($id);
+
+        if( empty($postReport) ) {
+            http_response_code(404);
+            die("Not found");
+        }
+
+        require("models/users.php");
+
+        $modelUsers = new Users();
+        $user = $modelUsers->getById($postReport["post_author"]);
+    }
 }
 
 require("views/admin_postreportdetail.php");

@@ -31,35 +31,37 @@ if( isset($_POST["send"]) ) {
             require("models/users.php");
             $modelUsers = new Users();
             $user = $modelUsers->getByEmail($_POST["email"]);
-
-            require("models/admins.php");
-            $modelAdmins = new Admins();
-            $admin = $modelAdmins->getByEmail($_POST["email"]);
     
             if(
                 !empty($user) &&
-                empty($admin) &&
                 password_verify($_POST["password"], $user["password"])
             ) {
-                $_SESSION["user_id"] = $user["user_id"];
-                unset($_SESSION["token"]);
-                header("Location: /");
-            }
-            else {
 
-                if(
-                    !empty($admin) &&
-                    !empty($user) &&
-                    password_verify($_POST["password"], $admin["password"])
-                ) {
-                    $_SESSION["admin_id"] = $admin["admin_id"];
+                if($user["is_admin"] === "false") {
+
                     $_SESSION["user_id"] = $user["user_id"];
                     unset($_SESSION["token"]);
-                    header("Location: /dashboard/");
+                    header("Location: /");
                 }
-                else {
-                    $message = "Email or Password incorrect";
+                else{
+
+                    if($user["is_super_admin"] === "false") {
+
+                        $_SESSION["user_id"] = $user["user_id"];
+                        $_SESSION["is_admin"] = $user["is_admin"];
+                        unset($_SESSION["token"]);
+                        header("Location: /dashboard/");
+                    }
+                    else {
+                        $_SESSION["user_id"] = $user["user_id"];
+                        $_SESSION["is_super_admin"] = $user["is_super_admin"];
+                        unset($_SESSION["token"]);
+                        header("Location: /dashboard/");
+                    }
                 }
+            }
+            else {
+                $message = "Email or Password incorrect";
             }
         }
         else {

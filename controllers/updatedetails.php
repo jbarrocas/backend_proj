@@ -2,7 +2,6 @@
 
 require("models/countries.php");
 require("models/users.php");
-require("models/admins.php");
 
 $modelCountries = new Countries();
 $countries = $modelCountries->get();
@@ -20,12 +19,6 @@ else {
 
     $model = new Users();
     $user = $model->getById($_SESSION["user_id"]);
-
-    if(isset($_SESSION["admin_id"])) {
-
-        $modelAdmins = new Admins();
-        $admin = $modelAdmins->getById($_SESSION["admin_id"]);
-    }
 
     if (isset ($_POST["send"])){
     
@@ -51,16 +44,8 @@ else {
                 ) {
 
                     if(
-                        !empty($user) &&
-                        !empty($admin)
+                        !empty($user)
                     ) {
-
-                        $model->updateDetails( $_POST, $_SESSION["user_id"] );
-                        $modelAdmins->updateDetails( $_POST, $_SESSION["admin_id"] );
-
-                        header("Location: /myprofile/");
-                    }
-                    else {
 
                         $model->updateDetails( $_POST, $_SESSION["user_id"] );
                 
