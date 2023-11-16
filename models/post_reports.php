@@ -13,10 +13,13 @@ class Post_Reports extends Base{
                 pr.user_id,
                 pr.subject,
                 pr.reported_at,
+                pr.procedure_taken,
                 u.username
             FROM
                 post_reports AS pr
             INNER JOIN users AS u USING(user_id)
+            WHERE
+                pr.procedure_taken IS NULL
             LIMIT 20
         ");
 
@@ -49,6 +52,27 @@ class Post_Reports extends Base{
         $query->execute([$id]);
 
         return $query->fetch();
+    }
+
+    public function updateReport($data, $admin_id, $post_report_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                post_reports
+            SET
+                procedure_taken = ?,
+                reviewed_at = CURRENT_TIMESTAMP,
+                reviewed_by = ?
+            WHERE
+                post_id = ?
+            ");
+
+        $query->execute([
+            $data,
+            $admin_id,
+            $post_report_id
+        ]);
+
     }
 
     public function createReport($post_id, $user_id, $data) {

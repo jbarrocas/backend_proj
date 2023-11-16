@@ -19,11 +19,17 @@
             <p>Content: <?=$postReport["content"]?></p>
             <p>Author: <?=$user["username"]?></p>
             <p>Report Subject: <?=$postReport["subject"]?></p>
-            <div class="action-buttons">
-                <button type="button" name="dismiss">Dismiss</button>
-                <button type="button" name="restrict_privileges">Restrict</button>
-                <button type="button" name="ban_user">Ban</button>
-            </div>            
+            <div class="form-container">
+                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>" >
+                    <button type="submit" name="dismiss">Dismiss</button>
+                </form>
+                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>" >
+                    <button type="submit" name="restrict_privileges">Restrict</button>
+                </form>
+                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>" >
+                    <button type="submit" name="ban_user">Ban</button>
+                </form>
+            </div>
         </div>
     </main>
 </body>

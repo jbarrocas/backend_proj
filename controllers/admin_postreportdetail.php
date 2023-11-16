@@ -39,6 +39,31 @@ else {
 
         $modelUsers = new Users();
         $user = $modelUsers->getById($postReport["post_author"]);
+
+        if(isset($_POST["dismiss"])) {
+
+            require("models/posts.php");
+
+            $action = "dismiss";
+
+            $model->updateReport($action, $_SESSION["user_id"], $postReport["post_id"]);
+
+            $reportedBy = $modelUsers->getById($postReport["reported_by"]);
+
+            $subject = "Post report follow-up.";
+
+            $message = "<p>We have received your complaint about a post on our website.
+            After checking it, we came to the conclusion that there was no reason for it.
+            If you would like to report a comment instead of the post, please use the button next to the comment to do so.
+            If you still find the post offensive and don't agree with our decision, you can always contact us.</p>            
+            <p>Thank you for choosing Postapol.</p>            
+            <p>The Postapol team</p>";
+
+            require("functions/sendemail.php");
+            sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
+
+            header("Location: /admin_postreports/");
+        }
     }
 }
 
