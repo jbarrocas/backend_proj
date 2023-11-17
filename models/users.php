@@ -56,6 +56,7 @@ class Users extends Base
                 u.email,
                 u.photo,
                 u.password,
+                u.restricted_until,
                 c.name AS country,
                 c.country_id
             FROM
@@ -204,12 +205,28 @@ class Users extends Base
         ");
 
         $query->execute([
-           $data["is_admin"],
-           $data["is_super_admin"],
+            $data["is_admin"],
+            $data["is_super_admin"],
             $user_id
         ]);
 
         return $data;
+    }
+
+    public function updateRestrictStatus($user_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                users
+            SET
+                restricted_until = DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR)
+            WHERE
+                user_id = ?
+        ");
+
+        $query->execute([
+            $user_id
+        ]);
     }
 
     public function deleteUser($user_id) {
@@ -219,7 +236,7 @@ class Users extends Base
             WHERE user_id = ?
         ");
 
-        return $query->execute(["$user_id"]);
+        $query->execute(["$user_id"]);
     }
 }
 

@@ -91,70 +91,110 @@ if( isset($_POST["request"]) ) {
     // Comments
 
     if(
-        $_POST["request"] === "createComment" &&
-        !empty($_POST["content"]) &&
-        mb_strlen($_POST["content"]) >= 10 &&
-        mb_strlen($_POST["content"]) <= 222 &&
-        $_SESSION["token"] === $_POST["token"]
+        $_POST["request"] === "createComment"
     ) {
-
-        $modelComment = new Comments();
-        $comment = $modelComment->createComment(
-            $_POST["content"],
-            $_POST["post_id"],
-            $_SESSION["user_id"]
-        );
 
         $modelUser = new Users();
         $user = $modelUser->getById($_SESSION["user_id"]);
+        
+        $actualDate = strtotime(date("Y-m-d H:i:s"));
+        $restrictedUntil = strtotime($user["restricted_until"]);
+        $diff = $actualDate - $restrictedUntil;
 
-        $username = $user["username"];
-        $country = $user["country"];
-        $date = date("Y-m-d H:i:s");
+        if(isset($user["restricted_until"])) {
 
-        $array = [
-            "message" => "commented",
-            "username" => $username,
-            "country" => $country,
-            "date" => $date
-        ];
+            if( $diff < 0 ) {
+                echo '{"message":"restricted_comments_user"}';
+            }
+        }
+        else {
 
-        echo json_encode($array);
+            if(
+                $_POST["request"] === "createComment" &&
+                !empty($_POST["content"]) &&
+                mb_strlen($_POST["content"]) >= 10 &&
+                mb_strlen($_POST["content"]) <= 222 &&
+                $_SESSION["token"] === $_POST["token"]
+            ) {  
+
+                $modelComment = new Comments();
+                $comment = $modelComment->createComment(
+                    $_POST["content"],
+                    $_POST["post_id"],
+                    $_SESSION["user_id"]
+                );
+        
+                // $modelUser = new Users();
+                $user = $modelUser->getById($_SESSION["user_id"]);
+        
+                $username = $user["username"];
+                $country = $user["country"];
+                $date = date("Y-m-d H:i:s");
+        
+                $array = [
+                    "message" => "commented",
+                    "username" => $username,
+                    "country" => $country,
+                    "date" => $date
+                ];
+        
+                echo json_encode($array);
+            }
+        }
     }
 
     // Replies
 
     if(
-        $_POST["request"] === "createReply" &&
-        !empty($_POST["content"]) &&
-        mb_strlen($_POST["content"]) >= 10 &&
-        mb_strlen($_POST["content"]) <= 222 &&
-        $_SESSION["token"] === $_POST["token"]
+        $_POST["request"] === "createReply"
     ) {
-
-        $modelComment = new Comments();
-        $reply = $modelComment->createReply(
-            $_POST,
-            $_SESSION["user_id"]
-        );
 
         $modelUser = new Users();
         $user = $modelUser->getById($_SESSION["user_id"]);
+        
+        $actualDate = strtotime(date("Y-m-d H:i:s"));
+        $restrictedUntil = strtotime($user["restricted_until"]);
+        $diff = $actualDate - $restrictedUntil;
 
-        $username = $user["username"];
-        $country = $user["country"];
-        $date = date("Y-m-d H:i:s");
+        if(isset($user["restricted_until"])) {
 
-        $array = [
-            "message" => "replied",
-            "username" => $username,
-            "country" => $country,
-            "date" => $date
-        ];
-
-        echo json_encode($array);
+            if( $diff < 0 ) {
+                echo '{"message":"restricted_replies_user"}';
+            }
+        }
+        else {
+            if(
+                $_POST["request"] === "createReply" &&
+                !empty($_POST["content"]) &&
+                mb_strlen($_POST["content"]) >= 10 &&
+                mb_strlen($_POST["content"]) <= 222 &&
+                $_SESSION["token"] === $_POST["token"]
+            ) {
+        
+                $modelComment = new Comments();
+                $reply = $modelComment->createReply(
+                    $_POST,
+                    $_SESSION["user_id"]
+                );
+        
+                $modelUser = new Users();
+                $user = $modelUser->getById($_SESSION["user_id"]);
+        
+                $username = $user["username"];
+                $country = $user["country"];
+                $date = date("Y-m-d H:i:s");
+        
+                $array = [
+                    "message" => "replied",
+                    "username" => $username,
+                    "country" => $country,
+                    "date" => $date
+                ];
+        
+                echo json_encode($array);
+            }
+        }
     }
-    
 }
 
 

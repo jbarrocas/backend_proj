@@ -54,7 +54,7 @@ class Post_Reports extends Base{
         return $query->fetch();
     }
 
-    public function updateReport($data, $admin_id, $post_report_id) {
+    public function updateReport($data, $admin_id, $post_id) {
 
         $query = $this->db->prepare("
             UPDATE
@@ -70,7 +70,7 @@ class Post_Reports extends Base{
         $query->execute([
             $data,
             $admin_id,
-            $post_report_id
+            $post_id
         ]);
 
     }

@@ -32,7 +32,7 @@ else {
 
     require("models/comments.php");
     $modelComments = new Comments();
-    $comments = $modelComments->getCommentsByPostId($id);    
+    $comments = $modelComments->getCommentsByPostId($id);
 }
 
 

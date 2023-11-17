@@ -38,8 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 form.remove();
             }
+            else if(result.message === "restricted_comments_user") {
+                alert("You're not able to comment due to a temporary restriction. See your email box for more details.")
+            };
         })
-        .catch( error => alert("Unexpected error"));
+        .catch( error => alert("Unexpected Motherfucker error"));
 
         form.reset();
 
@@ -87,6 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     form.classList.add("hide");    
                 }
+                else if(result.message === "restricted_replies_user") {
+                    alert("You're not able to reply due to a temporary restriction. See your email box for more details.")
+                };
             })
             .catch( error => alert("Unexpected error"));
     
