@@ -41,6 +41,7 @@ else {
                     ) {
 
                         $model->updatePassword($_POST, $_SESSION["user_id"]);
+                        http_response_code(202);
 
                         header("Location: /myprofile/");
                     }

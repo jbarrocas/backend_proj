@@ -22,6 +22,7 @@ else {
 
         if( $diff < 0 ) {
             $message = "You are not able to create a post until " . $user["restricted_until"];
+            http_response_code(403);
         }
         else {
 
@@ -87,6 +88,8 @@ else {
                     
                                 $model = new Posts();
                                 $post_id = $model->createPost($post);
+
+                                http_response_code(202);
                     
                                 header("Location: /postdetail/" . $post_id);
                             }

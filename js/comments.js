@@ -40,9 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             else if(result.message === "restricted_comments_user") {
                 alert("You're not able to comment due to a temporary restriction. See your email box for more details.")
-            };
+            }
+            else if(result.message === "respect_characters") {
+                alert("Comments must have between 3 and 222 characters.")
+            }
         })
-        .catch( error => alert("Unexpected Motherfucker error"));
+        .catch( error => alert("Unexpected Error"));
 
         form.reset();
 
@@ -92,9 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 else if(result.message === "restricted_replies_user") {
                     alert("You're not able to reply due to a temporary restriction. See your email box for more details.")
-                };
+                }
+                else if(result.message === "respect_characters") {
+                    alert("Replies must have between 3 and 222 characters.")
+                }
             })
-            .catch( error => alert("Unexpected error"));
+            .catch( error => alert("Unexpected Error"));
     
             form.reset();
         });

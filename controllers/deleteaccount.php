@@ -47,6 +47,8 @@ else {
             $image = "images/users/" . $user["photo"];
             unlink($image);
 
+            http_response_code(202);
+
             session_unset();
 
             session_destroy();

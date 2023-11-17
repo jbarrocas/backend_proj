@@ -68,6 +68,8 @@ else {
                     
                     $updateStatus = $model->updateAdminStatus($_POST, $id);
 
+                    http_response_code(202);
+
                     header("Location: /admin_updateadminstatus/$id");
                 }
             }    

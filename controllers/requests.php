@@ -28,6 +28,7 @@ if( isset($_POST["request"]) ) {
         $model->createLike($_POST["post_id"], $_SESSION["user_id"]);
 
         echo '{"message":"created"}';
+        http_response_code(202);
     }
 
     if(
@@ -40,6 +41,7 @@ if( isset($_POST["request"]) ) {
         $model->deleteLike($_POST["post_id"], $_SESSION["user_id"]);
 
         echo '{"message":"deleted"}';
+        http_response_code(202);
     }
 
     // Follows
@@ -54,6 +56,7 @@ if( isset($_POST["request"]) ) {
         $model->createFollow($_POST["user_id"], $_SESSION["user_id"]);
 
         echo '{"message":"followed"}';
+        http_response_code(202);
     }
 
     if(
@@ -66,6 +69,7 @@ if( isset($_POST["request"]) ) {
         $model->deleteFollow($_POST["user_id"], $_SESSION["user_id"]);
 
         echo '{"message":"unfollowed"}';
+        http_response_code(202);
     }
 
     // Posts
@@ -86,6 +90,7 @@ if( isset($_POST["request"]) ) {
         unlink($image);
 
         echo '{"message":"deleted"}';
+        http_response_code(202);
     }
 
     // Comments
@@ -105,6 +110,7 @@ if( isset($_POST["request"]) ) {
 
             if( $diff < 0 ) {
                 echo '{"message":"restricted_comments_user"}';
+                http_response_code(403);
             }
         }
         else {
@@ -112,7 +118,7 @@ if( isset($_POST["request"]) ) {
             if(
                 $_POST["request"] === "createComment" &&
                 !empty($_POST["content"]) &&
-                mb_strlen($_POST["content"]) >= 10 &&
+                mb_strlen($_POST["content"]) >= 3 &&
                 mb_strlen($_POST["content"]) <= 222 &&
                 $_SESSION["token"] === $_POST["token"]
             ) {  
@@ -123,8 +129,7 @@ if( isset($_POST["request"]) ) {
                     $_POST["post_id"],
                     $_SESSION["user_id"]
                 );
-        
-                // $modelUser = new Users();
+
                 $user = $modelUser->getById($_SESSION["user_id"]);
         
                 $username = $user["username"];
@@ -139,6 +144,11 @@ if( isset($_POST["request"]) ) {
                 ];
         
                 echo json_encode($array);
+                http_response_code(202);
+            }
+            else {
+                echo '{"message":"respect_characters"}';
+                http_response_code(422);
             }
         }
     }
@@ -160,13 +170,15 @@ if( isset($_POST["request"]) ) {
 
             if( $diff < 0 ) {
                 echo '{"message":"restricted_replies_user"}';
+                http_response_code(403);
             }
         }
         else {
+
             if(
                 $_POST["request"] === "createReply" &&
                 !empty($_POST["content"]) &&
-                mb_strlen($_POST["content"]) >= 10 &&
+                mb_strlen($_POST["content"]) >= 3 &&
                 mb_strlen($_POST["content"]) <= 222 &&
                 $_SESSION["token"] === $_POST["token"]
             ) {
@@ -192,6 +204,11 @@ if( isset($_POST["request"]) ) {
                 ];
         
                 echo json_encode($array);
+                http_response_code(202);
+            }
+            else {
+                echo '{"message":"respect_characters"}';
+                http_response_code(422);
             }
         }
     }

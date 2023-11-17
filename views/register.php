@@ -38,7 +38,7 @@
                         Agree to our Terms?
                     </label>
                     <img src="../functions/captcha.php" alt="">
-                    <input class="register-input" type="text" name="captcha" placeholder="Digit the image carachters" required>
+                    <input class="register-input" type="text" name="captcha" placeholder="Digit the image characters" required>
                     <button class="register-button" type="submit" name="send">Sign Up</button>
                 </form>
 <?php

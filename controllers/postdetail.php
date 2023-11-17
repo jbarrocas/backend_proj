@@ -13,6 +13,10 @@ if(!isset($_SESSION["user_id"])) {
 
 }
 else {
+
+    foreach($_POST as $key => $value) {
+        $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
+    }
     
     require("functions/createtoken.php");
 

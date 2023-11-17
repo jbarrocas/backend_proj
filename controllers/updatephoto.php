@@ -39,7 +39,8 @@ else {
 
                 $post["photo"] = $filename;
     
-                $model->updatePhoto($post, $_SESSION["user_id"]);    
+                $model->updatePhoto($post, $_SESSION["user_id"]);
+                http_response_code(202);  
     
                 header("Location: /myprofile/");
             }

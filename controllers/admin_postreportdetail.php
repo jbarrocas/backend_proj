@@ -55,14 +55,16 @@ else {
 
             $subject = "Post report follow-up.";
 
-            $message = "<p>We have received your complaint about a post on our website.
-            After checking it, we came to the conclusion that there was no reason for it.
-            If you would like to report a comment instead of the post, please use the button next to the comment to do so.
-            If you still find the post offensive and don't agree with our decision, you can always contact us.</p>            
+            $message = "<p>We have received your complaint about a post on our website.</p>
+            <p>After checking it, we came to the conclusion that there was no reason for it.</p>
+            <p>If you would like to report a comment instead of the post, please use the button next to the comment to do so.</p>
+            <p>If you still find the post offensive and don't agree with our decision, you can always contact us.</p>            
             <p>Thank you for choosing Postapol.</p>            
             <p>The Postapol team</p>";
 
             sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
+
+            http_response_code(202);
 
             header("Location: /admin_postreports/");
         }
@@ -85,10 +87,10 @@ else {
 
             $subject = "Post report follow-up.";
 
-            $message = "<p>We have received your complaint about a post on our website.
-            After checking it, we have come to the conclusion that there was a reason for 
-            it and have imposed a temporary sanction on the user.
-            Thank you for helping us to keep Postapol a safe place.</p>            
+            $message = "<p>We have received your complaint about a post on our website.</p>
+            <p>After checking it, we have come to the conclusion that there was a reason for 
+            it and have imposed a temporary sanction on the user.</p>
+            <p>Thank you for helping us to keep Postapol a safe place.</p>          
             <p>Thank you for choosing Postapol.</p>            
             <p>The Postapol team</p>";
 
@@ -98,17 +100,19 @@ else {
 
             $subject = "Post report.";
 
-            $message = "<p>We have received a complaint about a post you made on our site.
-            After checking it, we have come to the conclusion that the post does not follow 
-            our site's operating rules, which were accepted by you when you registered.
-            We understand that we all have bad days and not-so-good days.
-            That's why we find ourselves having to sanction you in some way. In this case, 
-            you will be unable to post or comment for 3 days.
+            $message = "<p>We have received a complaint about a post you made on our site.</p>
+            <p>After checking it, we have come to the conclusion that the post does not follow 
+            our site's operating rules, which were accepted by you when you registered.</p>
+            <p>We understand that we all have bad days and not-so-good days.</p>
+            <p>That's why we find ourselves having to sanction you in some way. In this case, 
+            you will be unable to post or comment for 3 days.</p>
             We hope you understand our position.</p>            
             <p>Thank you for choosing Postapol.</p>            
             <p>The Postapol team</p>";
 
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
+
+            http_response_code(202);
 
             header("Location: /admin_postreports/");
         }
@@ -153,6 +157,8 @@ else {
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
 
             $modelUsers->deleteUser($postReport["post_author"]);
+
+            http_response_code(202);
 
             header("Location: /admin_postreports/");
         }

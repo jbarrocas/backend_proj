@@ -46,6 +46,7 @@ if( isset($_POST["reset_password"]) ) {
             sendEmail($_POST["email"], $user["first_name"], $user["last_name"], $subject, $message);
 
             $message = "Email sent. Check your email.";
+            http_response_code(202);
         }        
     }
 }

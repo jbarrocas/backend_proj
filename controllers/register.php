@@ -87,7 +87,7 @@ if (isset ($_POST["send"])){
                         if(
                             $_POST["captcha"] !== $_SESSION["captcha"]
                         ) {
-                            $message = "Please digit the image carachters correctly";
+                            $message = "Please digit the image characters correctly";
                         }
                         else {
     
@@ -150,6 +150,7 @@ if (isset ($_POST["send"])){
     
                                                     unset($_SESSION["token"]);
                                                     unset($_SESSION["captcha"]);
+                                                    http_response_code(202);
     
                                                     header("Location: /");
                                                 }

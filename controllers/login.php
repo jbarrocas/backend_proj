@@ -41,6 +41,7 @@ if( isset($_POST["send"]) ) {
 
                     $_SESSION["user_id"] = $user["user_id"];
                     unset($_SESSION["token"]);
+                    http_response_code(202);
                     header("Location: /");
                 }
                 else{
@@ -50,12 +51,14 @@ if( isset($_POST["send"]) ) {
                         $_SESSION["user_id"] = $user["user_id"];
                         $_SESSION["is_admin"] = $user["is_admin"];
                         unset($_SESSION["token"]);
+                        http_response_code(202);
                         header("Location: /dashboard/");
                     }
                     else {
                         $_SESSION["user_id"] = $user["user_id"];
                         $_SESSION["is_super_admin"] = $user["is_super_admin"];
                         unset($_SESSION["token"]);
+                        http_response_code(202);
                         header("Location: /dashboard/");
                     }
                 }

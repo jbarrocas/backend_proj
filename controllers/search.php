@@ -21,7 +21,7 @@ else {
             require("models/posts.php");
             $model = new Posts();
             $posts = $model->searchPosts($_SESSION["user_id"], $_GET["search"]);
-    
+            http_response_code(202);
         }
         else {
             $message = "Insert text in the search field";

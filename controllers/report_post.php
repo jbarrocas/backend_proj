@@ -38,7 +38,7 @@ else {
             $model->createReport($id, $_SESSION["user_id"], $_POST["subject"]);
 
             $message = "Report sent. Thanks for your cooperation.";
-
+            http_response_code(202);
         }
         else {
             $message = "Choose a subject for report";

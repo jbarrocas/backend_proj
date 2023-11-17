@@ -72,6 +72,8 @@ if( isset($_POST["createpassword"]) ) {
                             $model->updatePassword($_POST, $user["user_id"]);
 
                             $_SESSION["user_id"] = $user["user_id"];
+
+                            http_response_code(202);
             
                             header("Location: /");
                         }
