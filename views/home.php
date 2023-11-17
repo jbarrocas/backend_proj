@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Postapol</title>
     <script src="/js/likes.js"></script>
+    <script src="/js/home.js"></script>
 </head>
 <body>
     <main>
@@ -21,6 +22,7 @@
     require("templates/recentPosts.php");
 ?>
         <form action="/home/" method="get">
+            <input type="hidden" data-last_page="<?= $pages_number ?>">
             <button type="submit" name="page_number" value="<?= $next_page ?>">See More</button>
         </form>
     </main>    

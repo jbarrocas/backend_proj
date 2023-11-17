@@ -27,8 +27,9 @@ require("templates/adminmenu.php");
             <section class="super-admin-area">
                 <h2>Super Admin Area</h2>
                 <ul>
-                    <li><a href="/admin_accountreports/">Deleted Accounts Reports</a></li>
                     <li><a href="/admin_list/">Admins List</a></li>
+                    <li><a href="/admin_accountreports/">Deleted Accounts Reports</a></li>
+                    <li><a href="/search_user/">Search User</a></li>
                 </ul>
             </section>
         ';
