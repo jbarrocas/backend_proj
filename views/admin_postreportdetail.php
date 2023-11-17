@@ -20,14 +20,14 @@
             <p>Author: <?=$user["username"]?></p>
             <p>Report Subject: <?=$postReport["subject"]?></p>
             <div class="form-container">
-                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>" >
-                    <button type="submit" name="dismiss">Dismiss</button>
+                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>">
+                    <button type="submit" name="dismiss">Dismiss Report</button>
                 </form>
-                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>" >
-                    <button type="submit" name="restrict_privileges">Restrict</button>
+                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>">
+                    <button type="submit" name="restrict_privileges">Restrict User</button>
                 </form>
-                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>" >
-                    <button type="submit" name="ban_user">Ban</button>
+                <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>">
+                    <button type="submit" name="ban_user">Ban User</button>
                 </form>
             </div>
         </div>

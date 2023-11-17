@@ -42,6 +42,9 @@ else {
         $modelUsers = new Users();
         $user = $modelUsers->getById($postReport["post_author"]);
 
+        require("models/posts.php");
+        $modelPosts = new Posts();
+
         if(isset($_POST["dismiss"])) {
 
             $action = "dismiss";
@@ -65,7 +68,6 @@ else {
         }
 
         require("models/user_restrictions.php");
-        require("models/posts.php");
 
         if(isset($_POST["restrict_privileges"])) {
 
@@ -77,7 +79,6 @@ else {
 
             $modelUsers->updateRestrictStatus($postReport["post_author"]);
 
-            $modelPosts = new Posts();
             $modelPosts->delete($postReport["post_id"]);
 
             $reportedBy = $modelUsers->getById($postReport["reported_by"]);
@@ -108,6 +109,50 @@ else {
             <p>The Postapol team</p>";
 
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
+
+            header("Location: /admin_postreports/");
+        }
+
+        require("models/user_bans.php");
+
+        if(isset($_POST["ban_user"])) {
+
+            $action = "ban";
+            $modelPostReports->updateReport($action, $_SESSION["user_id"], $postReport["post_id"]);
+
+            $modelBan = new User_Bans();
+            $modelBan->createUserBan($user["email"], $_SESSION["user_id"]);
+
+            $modelPosts->delete($postReport["post_id"]);
+
+            $reportedBy = $modelUsers->getById($postReport["reported_by"]);
+
+            $subject = "Post report follow-up.";
+
+            $message = "<p>We have received your complaint about a post on our website.</p>
+            <p>After checking it, we have come to the conclusion that there was a reason for 
+            it and we have banned the user from our site.</p>
+            <p>Thank you for helping us to keep Postapol a safe place.</p>            
+            <p>Thank you for choosing Postapol.</p>            
+            <p>The Postapol team</p>";
+
+            sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
+
+            $createdBy = $modelUsers->getById($postReport["post_author"]);
+
+            $subject = "Post report.";
+
+            $message = "<p>We have received a complaint about a post you made on our site.</p>
+            <p>After checking it, we have come to the conclusion that the post does not follow 
+            our site's operating rules, which were accepted by you when you registered.</p>
+            <p>We do not support this kind of behavior, nor do we accept it on our site.</p>
+            <p>For this reason, we have decided to ban your account, making it impossible for you to access Postapol.</p>
+            <p>We hope you understand our position.</p>            
+            <p>The Postapol team</p>";
+
+            sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
+
+            $modelUsers->deleteUser($postReport["post_author"]);
 
             header("Location: /admin_postreports/");
         }

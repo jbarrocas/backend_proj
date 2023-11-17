@@ -128,20 +128,31 @@ if (isset ($_POST["send"])){
                                         }
                                         else {
                                 
-                                            $user = $model->getByEmail( $_POST["email"] );
+                                            $user = $model->getByEmail($_POST["email"]);
                                 
                                             if(!empty($user)) {
                                                 $message = "This email already has an account";
                                             }
                                             else {
-                                
-                                                $createdUser = $model->createUser($_POST);
-                                                $_SESSION["user_id"] = $createdUser["user_id"];
 
-                                                unset($_SESSION["token"]);
-                                                unset($_SESSION["captcha"]);
+                                                require("models/user_bans.php");
 
-                                                header("Location: /");
+                                                $modelBans = new User_Bans();
+                                                $ban = $modelBans->getBanByEmail($_POST["email"]);
+
+                                                if(!empty($ban)) {
+                                                    $message = "This email belongs to a banned account. We cannot accept a new registration.";
+                                                }
+                                                else {
+
+                                                    $createdUser = $model->createUser($_POST);
+                                                    $_SESSION["user_id"] = $createdUser["user_id"];
+    
+                                                    unset($_SESSION["token"]);
+                                                    unset($_SESSION["captcha"]);
+    
+                                                    header("Location: /");
+                                                }
                                             }
                                         }
                                     }
