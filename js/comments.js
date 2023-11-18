@@ -4,13 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.addEventListener("click", () => {
 
-        const form = document.getElementById("commentForm");
+        const form = button.parentNode;
 
-        const post_id = form.previousElementSibling.firstElementChild.dataset.post_id;
+        const post_id = button.parentNode.previousElementSibling.previousElementSibling.firstElementChild.dataset.post_id;
 
         const content = form.firstElementChild.value;
 
-        const token = form.firstElementChild.nextElementSibling.value;
+        const token = button.previousElementSibling.value;
+
+        console.log(token);
 
         fetch("/requests/", {
             method: "POST",
@@ -39,10 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 form.remove();
             }
             else if(result.message === "restricted_comments_user") {
-                alert("You're not able to comment due to a temporary restriction. See your email box for more details.")
+
+                const error_message = document.getElementById("commentErrorMessage")
+
+                error_message.textContent = "You are not able to comment due to a temporary restriction. See your email box for more details.";
+
+                form.remove();
             }
             else if(result.message === "respect_characters") {
-                alert("Comments must have between 3 and 222 characters.")
+
+                const error_message = document.getElementById("commentErrorMessage")
+
+                error_message.textContent = "Comments must have between 3 and 222 characters.";
             }
         })
         .catch( error => alert("Unexpected Error"));
@@ -66,6 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const replyContent = form.firstElementChild.value;
 
             const token = form.firstElementChild.nextElementSibling.value;
+
+            console.log(form);
 
             fetch("/requests/", {
                 method: "POST",
@@ -91,13 +103,19 @@ document.addEventListener("DOMContentLoaded", () => {
     
                     reply_comment_date.textContent = result.date;
 
-                    form.classList.add("hide");    
+                    form.classList.add("hide");
                 }
                 else if(result.message === "restricted_replies_user") {
-                    alert("You're not able to reply due to a temporary restriction. See your email box for more details.")
+
+                    const error_message = document.getElementById("replyErrorMessage");
+                    
+                    error_message.textContent = "You are not able to reply due to a temporary restriction. See your email box for more details.";
                 }
                 else if(result.message === "respect_characters") {
-                    alert("Replies must have between 3 and 222 characters.")
+
+                    const error_message = document.getElementById("replyErrorMessage");
+                    
+                    error_message.textContent = "Replies must have between 3 and 222 characters.";
                 }
             })
             .catch( error => alert("Unexpected Error"));

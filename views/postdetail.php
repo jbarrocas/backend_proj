@@ -18,7 +18,7 @@
     }
 ?>
         
-        <h1>Post detail</h1>
+        <h1>Post <?= $post["title"] ?></h1>
         <div class="posts-comments-wrapper">
             <article class="post-container">
                 <div data-post_id="<?= $post["post_id"]?>" id="post">
@@ -31,17 +31,15 @@
                     </div>
                 </div>
             </article>
-        
-
 <?php
     if( isset($message) ) {
         echo '<p role="alert">' .$message. '</p>';
     }
 ?>
-
+            <p id="commentErrorMessage" role="alert"></p>
             <form id="commentForm" action="/requests/">
                 <textarea id="commentContent" type="text" placeholder="Write your comment" cols="72" rows="3" minlength="3" maxlength="222" name="content"></textarea>
-                <input type="hidden" name="token" value="<?= $_SESSION["token"] ?>">
+                <input type="hidden" name="commentToken" value="<?= $_SESSION["token"] ?>">
                 <button id="sendComment" type="button" name="sendComment">Send Comment</button>
             </form>
             <div id="sentComment">
@@ -49,10 +47,10 @@
                     <p id="sentUsername"></p>
                     <p><time id="sentDate"></time></p>
             </div>
+            <p id="replyErrorMessage" role="alert"></p> 
 <?php
     foreach($comments as $comment) {
-        echo '            
-                <div id="comment" class="comment" data-comment_id="' .$comment["comment_id"]. '">
+        echo '  <div id="comment" class="comment" data-comment_id="' .$comment["comment_id"]. '">
                     <p>' .$comment["content"]. '</p>
                     <p>' .$comment["username"]. ' - ' .$comment["country"]. '</p>
                     <p><time>' .$comment["comment_date"]. '</time></p>
@@ -63,14 +61,14 @@
                 </div>
                 <form id="replyForm" class="reply-form hide" action="/requests/" data-reply_check="' .$comment["parent_id"]. '">
                     <textarea id="replyContent" data-comment_id="' .$comment["comment_id"]. '" type="text" placeholder="Write your reply" cols="72" rows="3" minlength="3" maxlength="222" name="replyContent"></textarea>
-                    <input type="hidden" name="token" value="' .$_SESSION["token"]. '">
+                    <input type="hidden" name="replyToken" value="' .$_SESSION["token"]. '">
                     <button id="sendReply" type="button" name="sendReply">Send Reply</button>
                 </form>
                 <div id="sentReply" class="comment-reply">
                         <p id="sentReplyContent' .$comment["comment_id"]. '"></p>
                         <p id="sentReplyUsername' .$comment["comment_id"]. '"></p>
                         <p><time id="sentReplyDate' .$comment["comment_id"]. '"></time></p>
-                </div>
+                </div>                
         ';
     }
 ?>
