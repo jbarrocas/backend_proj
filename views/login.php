@@ -15,12 +15,18 @@
             </div>
             <div class="form-container">
                 <form class="login-form" method="POST" action="/login/">
-                    <input class="login-input" type="email" name="email" placeholder="Email" required>
-                    <input class="login-input" type="password" name="password" placeholder="Password" required minlength="8" maxlength="1000">
-                    <input type="hidden" name="token" value="<?= $_SESSION["token"] ?>">
+                    <div>
+                        <input class="login-input" type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div>
+                        <input class="login-input" type="password" name="password" placeholder="Password" required minlength="8" maxlength="1000">                        
+                    </div>
+                    <div>
+                        <input type="hidden" name="token" value="<?= $_SESSION["token"] ?>">
+                    </div>
                     <button class="login-button" type="submit" name="send">Log In</button>
-                    <div><a href="/resetpassword/">Forgot password?</a></div>
                 </form>
+                <div><a href="/resetpassword/">Forgot password?</a></div>
                 <div class="reg-button-container">
                     <p>Don't have an account?</p>
                     <div><a href="/register/">Register</a></div>

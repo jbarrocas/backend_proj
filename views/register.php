@@ -15,13 +15,28 @@
             </div>
             <div class="form-container">
                 <form class="register-form" method="POST" action="/register/">
-                    <input class="register-input" type="text" name="first_name" placeholder="First Name" value="<?= $first_name ?>" required minlength="3" maxlength="22">
-                    <input class="register-input" type="text" name="last_name" placeholder="Last Name" value="<?= $last_name ?>" required minlength="2" maxlength="22">
-                    <input class="register-input" type="text" name="username" placeholder="Username" value="<?= $username ?>" required minlength="3" maxlength="33">
-                    <input class="register-input" type="email" name="email" placeholder="Email" value="<?= $email ?>" required>
-                    <input class="register-input" type="password" name="password" placeholder="Password" value="<?= $password ?>" required minlength="8" maxlength="1000">
-                    <input class="register-input" type="password" name="password_confirm" placeholder="Password Confirm" value="<?= $password_confirm ?>" required minlength="8" maxlength="1000">
+                    <div>
+                        <input class="register-input" type="text" name="first_name" placeholder="First Name" value="<?= $first_name ?>" required minlength="3" maxlength="22">
+                    </div>
+                    <div>
+                        <input class="register-input" type="text" name="last_name" placeholder="Last Name" value="<?= $last_name ?>" required minlength="2" maxlength="22">
+                    </div>
+                    <div>
+                        <input class="register-input" type="text" name="username" placeholder="Username" value="<?= $username ?>" required minlength="3" maxlength="33">
+                    </div>
+                    <div>
+                        <input class="register-input" type="email" name="email" placeholder="Email" value="<?= $email ?>" required>
+                    </div>
+                    <div>
+                        <input class="register-input" type="password" name="password" placeholder="Password" value="<?= $password ?>" required minlength="8" maxlength="1000">
+                    </div>
+                    <div>
+                        <input class="register-input" type="password" name="password_confirm" placeholder="Password Confirm" value="<?= $password_confirm ?>" required minlength="8" maxlength="1000">
+                    </div>
+                    <div>
                     <input type="hidden" name="token" value="<?= $_SESSION["token"] ?>">
+                    </div>
+                    <div>
                     <select class="register-select" name="country_id" required>
 <?php
     foreach($countries as $country) {
@@ -33,12 +48,19 @@
     }
 ?>
                     </select>
-                    <label>
-                    <input type="checkbox" name="agrees" required>
-                        Agree to our Terms?
-                    </label>
-                    <img src="../functions/captcha.php" alt="">
-                    <input class="register-input" type="text" name="captcha" placeholder="Digit the image characters" required>
+                    </div>
+                    <div>
+                        <label>
+                        <input type="checkbox" name="agrees" required>
+                            Agree to our Terms?
+                        </label>  
+                    </div>
+                    <div>
+                        <img src="../functions/captcha.php" alt="">
+                    </div>
+                    <div>
+                        <input class="register-input" type="text" name="captcha" placeholder="Digit the image characters" required>
+                    </div>
                     <button class="register-button" type="submit" name="send">Sign Up</button>
                 </form>
 <?php
