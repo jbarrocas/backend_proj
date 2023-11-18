@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Profile - <?= $user["username"] ?></title>
     <script src="/js/profile.js"></script>
     <script src="/js/likes.js"></script>
 </head>
