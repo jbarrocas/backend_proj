@@ -219,7 +219,7 @@ class Users extends Base
             UPDATE
                 users
             SET
-                restricted_until = DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR)
+                restricted_until = DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 2 DAY)
             WHERE
                 user_id = ?
         ");

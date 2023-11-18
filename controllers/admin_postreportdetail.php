@@ -53,9 +53,12 @@ else {
 
             $reportedBy = $modelUsers->getById($postReport["reported_by"]);
 
+            $complainer_f_name = $reportedBy["first_name"];
+
             $subject = "Post report follow-up.";
 
-            $message = "<p>We have received your complaint about a post on our website.</p>
+            $message = "<p>Dear $complainer_f_name.</p>
+            <p>We have received your complaint about a post on our website.</p>
             <p>After checking it, we came to the conclusion that there was no reason for it.</p>
             <p>If you would like to report a comment instead of the post, please use the button next to the comment to do so.</p>
             <p>If you still find the post offensive and don't agree with our decision, you can always contact us.</p>            
@@ -85,6 +88,8 @@ else {
 
             $reportedBy = $modelUsers->getById($postReport["reported_by"]);
 
+            $complainer_f_name = $reportedBy["first_name"];
+
             $subject = "Post report follow-up.";
 
             $message = "<p>We have received your complaint about a post on our website.</p>
@@ -100,12 +105,13 @@ else {
 
             $subject = "Post report.";
 
-            $message = "<p>We have received a complaint about a post you made on our site.</p>
+            $message = "<p>Dear $complainer_f_name.</p>
+            <p>We have received a complaint about a post you made on our site.</p>
             <p>After checking it, we have come to the conclusion that the post does not follow 
             our site's operating rules, which were accepted by you when you registered.</p>
             <p>We understand that we all have bad days and not-so-good days.</p>
             <p>That's why we find ourselves having to sanction you in some way. In this case, 
-            you will be unable to post or comment for 3 days.</p>
+            you will be unable to post or comment for 2 days.</p>
             We hope you understand our position.</p>            
             <p>Thank you for choosing Postapol.</p>            
             <p>The Postapol team</p>";
@@ -131,9 +137,12 @@ else {
 
             $reportedBy = $modelUsers->getById($postReport["reported_by"]);
 
+            $complainer_f_name = $reportedBy["first_name"];
+
             $subject = "Post report follow-up.";
 
-            $message = "<p>We have received your complaint about a post on our website.</p>
+            $message = "<p>Dear $complainer_f_name.</p>
+            <p>We have received your complaint about a post on our website.</p>
             <p>After checking it, we have come to the conclusion that there was a reason for 
             it and we have banned the user from our site.</p>
             <p>Thank you for helping us to keep Postapol a safe place.</p>            
@@ -144,9 +153,12 @@ else {
 
             $createdBy = $modelUsers->getById($postReport["post_author"]);
 
+            $prevaricator_f_name = $createdBy["first_name"];
+
             $subject = "Post report.";
 
-            $message = "<p>We have received a complaint about a post you made on our site.</p>
+            $message = "<p>Dear $prevaricator_f_name.</p>
+            <p>We have received a complaint about a post you made on our site.</p>
             <p>After checking it, we have come to the conclusion that the post does not follow 
             our site's operating rules, which were accepted by you when you registered.</p>
             <p>We do not support this kind of behavior, nor do we accept it on our site.</p>

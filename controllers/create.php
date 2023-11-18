@@ -21,7 +21,7 @@ else {
         $diff = $actualDate - $restrictedUntil;
 
         if( $diff < 0 ) {
-            $message = "You are not able to create a post until " . $user["restricted_until"];
+            $message = "You are not able to create a post until " . $user["restricted_until"] . ". Check your email box for more details.";
             http_response_code(403);
         }
         else {
