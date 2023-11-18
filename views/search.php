@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <script src="/js/likes.js"></script>
+    <script src="/js/search.js"></script>
 </head>
 <body>
     <main>
@@ -16,8 +17,13 @@
         require("templates/menu.php");
     }
 ?>
-        <h1>Search</h1>
-        <form action="/search/" method="get">
+        <h1 id="heading">Search</h1>
+        <form action="/search/" method="get" id="searchForm">
+<?php
+    if(isset($_GET["search"])) {
+        echo '<input type="hidden" name="get" id="getCheck" value="' .$_GET["search"]. '">';
+    }
+?>            
             <input type="text" name="search" id="searchText" minlength="3" maxlength="30">
             <button type="submit" name="submit">Search</button>
         </form>
@@ -26,6 +32,7 @@
         echo ' <p id="message" role="alert">' .$message .'</p>';
     }
 ?>
+        <p id="result"></p>
 <?php
     if( isset($posts) ) {
 
@@ -54,7 +61,6 @@
             ';
         }
     }
-    
 ?>
     </main>    
 </body>
