@@ -23,6 +23,12 @@ else {
             $posts = $model->searchPosts($_SESSION["user_id"], $_GET["search"]);      
 
             http_response_code(202);
+
+            if(empty($posts)) {
+
+                http_response_code(404);
+                $message = "No results were found.";
+            }
         }
         else {
             $message = "The search must include between 3 and 30 characters.";

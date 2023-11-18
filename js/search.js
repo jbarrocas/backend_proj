@@ -1,21 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const message = document.getElementById("result");
+    const heading = document.getElementById("heading");
 
-    const getCheck = document.getElementById("getCheck");
+    const form = document.getElementById("searchForm");
 
-    const post = message.nextElementSibling;
+    const message = document.getElementById("message");
 
-    if(!post && getCheck && getCheck.value !== "") {
+    const post = form.nextElementSibling;
 
-        message.textContent = "No results were found.";
-    }
-
-    const heading = document.getElementById("heading"); 
-
-    const form = document. getElementById("searchForm");
-
-    if(post) {
+    if(post && post !== message) {
 
         heading.textContent = "Search Results";
 
