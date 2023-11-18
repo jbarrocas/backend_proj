@@ -34,11 +34,8 @@ else {
 
         $monthStatistics = $modelReports->getCountBySubjectLastMonth();
 
-        $reports = $modelReports->getReports();
-
-
-
-
+        $reports = $modelReports->getReportsWithText();
+        
     }
 }
 

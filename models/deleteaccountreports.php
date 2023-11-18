@@ -16,12 +16,51 @@ class Delete_Reports extends Base{
             delete_account_reports
         ORDER BY
             deleted_at DESC
+        ");
+
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    public function getReportsWithText() {
+
+        $query = $this->db->prepare("
+        SELECT
+            delete_account_report_id,
+            subject,
+            user_text,
+            deleted_at
+        FROM
+            delete_account_reports
+        WHERE
+            user_text IS NOT NULL
+        ORDER BY
+            deleted_at DESC
         LIMIT 100
         ");
 
         $query->execute();
 
         return $query->fetchAll();
+    }
+
+    public function getReportById($report_id) {
+
+        $query = $this->db->prepare("
+        SELECT
+            subject,
+            user_text,
+            deleted_at
+        FROM
+            delete_account_reports
+        WHERE
+            delete_account_report_id = ?
+        ");
+
+        $query->execute([$report_id]);
+
+        return $query->fetch();
     }
 
     public function getReportsOfLastWeek() {
@@ -98,18 +137,32 @@ class Delete_Reports extends Base{
         return $query->fetchAll();
     }
 
-    public function createReport($subject, $email, $delete_motive) {
+    public function createReport($subject, $motive, $email) {
 
         $query = $this->db->prepare("
             INSERT INTO delete_account_reports
-            (subject, user_email, user_text)
+            (subject, user_text, user_email)
             VALUES(?, ?, ?)
         ");
 
         $query->execute([
             $subject,
-            $email,
-            $delete_motive
+            $motive,
+            $email
+        ]);
+    }
+
+    public function createReportWithoutText($data, $email) {
+
+        $query = $this->db->prepare("
+            INSERT INTO delete_account_reports
+            (subject, user_email)
+            VALUES(?, ?)
+        ");
+
+        $query->execute([
+            $data,
+            $email
         ]);
     }
 }

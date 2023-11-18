@@ -36,11 +36,22 @@ else {
 
             require("models/deleteaccountreports.php");
             $modelReport = new Delete_Reports();
-            $modelReport->createReport(
-                $_POST["subject"],
-                $user["email"],
-                $_POST["delete_motive"]
-            );
+
+            if(!empty($_POST["delete_motive"])) {
+
+                $modelReport->createReport(
+                    $_POST["subject"],
+                    $_POST["delete_motive"],
+                    $user["email"]
+                );
+            }
+            else {
+
+                $modelReport->createReportWithoutText(
+                    $_POST["subject"],
+                    $user["email"]
+                );
+            }
 
             $modelUser->deleteUser($_SESSION["user_id"]);
 

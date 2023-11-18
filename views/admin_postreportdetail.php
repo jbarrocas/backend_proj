@@ -10,7 +10,7 @@
 <?php
     require("templates/adminmenu.php");
 ?>
-        <h1>Post Report Detail</h1>
+        <h1>Post Report Detail - <?= $postReport["title"] ?></h1>
         <div class="reported-post">
             <figure>
                 <img src="../images/posts/<?=$postReport["photo"]?>" alt="">

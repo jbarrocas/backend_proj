@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const result = (total_by_subject / total) * 100;
 
         percentage.textContent = result.toFixed(2) + "%";
-
-        console.log(result);
     }
 
     const month_percentages = document.getElementsByName("percentageMonth");
@@ -26,8 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
         const result = (total_by_subject / total) * 100;
 
         month_percentage.textContent = result.toFixed(2) + "%";
-
-        console.log(result);
     }
-
 });

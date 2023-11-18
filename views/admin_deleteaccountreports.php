@@ -12,7 +12,7 @@
     require("templates/adminmenu.php");
 ?>
         <h1>Deleted Accounts Reports</h1>
-        <h2>Last week statistics</h2>
+        <h2>Last Week Statistics</h2>
         <table>
             <tr>
                 <th>Subject</th>
@@ -30,8 +30,12 @@
         ';
     }
 ?>
+            <tr>
+                 <td>Total Deleted Accounts</td>
+                 <td colspan="2"><?= $numberOfRows ?></td>   
+            </tr>
         </table>
-        <h2>Last Month statistics</h2>
+        <h2>Last Month Statistics</h2>
         <table>
             <tr>
                 <th>Subject</th>
@@ -49,14 +53,17 @@
         ';
     }
 ?>
+            <tr>
+                 <td>Total Deleted Accounts</td>
+                 <td colspan="2"><?= $numberOfRowsMonth ?></td>   
+            </tr>
         </table>
-        <h2>Last 100 Reports</h2>
+        <h2>Last 100 Reports With Messages</h2>
         <div class="post-reports">
             <table>
                 <tr>
                     <th>Report ID</th>
                     <th>Subject</th>
-                    <th>Text</th>
                     <th>Deleted At</th>
                 </tr>
 <?php
@@ -65,7 +72,6 @@
             <tr>
                 <td>' .$report["delete_account_report_id"]. '</td>
                 <td>' .$report["subject"]. '</td>
-                <td>' .$report["user_text"]. '</td>
                 <td>' .$report["deleted_at"]. '</td>
                 <td><a href="/admin_deletereportdetail/' .$report["delete_account_report_id"]. '">See Report Detail</a></td>
             </tr>
