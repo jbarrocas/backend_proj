@@ -12,7 +12,7 @@ $comment = $modelComments->getCommentById($id);
 
 $reportsSubjects = [];
 foreach($subjects as $subject){
-    $reportsSubjects[] = $subject["name"];
+    $reportsSubjects[] = $subject["report_subject_id"];
 }
 
 if(!isset($_SESSION["user_id"])) {

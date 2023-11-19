@@ -28,11 +28,14 @@ class Delete_Reports extends Base{
         $query = $this->db->prepare("
         SELECT
             delete_account_report_id,
-            subject,
+            subject_id,
             user_text,
-            deleted_at
+            deleted_at,
+            das.name
         FROM
             delete_account_reports
+        INNER JOIN
+            delete_account_subjects AS das ON subject_id = das.delete_account_subject_id
         WHERE
             user_text IS NOT NULL
         ORDER BY
@@ -49,11 +52,14 @@ class Delete_Reports extends Base{
 
         $query = $this->db->prepare("
         SELECT
-            subject,
+            subject_id,
             user_text,
-            deleted_at
+            deleted_at,
+            das.name
         FROM
             delete_account_reports
+        INNER JOIN
+            delete_account_subjects AS das ON subject_id = das.delete_account_subject_id
         WHERE
             delete_account_report_id = ?
         ");
@@ -68,7 +74,7 @@ class Delete_Reports extends Base{
         $query = $this->db->prepare("
         SELECT
             delete_account_report_id,
-            subject,
+            subject_id,
             user_text,
             deleted_at
         FROM
@@ -87,7 +93,7 @@ class Delete_Reports extends Base{
         $query = $this->db->prepare("
         SELECT
             delete_account_report_id,
-            subject,
+            subject_id,
             user_text,
             deleted_at
         FROM
@@ -105,13 +111,16 @@ class Delete_Reports extends Base{
 
         $query = $this->db->prepare("
             SELECT
-                subject, COUNT(*) AS count 
+                das.name,
+                subject_id, COUNT(*) AS count
             FROM
                 delete_account_reports
+            INNER JOIN
+                delete_account_subjects AS das ON subject_id = das.delete_account_subject_id
             WHERE
                 deleted_at > DATE_ADD(CURRENT_TIMESTAMP, INTERVAL -7 DAY)
             GROUP BY
-                subject
+                subject_id
         ");
 
         $query->execute();
@@ -123,13 +132,16 @@ class Delete_Reports extends Base{
 
         $query = $this->db->prepare("
             SELECT
-                subject, COUNT(*) AS count 
+                das.name,
+                subject_id, COUNT(*) AS count 
             FROM
                 delete_account_reports
+            INNER JOIN
+                delete_account_subjects AS das ON subject_id = das.delete_account_subject_id
             WHERE
                 deleted_at > DATE_ADD(CURRENT_TIMESTAMP, INTERVAL -30 DAY)
             GROUP BY
-                subject
+                subject_id
         ");
 
         $query->execute();

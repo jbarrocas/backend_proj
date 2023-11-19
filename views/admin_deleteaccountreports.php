@@ -23,7 +23,7 @@
     foreach($weekStatistics as $weekStatistic) {
         echo '
             <tr>
-                <td>' .$weekStatistic["subject"]. '</td>
+                <td>' .$weekStatistic["name"]. '</td>
                 <td data-count="' .$weekStatistic["count"]. '">' .$weekStatistic["count"]. '</td>
                 <td name="percentage"></td>
             </tr>
@@ -46,7 +46,7 @@
     foreach($monthStatistics as $monthStatistic) {
         echo '
             <tr>
-                <td>' .$monthStatistic["subject"]. '</td>
+                <td>' .$monthStatistic["name"]. '</td>
                 <td data-count="' .$monthStatistic["count"]. '">' .$monthStatistic["count"]. '</td>
                 <td name="percentageMonth"></td>
             </tr>
@@ -71,7 +71,7 @@
         echo '
             <tr>
                 <td>' .$report["delete_account_report_id"]. '</td>
-                <td>' .$report["subject"]. '</td>
+                <td>' .$report["name"]. '</td>
                 <td>' .$report["deleted_at"]. '</td>
                 <td><a href="/admin_deletereportdetail/' .$report["delete_account_report_id"]. '">See Report Detail</a></td>
             </tr>

@@ -18,7 +18,7 @@
             <p>Title: <?=$postReport["title"]?></p>
             <p>Content: <?=$postReport["content"]?></p>
             <p>Author: <?=$user["username"]?></p>
-            <p>Report Subject: <?=$postReport["subject"]?></p>
+            <p>Report Subject: <?=$postReport["name"]?></p>
             <div class="form-container">
                 <form method="post" action="/admin_postreportdetail/<?= $postReport["post_id"] ?>">
                     <button type="submit" name="dismiss">Dismiss Report</button>

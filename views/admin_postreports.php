@@ -25,7 +25,7 @@
         echo '
             <tr>
                 <td>' .$postReport["post_id"]. '</td>
-                <td>' .$postReport["subject"]. '</td>
+                <td>' .$postReport["name"]. '</td>
                 <td>' .$postReport["username"]. '</td>
                 <td>' .$postReport["reported_at"]. '</td>
                 <td><a href="/admin_postreportdetail/' .$postReport["post_id"]. '">See Report Detail</a></td>

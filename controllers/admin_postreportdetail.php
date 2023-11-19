@@ -45,11 +45,16 @@ else {
         require("models/posts.php");
         $modelPosts = new Posts();
 
+        require("models/procedure_subjects.php");
+        $modelActions = new Procedure_Subjects();
+
         if(isset($_POST["dismiss"])) {
 
-            $action = "dismiss";
+            $modelAction = $modelActions->get();
 
-            $modelPostReports->updateReport($action, $_SESSION["user_id"], $postReport["post_id"]);
+            $procedure = $modelAction[0];
+
+            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);
 
             $reportedBy = $modelUsers->getById($postReport["reported_by"]);
 
@@ -76,8 +81,11 @@ else {
 
         if(isset($_POST["restrict_privileges"])) {
 
-            $action = "restrict";
-            $modelPostReports->updateReport($action, $_SESSION["user_id"], $postReport["post_id"]);
+            $modelAction = $modelActions->get();
+
+            $procedure = $modelAction[1];
+
+            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);
 
             $modelRestriction = new User_Restrictions();
             $modelRestriction->createPostUserRestriction($postReport["post_author"], $postReport["post_id"]);
@@ -127,8 +135,11 @@ else {
 
         if(isset($_POST["ban_user"])) {
 
-            $action = "ban";
-            $modelPostReports->updateReport($action, $_SESSION["user_id"], $postReport["post_id"]);
+            $modelAction = $modelActions->get();
+
+            $procedure = $modelAction[2];
+
+            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);
 
             $modelBan = new User_Bans();
             $modelBan->createUserBan($user["email"], $_SESSION["user_id"]);

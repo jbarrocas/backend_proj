@@ -8,7 +8,7 @@ class Comments_Reports extends Base{
 
         $query = $this->db->prepare("
             INSERT INTO comments_reports
-            (comment_id, user_id, subject)
+            (comment_id, user_id, subject_id)
             VALUES(?, ?, ?)
         ");
 

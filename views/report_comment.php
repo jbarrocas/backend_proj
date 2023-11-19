@@ -28,7 +28,7 @@
     foreach($subjects as $subject) {
 
         echo '
-            <option value="' .$subject["name"]. '">' .$subject["name"]. '</option>
+            <option value="' .$subject["report_subject_id"]. '">' .$subject["name"]. '</option>
         ';
     }
 ?>

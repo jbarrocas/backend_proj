@@ -12,7 +12,7 @@
 ?>
         <h1>Deleted Account Report Detail</h1>
         <div class="delete-report">
-            <p>Subject: <?=$report["subject"]?></p>
+            <p>Subject: <?=$report["name"]?></p>
             <p>Message: <?=$report["user_text"]?></p>
             <p>Deleted at: <?=$report["deleted_at"]?></p>
         </div>
