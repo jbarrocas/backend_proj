@@ -21,7 +21,9 @@
         <h1>My Profile</h1>
         <div>
             <div>
-                <img id="userPhoto" src="/images/users/<?=$user["photo"]?>" alt="">
+                <figure>
+                    <img id="userPhoto" src="/images/users/<?=$user["photo"]?>" alt="">
+                </figure>
                 <div><a href="/updatephoto/">Change</a></div>
             </div>
             <div>

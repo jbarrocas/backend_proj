@@ -16,9 +16,8 @@ require("templates/adminmenu.php");
                 <h2>Admin Action Area</h2>
                 <ul>
                     <li><a href="/admin_postreports/">Posts Reports</a></li>
-                    <li><a href="/commentsreports/">Comments Reports</a></li>
-                    <li><a href="/searchposts/">Search Posts</a></li>
-                    <li><a href="/report/">Report to Administration</a></li>
+                    <li><a href="/admin_commentsreports/">Comments Reports</a></li>
+                    <li><a href="/admin_report/">Report to Administration</a></li>
                 </ul>
             </section>
 <?php
@@ -28,8 +27,8 @@ require("templates/adminmenu.php");
                 <h2>Super Admin Area</h2>
                 <ul>
                     <li><a href="/admin_list/">Admins List</a></li>
+                    <li><a href="/admin_search_user/">Search User</a></li>
                     <li><a href="/admin_accountreports/">Deleted Accounts Reports</a></li>
-                    <li><a href="/search_user/">Search User</a></li>
                 </ul>
             </section>
         ';

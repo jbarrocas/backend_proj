@@ -72,6 +72,42 @@ class Users extends Base
         return $query->fetch();
     }
 
+    public function searchUser($search) {
+
+        $query = $this->db->prepare("
+            SELECT
+                user_id,
+                username,
+                first_name,
+                last_name,
+                email,
+                photo,
+                is_admin,
+                is_super_admin,
+                c.name AS country,
+                c.country_id
+            FROM
+                users
+            INNER JOIN
+                countries AS c USING(country_id)
+            WHERE
+                username LIKE ?
+                OR first_name LIKE ?
+                OR last_name LIKE ?
+                OR email LIKE ?
+            LIMIT 100 OFFSET 0
+        ");
+
+        $query->execute(
+            ["%".$search."%",
+            "%".$search."%",
+            "%".$search."%",
+            "%".$search."%"]
+        );
+
+        return $query->fetchAll();;
+    }
+
     public function getAdmins($is_admin) {
 
         $query = $this->db->prepare("
