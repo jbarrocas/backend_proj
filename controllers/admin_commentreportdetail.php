@@ -25,12 +25,12 @@ else {
     }
     else {
 
-        require("models/post_reports.php");
+        require("models/comments_reports.php");
 
-        $modelPostReports = new Post_Reports();
-        $postReport = $modelPostReports->getReportById($id);
+        $modelCommentReports = new Comments_Reports();
+        $commentReport = $modelCommentReports->getReportById($id);
 
-        if( empty($postReport) ) {
+        if( empty($commentReport) ) {
             http_response_code(404);
             die("Not found");
         }
@@ -40,10 +40,10 @@ else {
         require("functions/sendemail.php");
 
         $modelUsers = new Users();
-        $user = $modelUsers->getById($postReport["post_author"]);
+        $user = $modelUsers->getById($commentReport["comment_author"]);
 
-        require("models/posts.php");
-        $modelPosts = new Posts();
+        require("models/comments.php");
+        $modelComments = new Comments();
 
         require("models/procedure_subjects.php");
         $modelActions = new Procedure_Subjects();
@@ -54,19 +54,19 @@ else {
 
             $procedure = $modelAction[0];
 
-            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);
+            $modelCommentReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $commentReport["comment_id"]);
 
-            $reportedBy = $modelUsers->getById($postReport["reported_by"]);
+            $reportedBy = $modelUsers->getById($commentReport["reported_by"]);
 
             $complainer_f_name = $reportedBy["first_name"];
 
-            $subject = "Post report follow-up.";
+            $subject = "Comment report follow-up.";
 
             $message = "<p>Dear $complainer_f_name.</p>
-            <p>We have received your complaint about a post on our website.</p>
+            <p>We have received your complaint about a comment on our website.</p>
             <p>After checking it, we came to the conclusion that there was no reason for it.</p>
-            <p>If you would like to report a comment instead of the post, please use the button next to the comment to do so.</p>
-            <p>If you still find the post offensive and don't agree with our decision, you can always contact us.</p>            
+            <p>If you would like to report a post instead of the comment, please use the button next to the post to do so.</p>
+            <p>If you still find the comment offensive and don't agree with our decision, you can always contact us.</p>            
             <p>Thank you for choosing Postapol.</p>            
             <p>The Postapol team</p>";
 
@@ -74,7 +74,7 @@ else {
 
             http_response_code(202);
 
-            header("Location: /admin_postreports/");
+            header("Location: /admin_commentreports/");
         }
 
         require("models/user_restrictions.php");
@@ -85,23 +85,23 @@ else {
 
             $procedure = $modelAction[1];
 
-            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);
+            $modelCommentReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $commentReport["comment_id"]);
 
             $modelRestriction = new User_Restrictions();
-            $modelRestriction->createUserRestriction($postReport["post_author"]);
+            $modelRestriction->createUserRestriction($commentReport["comment_author"]);
 
-            $modelUsers->updateRestrictStatus($postReport["post_author"]);
+            $modelUsers->updateRestrictStatus($commentReport["comment_author"]);
 
-            $modelPosts->delete($postReport["post_id"]);
+            $modelComments->delete($commentReport["comment_id"]);
 
-            $reportedBy = $modelUsers->getById($postReport["reported_by"]);
+            $reportedBy = $modelUsers->getById($commentReport["reported_by"]);
 
             $complainer_f_name = $reportedBy["first_name"];
 
-            $subject = "Post report follow-up.";
+            $subject = "Comment report follow-up.";
 
             $message = "<p>Dear $complainer_f_name.</p>
-            <p>We have received your complaint about a post on our website.</p>
+            <p>We have received your complaint about a comment on our website.</p>
             <p>After checking it, we have come to the conclusion that there was a reason for 
             it and have imposed a temporary sanction on the user.</p>
             <p>Thank you for helping us to keep Postapol a safe place.</p>          
@@ -110,15 +110,15 @@ else {
 
             sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
 
-            $createdBy = $modelUsers->getById($postReport["post_author"]);
+            $createdBy = $modelUsers->getById($commentReport["comment_author"]);
 
             $prevaricator_f_name = $createdBy["first_name"];
 
-            $subject = "Post Complaint.";
+            $subject = "Comment Complaint.";
 
             $message = "<p>Dear $prevaricator_f_name.</p>
-            <p>We have received a complaint about a post you made on our site.</p>
-            <p>After checking it, we have come to the conclusion that the post does not follow 
+            <p>We have received a complaint about a comment you made on our site.</p>
+            <p>After checking it, we have come to the conclusion that the comment does not follow 
             our site's operating rules, which were accepted by you when you registered.</p>
             <p>We understand that we all have bad days and not-so-good days.</p>
             <p>That's why we find ourselves having to sanction you in some way. In this case, 
@@ -131,7 +131,7 @@ else {
 
             http_response_code(202);
 
-            header("Location: /admin_postreports/");
+            header("Location: /admin_commentreports/");
         }
 
         require("models/user_bans.php");
@@ -142,21 +142,21 @@ else {
 
             $procedure = $modelAction[2];
 
-            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);
+            $modelCommentReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $commentReport["comment_id"]);
 
             $modelBan = new User_Bans();
             $modelBan->createUserBan($user["email"], $_SESSION["user_id"]);
 
-            $modelPosts->delete($postReport["post_id"]);
+            $modelComments->delete($commentReport["comment_id"]);
 
-            $reportedBy = $modelUsers->getById($postReport["reported_by"]);
+            $reportedBy = $modelUsers->getById($commentReport["reported_by"]);
 
             $complainer_f_name = $reportedBy["first_name"];
 
-            $subject = "Post report follow-up.";
+            $subject = "Comment report follow-up.";
 
             $message = "<p>Dear $complainer_f_name.</p>
-            <p>We have received your complaint about a post on our website.</p>
+            <p>We have received your complaint about a comment on our website.</p>
             <p>After checking it, we have come to the conclusion that there was a reason for 
             it and we have banned the user from our site.</p>
             <p>Thank you for helping us to keep Postapol a safe place.</p>            
@@ -165,15 +165,15 @@ else {
 
             sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
 
-            $createdBy = $modelUsers->getById($postReport["post_author"]);
+            $createdBy = $modelUsers->getById($commentReport["comment_author"]);
 
             $prevaricator_f_name = $createdBy["first_name"];
 
-            $subject = "Post Complaint.";
+            $subject = "Comment Complaint.";
 
             $message = "<p>Dear $prevaricator_f_name.</p>
-            <p>We have received a complaint about a post you made on our site.</p>
-            <p>After checking it, we have come to the conclusion that the post does not follow 
+            <p>We have received a complaint about a comment you made on our site.</p>
+            <p>After checking it, we have come to the conclusion that the comment does not follow 
             our site's operating rules, which were accepted by you when you registered.</p>
             <p>We do not support this kind of behavior, nor do we accept it on our site.</p>
             <p>For this reason, we have decided to ban your account, making it impossible for you to access Postapol.</p>
@@ -182,15 +182,15 @@ else {
 
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
 
-            $modelUsers->deleteUser($postReport["post_author"]);
+            $modelUsers->deleteUser($commentReport["comment_author"]);
 
             http_response_code(202);
 
-            header("Location: /admin_postreports/");
+            header("Location: /admin_commentreports/");
         }
     }
 }
 
-require("views/admin_postreportdetail.php");
+require("views/admin_commentreportdetail.php");
 
 ?>

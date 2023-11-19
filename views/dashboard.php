@@ -16,7 +16,7 @@ require("templates/adminmenu.php");
                 <h2>Admin Action Area</h2>
                 <ul>
                     <li><a href="/admin_postreports/">Posts Reports</a></li>
-                    <li><a href="/admin_commentsreports/">Comments Reports</a></li>
+                    <li><a href="/admin_commentreports/">Comments Reports</a></li>
                     <li><a href="/admin_report/">Report to Administration</a></li>
                 </ul>
             </section>

@@ -96,6 +96,16 @@ class Comments extends Base
             $user_id
         ]);
     }
+
+    public function delete($id) {
+
+        $query = $this->db->prepare("
+            DELETE FROM comments
+            WHERE comment_id = ?
+        ");
+
+        $query->execute([$id]);
+    }
 }
 
 ?>
