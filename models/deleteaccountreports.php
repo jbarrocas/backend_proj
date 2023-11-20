@@ -149,16 +149,16 @@ class Delete_Reports extends Base{
         return $query->fetchAll();
     }
 
-    public function createReport($subject, $motive, $email) {
+    public function createReport($subject_id, $motive, $email) {
 
         $query = $this->db->prepare("
             INSERT INTO delete_account_reports
-            (subject, user_text, user_email)
+            (subject_id, user_text, user_email)
             VALUES(?, ?, ?)
         ");
 
         $query->execute([
-            $subject,
+            $subject_id,
             $motive,
             $email
         ]);
@@ -168,7 +168,7 @@ class Delete_Reports extends Base{
 
         $query = $this->db->prepare("
             INSERT INTO delete_account_reports
-            (subject, user_email)
+            (subject_id, user_email)
             VALUES(?, ?)
         ");
 

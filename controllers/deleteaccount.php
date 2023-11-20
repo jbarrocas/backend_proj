@@ -7,7 +7,7 @@ $subjects = $modelDeleteSubjects->get();
 
 $deleteSubjects = [];
 foreach($subjects as $subject){
-    $deleteSubjects[] = $subject["name"];
+    $deleteSubjects[] = $subject["delete_account_subject_id"];
 }
 
 if(!isset($_SESSION["user_id"])) {
@@ -16,15 +16,17 @@ if(!isset($_SESSION["user_id"])) {
 }
 else {
 
-    if(isset($_POST["send"])) {
+    if(isset($_POST["delete"])) {
+
+        print_r($_POST);
 
         foreach($_POST as $key => $value){
             $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
         }
 
         if(
-            empty($_POST["subject"]) ||
-            !in_array($_POST["subject"], $deleteSubjects)
+            empty($_POST["subject_id"]) ||
+            !in_array($_POST["subject_id"], $deleteSubjects)
         ) {
             $message = "Choose a subject for report";
         }
@@ -40,7 +42,7 @@ else {
             if(!empty($_POST["delete_motive"])) {
 
                 $modelReport->createReport(
-                    $_POST["subject"],
+                    $_POST["subject_id"],
                     $_POST["delete_motive"],
                     $user["email"]
                 );
@@ -48,7 +50,7 @@ else {
             else {
 
                 $modelReport->createReportWithoutText(
-                    $_POST["subject"],
+                    $_POST["subject_id"],
                     $user["email"]
                 );
             }

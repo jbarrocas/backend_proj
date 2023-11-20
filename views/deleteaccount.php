@@ -23,18 +23,18 @@
 ?>
         <form class="" method="POST" action="/deleteaccount/" name="form">
             <label for="subject">What's the reason?</label>
-            <select class="report-select" name="subject" required>
+            <select class="report-select" name="subject_id" required>
 <?php
     foreach($subjects as $subject) {
 
         echo '
-            <option value="' .$subject["name"]. '">' .$subject["name"]. '</option>
+            <option value="' .$subject["delete_account_subject_id"]. '">' .$subject["name"]. '</option>
         ';
     }
 ?>
             </select>
             <textarea name="delete_motive" id="motive" placeholder="Tell us why (optional)" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
-            <button type="submit" name="send">Delete</button>
+            <button type="submit" name="delete">Delete</button>
         </form>
     </main>    
 </body>
