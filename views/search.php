@@ -7,6 +7,7 @@
     <script src="/js/likes.js"></script>
     <script src="/js/search.js"></script>
     <script src="/js/posts_buttons.js"></script>
+    <script src="/js/post_delete.js"></script>
 </head>
 <body>
     <main>
