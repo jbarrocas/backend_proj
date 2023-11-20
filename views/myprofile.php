@@ -29,9 +29,9 @@
             <div>
                 <p ><?=$user["username"]?></p>
                 <p><?=$user["country"]?></p>
-                <p><?=$postsCount["posts_count"]?> posts</p>
+                <p>Posts <?=$postsCount["posts_count"]?></p>
                 <div data-user_id="<?=$user["user_id"]?>">
-                    <p><span id="followersNumber"><?=$followersCount["total_count"]?></span> Followers</p>
+                    <p>Followers <span id="followersNumber"><?=$followersCount["total_count"]?></span></p>
                     <p>Following <?=$followsCount["total_count"]?></p>
                     <div><a href="/updatedetails/">Update Details</a></div>
                     <div><a href="/deleteaccount/">Delete Account</a></div>

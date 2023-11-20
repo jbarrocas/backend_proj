@@ -15,9 +15,9 @@
             </div>
             <div>
                 <button id="likeBtn'.$favoritePost["post_id"].'" type="button" data-user="' .$favoritePost["liked"]. '" name="like">Like</button>
-                <p id="likeCount' .$favoritePost["post_id"]. '"><span id="likesNumber' .$favoritePost["post_id"]. '">' .$favoritePost["like_count"]. '</span> likes</p>
+                <p id="likeCount' .$favoritePost["post_id"]. '">Likes <span id="likesNumber' .$favoritePost["post_id"]. '">' .$favoritePost["like_count"]. '</span></p>
                 <div><a href="/postdetail/' .$favoritePost["post_id"]. '">Comment</a></div>
-                <p><Span>' .$favoritePost["comments_count"]. '</span> comments</p>
+                <p>Comments <Span>' .$favoritePost["comments_count"]. '</span></p>
                 <div><a href="/report_post/' .$favoritePost["post_id"]. '">Report</a></div>
             </div>
         </article>

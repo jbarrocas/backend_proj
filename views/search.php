@@ -45,9 +45,9 @@
                     </div>
                     <div>
                         <button id="likeBtn'.$post["post_id"].'" type="button" data-user="' .$post["liked"]. '" name="like">Like</button>
-                        <p id="likeCount' .$post["post_id"]. '"><span id="likesNumber' .$post["post_id"]. '">' .$post["like_count"]. '</span> likes</p>
+                        <p id="likeCount' .$post["post_id"]. '">Likes <span id="likesNumber' .$post["post_id"]. '">' .$post["like_count"]. '</span></p>
                         <div><a href="/postdetail/' .$post["post_id"]. '">Comment</a></div>
-                        <p><Span>' .$post["comments_count"]. '</span> comments</p>
+                        <p>Comments <Span>' .$post["comments_count"]. '</span></p>
                         <div><a href="/report_post/' .$post["post_id"]. '">Report</a></div>
                     </div>
                 </article>

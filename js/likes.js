@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(likeButton.dataset.user.length > 0) {
 
             likeButton.setAttribute("data-like", "liked");
-            likeButton.textContent = "Liked";
+            likeButton.textContent = "Unlike";
         }
         else {
             likeButton.removeAttribute("data-like");
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(result.message === "created") {
 
                         likeButton.setAttribute("data-like", "liked");
-                        likeButton.textContent = "Liked";
+                        likeButton.textContent = "Unlike";
 
                         const likesNumber = document.getElementById("likesNumber" + post_id);
 

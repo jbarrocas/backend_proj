@@ -15,9 +15,9 @@
                 </div>
                 <div>
                     <button id="likeBtn'.$mostLikedPost["post_id"].'" type="button" data-user="' .$mostLikedPost["liked"]. '" name="like">Like</button>
-                    <p id="likeCount' .$mostLikedPost["post_id"]. '"><span id="likesNumber' .$mostLikedPost["post_id"]. '">' .$mostLikedPost["like_count"]. '</span> likes</p>
+                    <p id="likeCount' .$mostLikedPost["post_id"]. '">Likes <span id="likesNumber' .$mostLikedPost["post_id"]. '">' .$mostLikedPost["like_count"]. '</span></p>
                     <div><a href="/postdetail/' .$mostLikedPost["post_id"]. '">Comment</a></div>
-                    <p><Span>' .$mostLikedPost["comments_count"]. '</span> comments</p>
+                    <p>Comments <Span>' .$mostLikedPost["comments_count"]. '</span></p>
                     <div><a href="/report_post/' .$mostLikedPost["post_id"]. '">Report</a></div>
                 </div>
             </article>
