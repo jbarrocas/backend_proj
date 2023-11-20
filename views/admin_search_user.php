@@ -9,12 +9,7 @@
 <body>
     <main>
 <?php
-    if(isset($_SESSION["is_admin"]) || isset($_SESSION["is_super_admin"])) {
-        require("templates/adminmenu.php");
-    }
-    else {
-        require("templates/menu.php");
-    }
+    require("templates/adminmenu.php");
 ?>
         <h1 id="heading">Search User</h1>
         <form action="/admin_search_user/" method="get" id="searchForm">           
@@ -36,7 +31,7 @@
                     <p>Email: ' .$user["email"]. '</p>
                     <p>Country: ' .$user["country"]. '</p>
                     <div>
-                        <a href="/admin_updateadminstatus/' .$user["user_id"]. '">Update Status</a>
+                        <a href="/admin_updateadminstatus/' .$user["user_id"]. '">View Detail and Update Status</a>
                     </div>
                 </div>
             ';

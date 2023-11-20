@@ -20,7 +20,7 @@
                 <p>Email: ' .$admin["email"]. '</p>
                 <p>Country: ' .$admin["country"]. '</p>
                 <div>
-                    <a href="/admin_updateadminstatus/' .$admin["user_id"]. '">Update Status</a>
+                    <a href="/admin_updateadminstatus/' .$admin["user_id"]. '">View Detail and Update Status</a>
                 </div>
             </div>
         ';

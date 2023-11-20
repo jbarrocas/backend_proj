@@ -11,7 +11,7 @@ else {
 
     if(
         isset($_SESSION["user_id"]) &&
-        isset($_SESSION["is_admin"]) ||
+        !isset($_SESSION["is_admin"]) &&
         !isset($_SESSION["is_super_admin"])
     ) {
 
