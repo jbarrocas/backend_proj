@@ -8,12 +8,18 @@ class Admin_Reports extends Base{
 
         $query = $this->db->prepare("
             SELECT
-                admin_id,
-                admin_message,
-                created_at,
-                archived
+                ar.admin_report_id,
+                ar.admin_id,
+                ar.admin_message,
+                ar.created_at,
+                ar.archived,
+                u.username
             FROM
-                admin_reports
+                admin_reports AS ar
+            INNER JOIN
+                users AS u ON ar.admin_id = u.user_id
+            WHERE
+                archived IS FALSE
             ORDER BY
                 admin_report_id DESC
         ");
