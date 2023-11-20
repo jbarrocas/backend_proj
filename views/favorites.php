@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorite Posters</title>
     <script src="/js/likes.js"></script>
+    <script src="/js/posts_buttons.js"></script>
 </head>
 <body>
     <main>
@@ -18,7 +19,7 @@
 ?>
         <h1>Your favorites</h1>
 <?php
-    require("templates/favoritePosts.php");
+    require("templates/posts.php");
 
     if( isset($info_message) ) {
         echo '<p role="alert">' .$info_message. '</p>';

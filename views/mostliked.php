@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Most Liked Posts</title>
     <script src="/js/likes.js"></script>
+    <script src="/js/posts_buttons.js"></script>
 </head>
 <body>
     <main>
@@ -18,7 +19,7 @@
 ?>
         <h1>Most Liked Posts</h1>
 <?php
-    require("templates/mostLikedPosts.php");
+    require("templates/posts.php");
 ?>
     </main>    
 </body>

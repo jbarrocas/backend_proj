@@ -13,8 +13,8 @@ else {
     $offset = 0;
 
     require("models/posts.php");
-    $posts = new Posts();
-    $postsCount = $posts->getPostsCount();
+    $model = new Posts();
+    $postsCount = $model->getPostsCount();
 
     $posts_number = $postsCount[0]["posts_count"];
 
@@ -39,7 +39,7 @@ else {
 
     $offset = ($page_number - 1) * $limit;
 
-    $recentPosts = $posts->getRecentPosts($_SESSION["user_id"], $limit, $offset);
+    $posts = $model->getRecentPosts($_SESSION["user_id"], $limit, $offset);
     
     if($page_number != $pages_number) {
         $next_page = $page_number + 1;

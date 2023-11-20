@@ -10,8 +10,8 @@ if(!isset($_SESSION["user_id"])) {
 else {
     require("models/posts.php");
 
-    $posts = new Posts();
-    $mostLikedPosts = $posts->getMostLikedPosts($_SESSION["user_id"]);
+    $model = new Posts();
+    $posts = $model->getMostLikedPosts($_SESSION["user_id"]);
 }
 
 require("views/mostliked.php");

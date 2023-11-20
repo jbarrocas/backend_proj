@@ -32,7 +32,7 @@ else {
     
         $modelPosts = new Posts();
         $postsCount = $modelPosts->getPostsCountByUser($id);
-        $recentPostsByUsers = $modelPosts->getPostsByUser($_SESSION["user_id"], $id);
+        $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $id);
     
         $modelFollows = new Follows();
         $followersCount = $modelFollows->getFollowersById($id);

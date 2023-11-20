@@ -6,6 +6,7 @@
     <title>Profile - <?= $user["username"] ?></title>
     <script src="/js/profile.js"></script>
     <script src="/js/likes.js"></script>
+    <script src="/js/posts_buttons.js"></script>
 </head>
 <body>
     <main>
@@ -32,7 +33,7 @@
             </div>
         </div>
 <?php
-    require("templates/userposts.php");
+    require("templates/posts.php");
 ?>
     </main>
     

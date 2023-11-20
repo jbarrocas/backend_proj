@@ -6,6 +6,7 @@
     <title>Postapol</title>
     <script src="/js/likes.js"></script>
     <script src="/js/home.js"></script>
+    <script src="/js/posts_buttons.js"></script>
 </head>
 <body>
     <main>
@@ -19,7 +20,7 @@
 ?>
         <h1>Most Recent Posts</h1>
 <?php
-    require("templates/recentPosts.php");
+    require("templates/posts.php");
 ?>
         <form action="/home/" method="get">
             <input type="hidden" data-last_page="<?= $pages_number ?>">

@@ -11,9 +11,9 @@ else {
     require("models/posts.php");
 
     $model = new Posts();
-    $favoritePosts = $model->getPostsByFollower($_SESSION["user_id"], $_SESSION["user_id"]);
+    $posts = $model->getPostsByFollower($_SESSION["user_id"], $_SESSION["user_id"]);
 
-    if(empty($favoritePosts)) {
+    if(empty($posts)) {
         
         $info_message = "You do not follow anyone.";
     }

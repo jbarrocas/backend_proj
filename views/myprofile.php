@@ -6,6 +6,7 @@
     <title>My Profile - <?= $user["username"] ?></title>
     <script src="/js/likes.js"></script>
     <script src="/js/posts.js"></script>
+    <script src="/js/posts_buttons.js"></script>
 
 </head>
 <body>
@@ -39,7 +40,7 @@
             </div>
         </div>
 <?php
-    require("templates/ownedposts.php");
+    require("templates/posts.php");
 ?>
     </main>
     
