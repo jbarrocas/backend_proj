@@ -26,7 +26,7 @@
                 <td>' .$adminReport["admin_report_id"]. '</td>
                 <td>' .$adminReport["username"]. '</td>
                 <td>' .$adminReport["created_at"]. '</td>
-                <td><a href="/admin_adminreportdetail/' .$adminReport["admin_report_id"]. '">See Report Detail</a></td>
+                <td><a href="/admin_reportdetail/' .$adminReport["admin_report_id"]. '">See Report Detail</a></td>
             </tr>
         ';
     }

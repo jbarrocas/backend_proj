@@ -4,6 +4,28 @@ require_once("base.php");
 
 class Admin_Reports extends Base{
 
+    public function getReportById($id) {
+
+        $query = $this->db->prepare("
+            SELECT
+                ar.admin_report_id,
+                ar.admin_id,
+                ar.admin_message,
+                ar.created_at,
+                u.username
+            FROM
+                admin_reports AS ar
+            INNER JOIN
+                users AS u ON ar.admin_id = u.user_id
+            WHERE
+                ar.admin_report_id = ?
+        ");
+
+        $query->execute([$id]);
+
+        return $query->fetch();
+    }
+
     public function getActive() {
 
         $query = $this->db->prepare("
@@ -43,23 +65,22 @@ class Admin_Reports extends Base{
         ]);
     }
 
-    public function updateAdminReport($archived, $super_admin_id, $admin_id) {
+    public function updateAdminReport($super_admin_id, $admin_report_id) {
 
         $query = $this->db->prepare("
             UPDATE
                 admin_reports
             SET
-                archived = ?,
+                archived = 1,
                 archived_by = ?,
                 archived_at = CURRENT_TIMESTAMP
             WHERE
-                user_id = ?
+                admin_report_id = ?
         ");
 
         return $query->execute([
-            $archived,
             $super_admin_id,
-            $admin_id
+            $admin_report_id
         ]);
     }
 }
