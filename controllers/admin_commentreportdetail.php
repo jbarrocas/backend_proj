@@ -182,6 +182,18 @@ else {
 
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
 
+            $posts = $modelPosts->getPostsByUser($postReport["comment_author"], $postReport["comment_author"]);
+
+            foreach($posts as $post) {
+
+                $postPhoto = "images/posts/" . $post["photo"];
+                unlink($postPhoto);
+                $modelPosts->delete($post["post_id"]);                
+            }
+
+            $userPhoto = "images/users/" . $createdBy["photo"];
+            unlink($userPhoto);
+
             $modelUsers->deleteUser($commentReport["comment_author"]);
 
             http_response_code(202);

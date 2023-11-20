@@ -55,10 +55,21 @@ else {
                 );
             }
 
+            require("models/posts.php");
+            $modelPosts = new Posts();
+            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $_SESSION["user_id"]);
+
+            foreach($posts as $post) {
+
+                $postPhoto = "images/posts/" . $post["photo"];
+                unlink($postPhoto);
+                $modelPosts->delete($post["post_id"]);                
+            }
+
             $modelUser->deleteUser($_SESSION["user_id"]);
 
-            $image = "images/users/" . $user["photo"];
-            unlink($image);
+            $userPhoto = "images/users/" . $user["photo"];
+            unlink($userPhoto);
 
             http_response_code(202);
 

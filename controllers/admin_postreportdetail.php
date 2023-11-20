@@ -92,6 +92,10 @@ else {
 
             $modelUsers->updateRestrictStatus($postReport["post_author"]);
 
+            $post = $modelPosts->getPostById($postReport["post_id"]);
+            $postPhoto = "images/posts/" . $post["photo"];
+            unlink($postPhoto);
+
             $modelPosts->delete($postReport["post_id"]);
 
             $reportedBy = $modelUsers->getById($postReport["reported_by"]);
@@ -147,8 +151,6 @@ else {
             $modelBan = new User_Bans();
             $modelBan->createUserBan($user["email"], $_SESSION["user_id"]);
 
-            $modelPosts->delete($postReport["post_id"]);
-
             $reportedBy = $modelUsers->getById($postReport["reported_by"]);
 
             $complainer_f_name = $reportedBy["first_name"];
@@ -181,6 +183,18 @@ else {
             <p>The Postapol team</p>";
 
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
+
+            $posts = $modelPosts->getPostsByUser($postReport["post_author"], $postReport["post_author"]);
+
+            foreach($posts as $post) {
+
+                $postPhoto = "images/posts/" . $post["photo"];
+                unlink($postPhoto);
+                $modelPosts->delete($post["post_id"]);                
+            }
+
+            $userPhoto = "images/users/" . $createdBy["photo"];
+            unlink($userPhoto);
 
             $modelUsers->deleteUser($postReport["post_author"]);
 
