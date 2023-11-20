@@ -183,6 +183,22 @@ class Users extends Base
         return $data;
     }
 
+    public function updatePhotoPath($path, $user_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                users
+            SET
+                photo = ?
+            WHERE
+                user_id = ?
+        ");
+
+        return $query->execute([
+            $path, $user_id
+        ]);
+    }
+
     public function updateDetails($data, $user_id) {
 
         $query = $this->db->prepare("

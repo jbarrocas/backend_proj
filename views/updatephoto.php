@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Profile Photo</title>
-    <script src="/js/validatefilesize.js"></script>
 </head>
 <body>
     <main>
@@ -25,7 +24,7 @@
 ?>
         <form method="POST" action="/updatephoto/" enctype=multipart/form-data>
             <input type="file" name="photo" id="photo" accept="<?= implode(",", $allowed_formats) ?>" required>
-            <button type="submit" name="send" onclick="validateFileSize()">Update Photo</button>
+            <button type="submit" name="send">Update Photo</button>
 
         </form>
     </main>    

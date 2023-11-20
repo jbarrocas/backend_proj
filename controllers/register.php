@@ -147,6 +147,16 @@ if (isset ($_POST["send"])){
 
                                                     $createdUser = $model->createUser($_POST);
                                                     $_SESSION["user_id"] = $createdUser["user_id"];
+
+                                                    $filename = $_SESSION["user_id"] . "_user_profile_photo" . ".jpg";
+
+                                                    $model->updatePhotoPath($filename, $_SESSION["user_id"]);
+
+                                                    $srcFile = "./images/assets/ProfileGenericPic.jpg";
+                                                    $dstFile = "./images/users/" . $filename;
+
+                                                    require("functions/imageresize.php");
+                                                    CroppedImage($srcFile, 300, 300, $dstFile);
     
                                                     unset($_SESSION["token"]);
                                                     unset($_SESSION["captcha"]);
