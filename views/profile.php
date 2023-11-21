@@ -7,6 +7,7 @@
     <script src="/js/profile.js"></script>
     <script src="/js/likes.js"></script>
     <script src="/js/posts_buttons.js"></script>
+    <script src="/js/home.js"></script>
 </head>
 <body>
     <main>
@@ -35,6 +36,10 @@
 <?php
     require("templates/posts.php");
 ?>
+        <form action="/profile/<?=$user["user_id"]?>/" method="get">
+            <input type="hidden" data-last_page="<?= $pages_number ?>">
+            <button type="submit" name="page_number" value="<?= $next_page ?>">See More</button>
+        </form>
 <?php
     require("templates/footer.php");
 ?>
