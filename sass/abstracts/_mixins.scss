@@ -1,0 +1,29 @@
+@mixin redButton{
+    @include heading-18;
+    color: $white;
+    background-color: $red;
+    padding: 8px 18px;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $white;
+        color: $red;
+    }
+}
+
+@mixin blueLink{
+    @include heading-18;
+    color: $white;
+    background-color: $blue;
+    padding: 8px 18px;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $blue;
+        color: $white;
+    }
+}

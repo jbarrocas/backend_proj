@@ -1,0 +1,92 @@
+@import "./abstracts/main";
+
+body {
+    background-color: $gray;
+    color: $white;
+    @include body-16;
+    padding-top: 180px;
+}
+
+.login-container {
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto auto auto auto;
+
+    .logo-container {
+        max-width: 400px;
+        
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .site-motto {
+            text-align: center;
+            @include heading-24;
+            margin-bottom: 68px;
+            letter-spacing: 1.2px;
+        }
+    }
+
+    .form-container {
+        max-width: 400px;
+
+        .login-input {
+            width: 360px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-style: none;
+            padding: 6px 18px 6px 18px;
+        }
+
+        .login-button {
+            width: 360px;
+            @include redButton;
+            margin-bottom: 12px;
+
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-bottom: 140px;
+
+            a {
+                color: $blue;
+                text-decoration: none;
+            }
+        }
+
+        .reg-button-container {
+            text-align: center;
+
+
+
+            a {
+                color: $white;
+                text-decoration: none;
+
+                .register-button {
+                    width: 280px;
+                    @include blueLink;
+                    margin: 12px auto 0px auto;                    
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    max-width: 400px;
+    margin: auto auto auto auto;
+
+    .logo {
+        max-width: 150px;
+        margin: 140px auto 8px auto;
+    }
+
+    .copyright {
+        text-align: center;
+        @include label;
+    }
+}

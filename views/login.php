@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700;900&display=swap" rel="stylesheet">
     <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
     <main>
@@ -26,10 +30,10 @@
                     </div>
                     <button class="login-button" type="submit" name="send">Log In</button>
                 </form>
-                <div><a href="/resetpassword/">Forgot password?</a></div>
+                <div class="forgot-password"><a href="/resetpassword/">Forgot password?</a></div>
                 <div class="reg-button-container">
                     <p>Don't have an account?</p>
-                    <div><a href="/register/">Register</a></div>
+                    <a href="/register/"><div class="register-button">Register</div></a>
                 </div>
             </div>
         </div>
