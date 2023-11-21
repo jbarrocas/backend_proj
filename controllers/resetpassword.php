@@ -51,7 +51,7 @@ if( isset($_POST["reset_password"]) ) {
                 $actual_date <= $timeWindow
             ) {
 
-                $message = "We've already sent you a link to reset your password. Check your email box.";
+                $message = "We've already sent you a link to reset your password. Check your email box or try again in 30 minutes.";
             }
             else {
 

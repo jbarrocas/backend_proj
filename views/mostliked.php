@@ -19,8 +19,13 @@
     }
 ?>
         <h1>Most Liked Posts</h1>
+        <h2>Most Liked Posts of The Month</h2>
 <?php
     require("templates/posts.php");
+?>
+        <h2>Most Liked Posts of The Week</h2>
+<?php
+    require("templates/posts_aux.php");
 ?>
     </main>    
 </body>
