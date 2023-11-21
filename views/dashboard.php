@@ -36,6 +36,9 @@ require("templates/adminmenu.php");
     }
 ?>
         </div>
+<?php
+    require("templates/footer.php");
+?>
     </main>    
 </body>
 </html>

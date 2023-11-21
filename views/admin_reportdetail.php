@@ -25,6 +25,9 @@
     }
 ?>
         <div><a href="/admin_reports/">Back to Reports</a></div>
+<?php
+    require("templates/footer.php");
+?>
     </main>
 </body>
 </html>

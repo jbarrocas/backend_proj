@@ -16,6 +16,9 @@
             <p>Message: <?=$report["user_text"]?></p>
             <p>Deleted at: <?=$report["deleted_at"]?></p>
         </div>
+<?php
+    require("templates/footer.php");
+?>
     </main>
 </body>
 </html>

@@ -74,7 +74,9 @@
                 </div>
             </div>
         </div>
-    </main>
-    
+<?php
+    require("templates/footer.php");
+?>
+    </main>    
 </body>
 </html>

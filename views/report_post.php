@@ -35,6 +35,9 @@
             </select>
             <button type="submit" name="send">Report</button>
         </form>
-    </main>    
+<?php
+    require("templates/footer.php");
+?>
+    </main>
 </body>
 </html>

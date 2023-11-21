@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const message = document.getElementById("message");
 
+    const footer = document.getElementById("footer");
+
     const post = form.nextElementSibling;
 
-    if(post && post !== message) {
+    if(post && post != message && post != footer) {
 
         heading.textContent = "Search Results";
 

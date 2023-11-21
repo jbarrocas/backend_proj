@@ -26,6 +26,9 @@
             <input class="reset-email-input" type="email" name="email" placeholder="Email" required>
             <button type="submit" name="reset_password">Receive Email to Reset Password</button>
         </form>
+<?php
+    require("templates/footer.php");
+?>
     </main>    
 </body>
 </html>

@@ -36,6 +36,9 @@
             <textarea name="delete_motive" id="motive" placeholder="Tell us why (optional)" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
             <button type="submit" name="delete">Delete</button>
         </form>
+<?php
+    require("templates/footer.php");
+?>
     </main>    
 </body>
 </html>

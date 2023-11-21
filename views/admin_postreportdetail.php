@@ -31,6 +31,9 @@
                 </form>
             </div>
         </div>
+<?php
+    require("templates/footer.php");
+?>
     </main>
 </body>
 </html>

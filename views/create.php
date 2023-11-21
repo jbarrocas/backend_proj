@@ -29,6 +29,8 @@
                 <input type="submit" value="post" name="send">
             </form>
         </div>
-    </main>    
+<?php
+    require("templates/footer.php");
+?>    </main>  
 </body>
 </html>

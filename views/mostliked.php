@@ -27,6 +27,9 @@
 <?php
     require("templates/posts_aux.php");
 ?>
+<?php
+    require("templates/footer.php");
+?>
     </main>    
 </body>
 </html>

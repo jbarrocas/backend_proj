@@ -26,6 +26,9 @@
         echo '<p role="alert">' .$info_message. '</p>';
     }
 ?>
+<?php
+    require("templates/footer.php");
+?>
     </main>    
 </body>
 </html>

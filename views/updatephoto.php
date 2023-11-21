@@ -25,8 +25,10 @@
         <form method="POST" action="/updatephoto/" enctype=multipart/form-data>
             <input type="file" name="photo" id="photo" accept="<?= implode(",", $allowed_formats) ?>" required>
             <button type="submit" name="send">Update Photo</button>
-
         </form>
+<?php
+    require("templates/footer.php");
+?>
     </main>    
 </body>
 </html>

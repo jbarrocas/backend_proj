@@ -35,6 +35,9 @@
 <?php
     require("templates/posts.php");
 ?>
+<?php
+    require("templates/footer.php");
+?>
     </main>
     
 </body>

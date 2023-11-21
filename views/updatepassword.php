@@ -27,6 +27,9 @@
             <input class="register-input" type="password" name="new_password_confirm" placeholder="New Password Confirmation" required minlength="8" maxlength="1000">
             <button type="submit" name="send">Update Password</button>
         </form>
+<?php
+    require("templates/footer.php");
+?>
     </main>    
 </body>
 </html>

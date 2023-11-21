@@ -27,6 +27,9 @@
             <input type="hidden" data-last_page="<?= $pages_number ?>">
             <button type="submit" name="page_number" value="<?= $next_page ?>">See More</button>
         </form>
+<?php
+    require("templates/footer.php");
+?>
     </main>    
 </body>
 </html>
