@@ -31,6 +31,7 @@ class Posts extends Base {
                 p.post_date,
                 u.username,
                 u.user_id,
+                u.photo AS user_photo,
                 c.name AS country,
                 likes.user_id AS liked,
                 (SELECT COUNT(*)
@@ -84,6 +85,7 @@ class Posts extends Base {
                 p.post_date,
                 u.username,
                 u.user_id,
+                u.photo AS user_photo,
                 c.name AS country,
                 likes.user_id AS liked,
                 (SELECT COUNT(*)
@@ -125,6 +127,7 @@ class Posts extends Base {
                 p.post_date,
                 u.username,
                 u.user_id,
+                u.photo AS user_photo,
                 c.name AS country,
                 likes.user_id AS liked,
                 (SELECT COUNT(*)
@@ -166,6 +169,7 @@ class Posts extends Base {
                 p.post_date,
                 u.username,
                 u.user_id,
+                u.photo AS user_photo,
                 c.name AS country
             FROM
                 posts AS p
@@ -195,6 +199,7 @@ class Posts extends Base {
                 p.post_date,
                 u.username,
                 u.user_id,
+                u.photo AS user_photo,
                 c.name AS country,
                 likes.user_id AS liked,
                 (SELECT COUNT(*)
@@ -239,6 +244,7 @@ class Posts extends Base {
                 p.post_date,
                 u.username,
                 u.user_id,
+                u.photo AS user_photo,
                 c.name AS country,
                 likes.user_id AS liked,
                 (SELECT COUNT(*)
@@ -285,6 +291,7 @@ class Posts extends Base {
                 p.post_date,
                 u.username,
                 u.user_id,
+                u.photo AS user_photo,
                 c.name AS country,
                 likes.user_id AS liked,
                 (SELECT COUNT(*)

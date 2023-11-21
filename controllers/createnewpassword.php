@@ -77,7 +77,7 @@ if( isset($_POST["createpassword"]) ) {
 
                             $_SESSION["user_id"] = $user["user_id"];
 
-                            http_response_code(202);
+                            http_response_code(201);
             
                             header("Location: /");
                         }

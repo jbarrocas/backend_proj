@@ -12,7 +12,7 @@ else {
 
     $model = new Posts();
     $posts = $model->getMostLikedPostsMonth($_SESSION["user_id"]);
-    $post_auxs = $model->getMostLikedPostsWeek($_SESSION["user_id"]);
+    $postAuxs = $model->getMostLikedPostsWeek($_SESSION["user_id"]);
 }
 
 require("views/mostliked.php");

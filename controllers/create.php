@@ -89,7 +89,7 @@ else {
                                 $model = new Posts();
                                 $post_id = $model->createPost($post);
 
-                                http_response_code(202);
+                                http_response_code(201);
                     
                                 header("Location: /postdetail/" . $post_id);
                             }

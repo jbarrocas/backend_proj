@@ -42,6 +42,9 @@
                         </div>
                         <div class="post-signature">
                             <p class="post-date"><time>' .$post["post_date"]. '</time></p>
+                            <figure>
+                                <img class="user-photo" src="/images/users/' .$post["user_photo"]. '">
+                            </figure>
                             <p class="post-author"><a href="/profile/' .$post["user_id"]. '"><span class="username">' .$post["username"]. '</span></a> - <span class="post-country">' .$post["country"]. '</span></p>
                         </div>
                     </div>

@@ -4,12 +4,15 @@
             <article class="post-container">
                 <div class="post" name="post" id="post" data-post_id="' .$post["post_id"]. '" data-user_id="' .$post["user_id"]. '" data-session_id="' .$_SESSION["user_id"]. '">
                     <div class="content wrapper">
-                        <a href="/postdetail/' .$post["post_id"]. '"><img class="post-image" src="/images/posts/' .$post["photo"]. ' " alt=""></a>
+                        <a href="/postdetail/' .$post["post_id"]. '"><img class="post-image" src="/images/posts/' .$post["photo"]. '" alt=""></a>
                         <h2 class="post-title">' .$post["title"]. '</h2>
                         <p class="post-content">' .$post["content"]. '</p>
                     </div>
                     <div class="post-signature">
                         <p class="post-date"><time>' .$post["post_date"]. '</time></p>
+                        <figure>
+                            <img class="user-photo" src="/images/users/' .$post["user_photo"]. '">
+                        </figure>
                         <p class="post-author"><a href="/profile/' .$post["user_id"]. '"><span class="username">' .$post["username"]. '</span></a> - <span class="post-country">' .$post["country"]. '</span></p>
                     </div>
                 </div>

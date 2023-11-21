@@ -19,5 +19,4 @@ if(!empty($url_parts[2])) {
 
 require("controllers/" .$controller. ".php");
 
-
 ?>
