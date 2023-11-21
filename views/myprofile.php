@@ -7,6 +7,7 @@
     <script src="/js/likes.js"></script>
     <script src="/js/post_delete.js"></script>
     <script src="/js/posts_buttons.js"></script>
+    <script src="/js/myprofile.js"></script>
 
 </head>
 <body>
@@ -30,7 +31,7 @@
             <div>
                 <p ><?=$user["username"]?></p>
                 <p><?=$user["country"]?></p>
-                <p>Posts <?=$postsCount["posts_count"]?></p>
+                <p>Posts <span id="postsCount"><?=$postsCount["posts_count"]?></span></p>
                 <div data-user_id="<?=$user["user_id"]?>">
                     <p>Followers <span id="followersNumber"><?=$followersCount["total_count"]?></span></p>
                     <p>Following <?=$followsCount["total_count"]?></p>
