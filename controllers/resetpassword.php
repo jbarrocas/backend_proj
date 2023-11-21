@@ -18,7 +18,7 @@ if( isset($_POST["reset_password"]) ) {
 
     if(empty($user)) {
 
-        $message = "We do not have an account with this email";
+        $message = "We do not have an account with this email.";
     }
     else {
 

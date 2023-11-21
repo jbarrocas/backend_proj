@@ -122,8 +122,10 @@ if (isset ($_POST["send"])){
                                 
                                         $model = new Users();
                                         $user = $model->getByUsername($_POST["username"]);
+
+                                        $verify = stripos($_POST["username"], "postapol", 0);
                                 
-                                        if(!empty($user)){
+                                        if(!empty($user) || $verify !== false){
                                             $message = "This username is already taken";
                                         }
                                         else {
