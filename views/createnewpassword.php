@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Password</title>
+    <script src="/js/form_hide.js"></script>
 </head>
 <body>
     <main>
@@ -18,10 +19,10 @@
         <h1>Create new password</h1>
 <?php
     if( isset($message)) {
-        echo ' <p role="alert">' .$message.' </p>';
+        echo ' <p id="message" role="alert">' .$message.' </p>';
     }
 ?>       
-        <form method="POST" action="/createnewpassword/?token=<?= $_GET["token"] ?>&email=<?= $_GET["email"] ?>">
+        <form method="POST" action="/createnewpassword/?token=<?= $_GET["token"] ?>&email=<?= $_GET["email"] ?>" name="form">
             <input class="register-input" type="password" name="new_password" placeholder="New Password" required minlength="8" maxlength="1000">
             <input class="register-input" type="password" name="new_password_confirm" placeholder="New Password Confirmation" required minlength="8" maxlength="1000">
             <button type="submit" name="createpassword">Create new password</button>

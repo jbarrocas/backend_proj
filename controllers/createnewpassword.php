@@ -42,7 +42,7 @@ if( isset($_POST["createpassword"]) ) {
                 $actual_date > $timeWindow ||
                 !password_verify($token, $reset["token"])
             ) {
-                $message = "Invalid token.";
+                $message = "Invalid token. Ask for a new one <a href='/resetpassword/'>here</a>.";
             }
             else {
     
