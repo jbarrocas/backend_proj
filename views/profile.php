@@ -7,7 +7,7 @@
     <script src="/js/profile.js"></script>
     <script src="/js/likes.js"></script>
     <script src="/js/posts_buttons.js"></script>
-    <script src="/js/home.js"></script>
+    <script src="/js/see_more_btn.js"></script>
 </head>
 <body>
     <main>

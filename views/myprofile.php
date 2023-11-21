@@ -8,6 +8,7 @@
     <script src="/js/post_delete.js"></script>
     <script src="/js/posts_buttons.js"></script>
     <script src="/js/myprofile.js"></script>
+    <script src="/js/see_more_btn.js"></script>
 
 </head>
 <body>
@@ -43,6 +44,10 @@
 <?php
     require("templates/posts.php");
 ?>
+        <form action="/myprofile/<?=$user["user_id"]?>/" method="get">
+            <input type="hidden" data-last_page="<?= $pages_number ?>">
+            <button type="submit" name="page_number" value="<?= $next_page ?>">See More</button>
+        </form>
 <?php
     require("templates/footer.php");
 ?>

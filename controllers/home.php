@@ -10,7 +10,6 @@ if(!isset($_SESSION["user_id"])) {
 else {
 
     $limit = 3;
-    $offset = 0;
 
     require("models/posts.php");
     $model = new Posts();

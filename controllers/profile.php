@@ -39,7 +39,6 @@ else {
         $followerCheck = $modelFollows->getFollowerByFollowed($id, $_SESSION["user_id"]);
 
         $limit = 3;
-        $offset = 0;
     
         $posts_number = $postsCount["posts_count"];
     

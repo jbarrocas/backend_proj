@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Postapol</title>
     <script src="/js/likes.js"></script>
-    <script src="/js/home.js"></script>
+    <script src="/js/see_more_btn.js"></script>
     <script src="/js/posts_buttons.js"></script>
     <script src="/js/post_delete.js"></script>
 </head>
