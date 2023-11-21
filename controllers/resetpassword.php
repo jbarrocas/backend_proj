@@ -12,8 +12,6 @@ if( isset($_POST["reset_password"]) ) {
 
     $url = "http://". ENV["ROOT"] ."/createnewpassword/?token=" . $token . "&email=" . $email;
 
-    $expires_at = time() + (30 * 60);
-
     require("models/users.php");
     $modelUsers = new Users();
     $user = $modelUsers->getByEmail($email);
@@ -30,14 +28,9 @@ if( isset($_POST["reset_password"]) ) {
 
         if(empty($reset)) {
 
-            $modelPasswordReset->createPasswordReset($email, $token, $expires_at);
-        }
-        else {
+            $modelPasswordReset->createPasswordReset($email, $token);
 
-            $modelPasswordReset->deletePasswordReset($email);
-            $modelPasswordReset->createPasswordReset($email, $token, $expires_at);
-
-            $subject = 'Reset your passord for Postapol';
+            $subject = 'Reset your password for Postapol';
         
             $message = '<p>To reset your password click in the link below.</p>
                         <div><a href="' .$url. '">Click here to reset your password.</a></div>';
@@ -47,6 +40,35 @@ if( isset($_POST["reset_password"]) ) {
 
             $message = "Email sent. Check your email.";
             http_response_code(202);
+        }
+        else {
+
+            $actual_date = strtotime(date("Y/m/d H:i:s"));
+
+            $timeWindow = (strtotime($reset["created_at"]) + (30 * 60));
+
+            if(
+                $actual_date <= $timeWindow
+            ) {
+
+                $message = "We've already sent you a link to reset your password. Check your email box.";
+            }
+            else {
+
+                $modelPasswordReset->deletePasswordReset($email);
+                $modelPasswordReset->createPasswordReset($email, $token);
+    
+                $subject = 'Reset your password for Postapol';
+            
+                $message = '<p>To reset your password click in the link below.</p>
+                            <div><a href="' .$url. '">Click here to reset your password.</a></div>';
+    
+                require("functions/sendemail.php");
+                sendEmail($_POST["email"], $user["first_name"], $user["last_name"], $subject, $message);
+    
+                $message = "Email sent. Check your email.";
+                http_response_code(202);
+            }
         }        
     }
 }

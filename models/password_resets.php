@@ -10,7 +10,7 @@ class Password_Resets extends Base{
             SELECT
                 user_email,
                 token,
-                expires_at
+                created_at
             FROM
                 password_resets
             WHERE
@@ -23,18 +23,18 @@ class Password_Resets extends Base{
         return $query->fetch();
     }
 
-    public function createPasswordReset($user_email, $token, $expires_at) {
+    public function createPasswordReset($user_email, $token) {
 
         $query = $this->db->prepare("
             INSERT INTO password_resets
-            (user_email, token, expires_at)
-            VALUES(?, ?, ?)
+            (user_email,
+            token)
+            VALUES(?, ?)
         ");
 
         $query->execute([
             $user_email,
-            password_hash($token, PASSWORD_DEFAULT),
-            $expires_at
+            password_hash($token, PASSWORD_DEFAULT)
         ]);
     }
 

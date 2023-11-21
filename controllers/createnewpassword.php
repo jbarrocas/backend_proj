@@ -34,10 +34,12 @@ if( isset($_POST["createpassword"]) ) {
         }
         else {
     
-            $actual_date = time();
+            $actual_date = strtotime(date("Y/m/d H:i:s"));
+
+            $timeWindow = (strtotime($reset["created_at"]) + (30 * 60));
     
             if(
-                $actual_date > $reset["expires_at"] ||
+                $actual_date > $timeWindow ||
                 !password_verify($token, $reset["token"])
             ) {
                 $message = "Invalid token.";
@@ -70,6 +72,8 @@ if( isset($_POST["createpassword"]) ) {
                         else {
                             $model = new Users();
                             $model->updatePassword($_POST, $user["user_id"]);
+
+                            $modelResets->deletePasswordReset($_GET["email"]);
 
                             $_SESSION["user_id"] = $user["user_id"];
 

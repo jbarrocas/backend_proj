@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Post</title>
-    <script src="/js/report.js"></script>
+    <script src="/js/form_hide.js"></script>
 </head>
 <body>
     <main>
