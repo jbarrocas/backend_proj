@@ -122,10 +122,6 @@ body {
   cursor: pointer;
   margin: 12px auto 0px auto;
 }
-.login-container .form-container .reg-button-container a .register-button:hover {
-  background-color: #407BBE;
-  color: #E6E8E4;
-}
 
 .footer {
   max-width: 400px;

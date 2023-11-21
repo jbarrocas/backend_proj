@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="/css/register.css">
 </head>
 <body>
     <main>
@@ -56,7 +57,7 @@
                         </label>  
                     </div>
                     <div>
-                        <img src="../functions/captcha.php" alt="">
+                        <img class="captcha" src="../functions/captcha.php" alt="">
                     </div>
                     <div>
                         <input class="register-input" type="text" name="captcha" placeholder="Digit the image characters" required>
@@ -70,7 +71,7 @@
 ?>
                 <div class="login-button-container">
                     <p>Have an account?</p>
-                    <div><a href="/login/">Login</a></div>
+                    <a href="/login/"><div class="login-button" >Login</div></a>
                 </div>
             </div>
         </div>
