@@ -47,7 +47,6 @@
             </form>
             <div id="sentComment">
                     <p id="sentContent"></p>
-                    <p id="sentUsername"></p>
                     <p><time id="sentDate"></time></p>
             </div>
             <p id="replyErrorMessage" role="alert"></p> 
@@ -55,7 +54,12 @@
     foreach($comments as $comment) {
         echo '  <div id="comment" class="comment" data-comment_id="' .$comment["comment_id"]. '">
                     <p>' .$comment["content"]. '</p>
-                    <p>' .$comment["username"]. ' - ' .$comment["country"]. '</p>
+                    <div>
+                        <figure>
+                            <img class="user-photo" src="/images/users/' .$comment["photo"]. '">
+                        </figure>
+                        <p>' .$comment["username"]. ' - ' .$comment["country"]. '</p>
+                    </div>
                     <p><time>' .$comment["comment_date"]. '</time></p>
                     <div id="action">
                         <button id="reply" type="button" name="reply">Reply</button>

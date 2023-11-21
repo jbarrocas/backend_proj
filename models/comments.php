@@ -14,6 +14,7 @@ class Comments extends Base
                 c.parent_id,
                 p.post_id,
                 u.username,
+                u.photo,
                 co.name AS country,
             CASE WHEN c.parent_id IS NOT NULL
             THEN c.parent_id
