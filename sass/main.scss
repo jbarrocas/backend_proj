@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@import "./partials/body";
+@import "./partials/menu";
+@import "./partials/post";
+@import "./partials/profile";
+@import "./partials/footer";
+
+@import "./components/headings";
+@import "./components/seeMoreButton";
+
+@import "./pages/login.scss";
+@import "./pages/register.scss";

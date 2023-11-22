@@ -1,0 +1,102 @@
+.post-container {
+    padding-top: 60px;
+    padding-left: 550px;
+
+    .post {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 700px;
+        min-height: 850px;
+        padding: 32px 32px 16px 32px;
+        background-color: $white;
+        color: $gray;
+        margin-bottom: 16px;
+
+        .content-wrapper {
+
+            .post-image {
+                margin-bottom: 12px;
+            }
+
+            .post-title {
+                @include heading-24;
+                margin-bottom: 12px;
+            }
+
+            .post-content {
+                margin-bottom: 32px;
+            }
+        }
+    }
+
+    .post-signature {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $gray;
+
+        .post-date {
+            @include label;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+
+            .user-photo {
+                max-width: 60px;
+                border-radius: 50%;
+            }
+    
+            .post-author {
+                @include heading-18;
+                margin-left: 16px;
+    
+                a {
+                    text-decoration: none;
+                    color: $gray;
+                }
+    
+                .post-country {
+                    text-transform: lowercase;
+                }
+            }
+        }
+    }
+
+    .action {
+        max-width: 700px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include heading-16;
+
+        .like-button {
+            @include blueButton;
+            width: 96px;
+        }        
+
+        a {
+            text-decoration: none;
+            color: $blue;
+
+            .comment-button {
+                @include whiteButton;
+            }            
+        }
+
+        a {
+            text-decoration: none;
+            color: $white;
+
+            .report-button {
+                @include redButton;
+            }
+        }
+
+        .delete-button {
+            @include redButton;
+        }
+    }
+}

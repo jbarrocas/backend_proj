@@ -1,0 +1,65 @@
+.profile-container {
+    padding-top: 60px;
+    padding-left: 550px;
+    max-width: 1250px;
+    display: flex;
+    align-items: flex-end;
+
+    .user-photo {
+        border-radius: 50%;
+        margin-bottom: 20px
+    }
+
+    a {
+        text-decoration: none;
+
+        .change-photo {
+            @include whiteButton;
+            max-width: 160px;
+            margin: 0 auto 0 auto;
+        }
+    }
+
+    .details-container {
+        margin-left: 48px;
+
+        .username {
+            @include heading-36;
+            margin-bottom: 12px;
+            color: $red;
+        }
+
+        .country {
+            @include heading-24;
+            margin-bottom: 30px;
+            color: $blue;
+        }
+
+        .posts-count {
+            margin-bottom: 8px;
+        }
+
+        .followers {
+            margin-bottom: 8px;
+        }
+
+        .following {
+            margin-bottom: 24px;
+        }
+
+        a {
+            text-decoration: none;
+
+            .update-details {
+                @include blueButton;
+                margin-bottom: 20px;
+                max-width: 176px;
+            }
+
+            .delete-account {
+                @include redButton;
+                max-width: 176px;
+            }
+        }
+    }
+}

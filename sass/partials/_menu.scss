@@ -1,0 +1,33 @@
+.menu-container {
+    max-width: 365px;
+    min-width: 365px;
+    height: 100vh;
+    color: $white;
+    position: fixed;
+    left: 120px;
+    border-right: solid 1px $white;
+
+    .logo {
+        max-width: 300px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    .menu-ul {
+        list-style: none;
+
+        a {
+            text-decoration: none;
+            color: $white;
+            @include body-18;
+        }
+
+        .menu-items {
+            margin-bottom: 32px;
+        }
+    }
+}
+
+
+
+

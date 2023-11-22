@@ -1,0 +1,563 @@
+* *, * ::before, * ::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Onest", sans-serif;
+  src: url(./Onest-Regular.ttf);
+}
+@font-face {
+  font-family: "Onest", sans-serif;
+  src: url(./Onest-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Onest", sans-serif;
+  src: url(./Onest-Bold.ttf);
+}
+@font-face {
+  font-family: "Onest", sans-serif;
+  src: url(./Onest-Black.ttf);
+}
+body {
+  background-color: #282B2A;
+  color: #E6E8E4;
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.menu-container {
+  max-width: 365px;
+  min-width: 365px;
+  height: 100vh;
+  color: #E6E8E4;
+  position: fixed;
+  left: 120px;
+  border-right: solid 1px #E6E8E4;
+}
+.menu-container .logo {
+  max-width: 300px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.menu-container .menu-ul {
+  list-style: none;
+}
+.menu-container .menu-ul a {
+  text-decoration: none;
+  color: #E6E8E4;
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+.menu-container .menu-ul .menu-items {
+  margin-bottom: 32px;
+}
+
+.post-container {
+  padding-top: 60px;
+  padding-left: 550px;
+}
+.post-container .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 700px;
+  min-height: 850px;
+  padding: 32px 32px 16px 32px;
+  background-color: #E6E8E4;
+  color: #282B2A;
+  margin-bottom: 16px;
+}
+.post-container .post .content-wrapper .post-image {
+  margin-bottom: 12px;
+}
+.post-container .post .content-wrapper .post-title {
+  font-family: "Onest", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.post-container .post .content-wrapper .post-content {
+  margin-bottom: 32px;
+}
+.post-container .post-signature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #282B2A;
+}
+.post-container .post-signature .post-date {
+  font-family: "Onest", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.post-container .post-signature .author {
+  display: flex;
+  align-items: center;
+}
+.post-container .post-signature .author .user-photo {
+  max-width: 60px;
+  border-radius: 50%;
+}
+.post-container .post-signature .author .post-author {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-left: 16px;
+}
+.post-container .post-signature .author .post-author a {
+  text-decoration: none;
+  color: #282B2A;
+}
+.post-container .post-signature .author .post-author .post-country {
+  text-transform: lowercase;
+}
+.post-container .action {
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Onest", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.post-container .action .like-button {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  width: 96px;
+}
+.post-container .action a {
+  text-decoration: none;
+  color: #407BBE;
+}
+.post-container .action a .comment-button {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #407BBE;
+  text-align: center;
+  background-color: #E6E8E4;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+.post-container .action a {
+  text-decoration: none;
+  color: #E6E8E4;
+}
+.post-container .action a .report-button {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #D93327;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+.post-container .action .delete-button {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #D93327;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.profile-container {
+  padding-top: 60px;
+  padding-left: 550px;
+  max-width: 1250px;
+  display: flex;
+  align-items: flex-end;
+}
+.profile-container .user-photo {
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.profile-container a {
+  text-decoration: none;
+}
+.profile-container a .change-photo {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #407BBE;
+  text-align: center;
+  background-color: #E6E8E4;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  max-width: 160px;
+  margin: 0 auto 0 auto;
+}
+.profile-container .details-container {
+  margin-left: 48px;
+}
+.profile-container .details-container .username {
+  font-family: "Onest", sans-serif;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #D93327;
+}
+.profile-container .details-container .country {
+  font-family: "Onest", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #407BBE;
+}
+.profile-container .details-container .posts-count {
+  margin-bottom: 8px;
+}
+.profile-container .details-container .followers {
+  margin-bottom: 8px;
+}
+.profile-container .details-container .following {
+  margin-bottom: 24px;
+}
+.profile-container .details-container a {
+  text-decoration: none;
+}
+.profile-container .details-container a .update-details {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  max-width: 176px;
+}
+.profile-container .details-container a .delete-account {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #D93327;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  max-width: 176px;
+}
+
+* *, * ::before, * ::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Onest", sans-serif;
+  src: url(./Onest-Regular.ttf);
+}
+@font-face {
+  font-family: "Onest", sans-serif;
+  src: url(./Onest-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Onest", sans-serif;
+  src: url(./Onest-Bold.ttf);
+}
+@font-face {
+  font-family: "Onest", sans-serif;
+  src: url(./Onest-Black.ttf);
+}
+.footer {
+  max-width: 400px;
+  margin: 132px auto auto auto;
+}
+.footer .logo {
+  max-width: 150px;
+  margin: 0 auto 8px auto;
+}
+.footer .copyright {
+  text-align: center;
+  font-family: "Onest", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.heading-1 {
+  font-family: "Onest", sans-serif;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
+  padding-top: 60px;
+  padding-left: 550px;
+}
+
+.heading-2 {
+  font-family: "Onest", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  padding-top: 60px;
+  padding-left: 550px;
+  color: #407BBE;
+}
+
+.see-more {
+  padding-top: 60px;
+  padding-left: 550px;
+}
+.see-more .see-more-button {
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #407BBE;
+  text-align: center;
+  background-color: #E6E8E4;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.body-login {
+  background-color: #282B2A;
+  color: #E6E8E4;
+  font-family: "Onest", sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  padding-top: 129px;
+}
+
+.login-container {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto auto auto auto;
+  margin-bottom: 200px;
+}
+.login-container .logo-container {
+  max-width: 400px;
+}
+.login-container .logo-container .logo {
+  margin-bottom: 20px;
+}
+.login-container .logo-container .site-motto {
+  text-align: center;
+  font-family: "Onest", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 68px;
+  letter-spacing: 1.2px;
+}
+.login-container .form-container {
+  max-width: 400px;
+}
+.login-container .form-container .login-input {
+  width: 360px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border-style: none;
+  padding: 6px 18px 6px 18px;
+}
+.login-container .form-container .login-button {
+  width: 360px;
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #D93327;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+.login-container .form-container .forgot-password {
+  text-align: center;
+  margin-bottom: 140px;
+}
+.login-container .form-container .forgot-password a {
+  color: #407BBE;
+  text-decoration: none;
+}
+.login-container .form-container .reg-button-container {
+  text-align: center;
+}
+.login-container .form-container .reg-button-container a {
+  color: #E6E8E4;
+  text-decoration: none;
+}
+.login-container .form-container .reg-button-container a .register-button {
+  width: 280px;
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  margin: 12px auto 0px auto;
+}
+
+.body-register {
+  background-color: #282B2A;
+  color: #E6E8E4;
+  font-family: "Onest", sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  padding-top: 60px;
+}
+
+.register-container {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto auto auto auto;
+}
+.register-container .logo-container {
+  max-width: 400px;
+}
+.register-container .logo-container .logo {
+  margin-bottom: 20px;
+}
+.register-container .logo-container .site-motto {
+  text-align: center;
+  font-family: "Onest", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 68px;
+  letter-spacing: 1.2px;
+}
+.register-container .form-container {
+  max-width: 400px;
+}
+.register-container .form-container .register-input {
+  width: 360px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border-style: none;
+  padding: 2px 18px 2px 18px;
+}
+.register-container .form-container .register-select {
+  width: 360px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border-style: none;
+  padding: 5px 18px 5px 18px;
+}
+.register-container .form-container .captcha {
+  margin: 12px 0 12px 0;
+}
+.register-container .form-container .register-button {
+  width: 360px;
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #D93327;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  margin-bottom: 60px;
+}
+.register-container .form-container .login-button-container {
+  text-align: center;
+}
+.register-container .form-container .login-button-container a {
+  color: #E6E8E4;
+  text-decoration: none;
+}
+.register-container .form-container .login-button-container a .login-button {
+  width: 280px;
+  font-family: "Onest", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  margin: 12px auto 0px auto;
+}/*# sourceMappingURL=main.css.map */

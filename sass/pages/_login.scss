@@ -1,18 +1,17 @@
-@import "./abstracts/main";
-
-body {
+.body-login {
     background-color: $gray;
     color: $white;
     @include body-16;
-    padding-top: 60px;
+    padding-top: 129px;
 }
 
-.register-container {
+.login-container {
     max-width: 900px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto auto auto auto;
+    margin-bottom: 200px;
 
     .logo-container {
         max-width: 400px;
@@ -32,7 +31,7 @@ body {
     .form-container {
         max-width: 400px;
 
-        .register-input {
+        .login-input {
             width: 360px;
             margin-bottom: 20px;
             border-radius: 5px;
@@ -40,53 +39,38 @@ body {
             padding: 6px 18px 6px 18px;
         }
 
-        .register-select {
-            width: 360px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border-style: none;
-            padding: 8px 18px 8px 18px;
-        }
-
-        .captcha {
-            margin: 16px 0px 18px 0px;
-        }
-
-        .register-button {
+        .login-button {
             width: 360px;
             @include redButton;
-            margin-bottom: 90px;
+            margin-bottom: 12px;
 
         }
 
-        .login-button-container {
+        .forgot-password {
             text-align: center;
+            margin-bottom: 140px;
+
+            a {
+                color: $blue;
+                text-decoration: none;
+            }
+        }
+
+        .reg-button-container {
+            text-align: center;
+
+
 
             a {
                 color: $white;
                 text-decoration: none;
 
-                .login-button {
+                .register-button {
                     width: 280px;
-                    @include blueLink;
+                    @include blueButton;
                     margin: 12px auto 0px auto;                    
                 }
             }
         }
-    }
-}
-
-.footer {
-    max-width: 400px;
-    margin: auto auto auto auto;
-
-    .logo {
-        max-width: 150px;
-        margin: 140px auto 8px auto;
-    }
-
-    .copyright {
-        text-align: center;
-        @include label;
     }
 }

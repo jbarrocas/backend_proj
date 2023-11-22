@@ -1,13 +1,11 @@
-@import "./abstracts/main";
-
-body {
+.body-register {
     background-color: $gray;
     color: $white;
     @include body-16;
-    padding-top: 180px;
+    padding-top: 60px;
 }
 
-.login-container {
+.register-container {
     max-width: 900px;
     display: flex;
     justify-content: space-between;
@@ -32,61 +30,46 @@ body {
     .form-container {
         max-width: 400px;
 
-        .login-input {
+        .register-input {
             width: 360px;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             border-radius: 5px;
             border-style: none;
-            padding: 6px 18px 6px 18px;
+            padding: 2px 18px 2px 18px;
         }
 
-        .login-button {
+        .register-select {
+            width: 360px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            border-style: none;
+            padding: 5px 18px 5px 18px;
+        }
+
+        .captcha {
+            margin: 12px 0 12px 0;
+        }
+
+        .register-button {
             width: 360px;
             @include redButton;
-            margin-bottom: 12px;
+            margin-bottom: 60px;
 
         }
 
-        .forgot-password {
+        .login-button-container {
             text-align: center;
-            margin-bottom: 140px;
-
-            a {
-                color: $blue;
-                text-decoration: none;
-            }
-        }
-
-        .reg-button-container {
-            text-align: center;
-
-
 
             a {
                 color: $white;
                 text-decoration: none;
 
-                .register-button {
+                .login-button {
                     width: 280px;
-                    @include blueLink;
+                    @include blueButton;
                     margin: 12px auto 0px auto;                    
                 }
             }
         }
-    }
-}
-
-.footer {
-    max-width: 400px;
-    margin: auto auto auto auto;
-
-    .logo {
-        max-width: 150px;
-        margin: 140px auto 8px auto;
-    }
-
-    .copyright {
-        text-align: center;
-        @include label;
     }
 }

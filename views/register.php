@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body class="body-register">
     <main>
         <div class="register-container">
             <div class="logo-container">
-                <img class="logo" src="/images/assets/PostapolAFLogoDark_400.png" alt="">
+                <img class="logo-login" src="/images/assets/PostapolAFLogoDark_400.png" alt="">
                 <h1 class="site-motto" >Sharing One Picture at a Time!</h1>
                 <img class="post-pics" src="/images/assets/PicCollage_600px.png" alt="Postapol examples">
             </div>

@@ -10,19 +10,21 @@
                     </div>
                     <div class="post-signature">
                         <p class="post-date"><time>' .$postAux["post_date"]. '</time></p>
-                        <figure>
-                            <img class="user-photo" src="/images/users/' .$post["user_photo"]. '">
-                        </figure>
-                        <p class="post-author"><a href="/profile/' .$postAux["user_id"]. '"><span class="username">' .$postAux["username"]. '</span></a> - <span class="post-country">' .$postAux["country"]. '</span></p>
+                        <div class="author">
+                            <figure>
+                                <img class="user-photo" src="/images/users/' .$postAux["user_photo"]. '">
+                            </figure>
+                            <p class="post-author"><a href="/profile/' .$postAux["user_id"]. '"><span class="username">' .$postAux["username"]. '</span></a> - <span class="post-country">' .$postAux["country"]. '</span></p>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <button id="likeBtn'.$postAux["post_id"].'" type="button" data-user="' .$postAux["liked"]. '" name="like">Like</button>
+                <div class="action">
+                    <button class="like-button" id="likeBtn'.$postAux["post_id"].'" type="button" data-user="' .$postAux["liked"]. '" name="like">Like</button>
                     <p id="likeCount' .$postAux["post_id"]. '">Likes <span id="likesNumber' .$postAux["post_id"]. '">' .$postAux["like_count"]. '</span></p>
-                    <div><a href="/postdetail/' .$postAux["post_id"]. '">Comment</a></div>
+                    <a href="/postdetail/' .$postAux["post_id"]. '"><div class="comment-button">Comment</div></a>
                     <p>Comments <Span>' .$postAux["comments_count"]. '</span></p>
-                    <div id="reportPostBtn"><a href="/report_post/' .$postAux["post_id"]. '">Report</a></div>
-                    <button id="deletePostBtn" type="button" name="delete">Delete Post</button>
+                    <a href="/report_post/' .$postAux["post_id"]. '"><div class="report-button" id="reportPostBtn">Report</div></a>
+                    <button class="delete-button" id="deletePostBtn" type="button" name="delete">Delete Post</button>
                 </div>
             </article>
         ';

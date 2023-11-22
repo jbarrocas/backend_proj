@@ -1,0 +1,7 @@
+@import "../abstracts/main";
+
+body {
+    background-color: $gray;
+    color: $white;
+    @include body-18;
+}

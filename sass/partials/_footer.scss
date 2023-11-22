@@ -1,0 +1,16 @@
+@import "../abstracts/main";
+
+.footer {
+    max-width: 400px;
+    margin: 132px auto auto auto;
+
+    .logo {
+        max-width: 150px;
+        margin: 0 auto 8px auto;
+    }
+
+    .copyright {
+        text-align: center;
+        @include label;
+    }
+}

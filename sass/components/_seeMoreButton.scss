@@ -1,0 +1,9 @@
+.see-more {
+    padding-top: 60px;
+    padding-left: 550px;
+
+    .see-more-button {
+
+        @include whiteButton;
+    }
+}
