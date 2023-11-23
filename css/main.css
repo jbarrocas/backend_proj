@@ -573,6 +573,24 @@ img, picture, svg, video {
   margin-bottom: 32px;
 }
 
+a {
+  text-decoration: none;
+}
+a .form-whiteButton {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #407BBE;
+  text-align: center;
+  background-color: #E6E8E4;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  max-width: 200px;
+}
+
 .heading-1 {
   font-family: "Onest-Bold", sans-serif;
   font-size: 36px;
