@@ -27,7 +27,33 @@
 
     .send-comment {
         @include blueButton;
-        margin: 8px auto 0px auto;
+        margin: 8px auto 32px auto;
+    }
+}
+
+.sent-comment {
+    max-width: 700px;
+    padding: 16px;
+    background-color: #4A4F4E;
+    margin: 32px auto 8px 0;
+    border-radius: 8px;
+
+    .sent-author {
+        display: flex;
+        justify-content: space-between;
+
+        .sent-country {
+            text-transform: lowercase;
+        }
+
+        .comment-date {
+            @include label;
+        }
+    }
+
+    .sent-content {
+        margin-bottom: 6px;
+        padding: 8px 8px 8px 0;
     }
 }
 
@@ -37,11 +63,10 @@
     background-color: #4A4F4E;
     margin-bottom: 8px;
     border-radius: 8px;
-    // border-bottom: 1px solid $white;
 
     .comment-content {
         margin-bottom: 6px;
-        padding: 8px;
+        padding: 8px 8px 8px 0;
     }
 
     .comment-signature {
@@ -89,5 +114,47 @@
         .report-comment {
             @include smallRedButton;
         }
+    }
+}
+
+.reply-form {
+
+    .reply-input {
+        max-width: 700px;
+        padding: 8px;
+        border-radius: 8px;
+        border-style: none;
+        margin: 4px auto 8px auto;
+    }
+
+    .send-reply-button {
+        @include smallBlueButton;
+        margin-bottom: 16px;
+    }
+}
+
+.sent-reply {
+    max-width: 700px;
+    padding: 16px;
+    background-color: #4A4F4E;
+    margin: 32px auto 8px 0;
+    border-radius: 8px;
+
+    .sent-reply-author {
+        display: flex;
+        justify-content: space-between;
+
+        .sent-country {
+            text-transform: lowercase;
+        }
+
+        .sent-reply-date {
+            @include label;
+        }
+    }
+
+    .sent-reply-content {
+        margin-bottom: 6px;
+        padding: 8px 8px 8px 0;
     }
 }

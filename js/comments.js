@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const token = button.previousElementSibling.value;
 
-        console.log(token);
-
         fetch("/requests/", {
             method: "POST",
             headers: {
@@ -26,13 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if(result.message === "commented") {
 
+                const comment = document.getElementById("sentComment");
+
+                comment.classList.remove("hide");
+
                 const comment_content = document.getElementById("sentContent");
 
                 comment_content.textContent = content;
 
                 const username = document.getElementById("sentUsername");
 
-                username.textContent = result.username + " - " + result.country;
+                username.innerHTML = result.username + " - <span class='sent-country'>" + result.country + "</span>";
 
                 const comment_date = document.getElementById("sentDate");
 
@@ -88,15 +90,19 @@ document.addEventListener("DOMContentLoaded", () => {
             .then( result => {
     
                 if(result.message === "replied") {
+
+                    const sent_reply = document.getElementById("sentReply" + parent_id);
+
+                    sent_reply.classList.remove("hide");
     
                     const reply_content = document.getElementById("sentReplyContent" + parent_id);
-    
+                        
                     reply_content.textContent = replyContent;
     
                     const reply_username = document.getElementById("sentReplyUsername" + parent_id);
-    
-                    reply_username.textContent = result.username + " - " + result.country;
-    
+
+                    reply_username.innerHTML = result.username + " - <span class='sent-country'>" + result.country + "</span>";
+        
                     const reply_comment_date = document.getElementById("sentReplyDate" + parent_id);
     
                     reply_comment_date.textContent = result.date;
@@ -111,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 else if(result.message === "respect_characters") {
 
-                    const error_message = document.getElementById("replyErrorMessage");
+                    const error_message = document.getElementById("replyErrorMessage" + parent_id);
                     
                     error_message.textContent = "Replies must have between 3 and 222 characters.";
                 }
