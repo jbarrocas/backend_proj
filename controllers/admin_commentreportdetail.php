@@ -72,8 +72,6 @@ else {
 
             sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
 
-            http_response_code(202);
-
             header("Location: /admin_commentreports/");
         }
 
@@ -129,8 +127,6 @@ else {
 
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
 
-            http_response_code(202);
-
             header("Location: /admin_commentreports/");
         }
 
@@ -182,7 +178,12 @@ else {
 
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
 
-            $posts = $modelPosts->getPostsByUser($postReport["comment_author"], $postReport["comment_author"]);
+            require("models/posts.php");
+            $modelPosts = new Posts();
+            $postsCount = $modelPosts->getPostsCountByUser($_SESSION["user_id"]);
+            $limit = $postsCount["posts_count"];
+            $offset = 0;
+            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $_SESSION["user_id"], $limit, $offset);
 
             foreach($posts as $post) {
 
@@ -195,8 +196,6 @@ else {
             unlink($userPhoto);
 
             $modelUsers->deleteUser($commentReport["comment_author"]);
-
-            http_response_code(202);
 
             header("Location: /admin_commentreports/");
         }

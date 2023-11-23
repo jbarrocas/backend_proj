@@ -184,7 +184,10 @@ else {
 
             sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
 
-            $posts = $modelPosts->getPostsByUser($postReport["post_author"], $postReport["post_author"]);
+            $postsCount = $modelPosts->getPostsCountByUser($_SESSION["user_id"]);
+            $limit = $postsCount["posts_count"];
+            $offset = 0;
+            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $_SESSION["user_id"], $limit, $offset);
 
             foreach($posts as $post) {
 

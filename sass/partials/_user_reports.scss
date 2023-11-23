@@ -1,0 +1,46 @@
+table {
+    table-layout: fixed;
+    width: 1100px;
+    border-collapse: collapse;
+    // border: 3px solid $blue;
+}
+
+th:nth-child(1) {
+    width: 15%;
+}
+  
+th:nth-child(2) {
+    width: 25%;
+}
+  
+th:nth-child(3) {
+    width: 18%;
+}
+
+th:nth-child(4) {
+    width: 20%;
+}
+
+thead th:nth-child(5) {
+    width: 22%;
+}
+  
+th, td {
+    padding: 16px;
+    border-bottom: 1px solid $blue;
+}
+
+th, td {
+    letter-spacing: 1px;
+}
+  
+th, td {
+    text-align: left;
+}
+
+td {
+    a{
+        @include whiteButton;
+    }
+}
+  

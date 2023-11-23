@@ -632,6 +632,59 @@ a .form-whiteButton {
   max-width: 200px;
 }
 
+table {
+  table-layout: fixed;
+  width: 1100px;
+  border-collapse: collapse;
+}
+
+th:nth-child(1) {
+  width: 15%;
+}
+
+th:nth-child(2) {
+  width: 25%;
+}
+
+th:nth-child(3) {
+  width: 18%;
+}
+
+th:nth-child(4) {
+  width: 20%;
+}
+
+thead th:nth-child(5) {
+  width: 22%;
+}
+
+th, td {
+  padding: 16px;
+  border-bottom: 1px solid #407BBE;
+}
+
+th, td {
+  letter-spacing: 1px;
+}
+
+th, td {
+  text-align: left;
+}
+
+td a {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #407BBE;
+  text-align: center;
+  background-color: #E6E8E4;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+
 .heading-1 {
   font-family: "Onest-Bold", sans-serif;
   font-size: 36px;
