@@ -48,7 +48,7 @@
 ?>
             <form action="/myprofile/<?=$user["user_id"]?>/" method="get" class="see-more">
                 <input type="hidden" data-last_page="<?= $pages_number ?>">
-                <button class="see-more-button" type="submit" name="page_number" value="<?= $next_page ?>">See More Posts</button>
+                <button class="see-more-button" type="submit" name="page_number" data-limit="<?=$limit?>" data-posts="<?=$postsCount["posts_count"]?>" value="<?= $next_page ?>">See More Posts</button>
             </form>
         </div>
 <?php
