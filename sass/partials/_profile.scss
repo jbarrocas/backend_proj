@@ -23,7 +23,7 @@
         margin-left: 48px;
 
         .username {
-            @include heading-36;
+            @include heading-28;
             margin-bottom: 12px;
             color: $red;
         }
@@ -59,6 +59,12 @@
                 @include redButton;
                 max-width: 180px;
             }
+        }
+
+        .follow-button {
+            @include whiteButton;
+            max-width: 180px;
+            margin-bottom: 20px;
         }
     }
 }

@@ -251,8 +251,8 @@ body {
 }
 .profile-container .details-container .username {
   font-family: "Onest-Bold", sans-serif;
-  font-size: 36px;
-  line-height: 48px;
+  font-size: 28px;
+  line-height: 36px;
   margin-bottom: 12px;
   color: #D93327;
 }
@@ -303,6 +303,21 @@ body {
   border-style: none;
   cursor: pointer;
   max-width: 180px;
+}
+.profile-container .details-container .follow-button {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #407BBE;
+  text-align: center;
+  background-color: #E6E8E4;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  max-width: 180px;
+  margin-bottom: 20px;
 }
 
 .hide {

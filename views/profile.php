@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
     <title>Profile - <?= $user["username"] ?></title>
     <script src="/js/profile.js"></script>
     <script src="/js/likes.js"></script>
@@ -19,27 +20,31 @@
         require("templates/menu.php");
     }
 ?>
-        <div>
-            <h1>Profile</h1>
-            <div>
-                <img src="/images/users/<?=$user["photo"]?>" alt="">
-                <div>
-                    <p ><?=$user["username"]?></p>
-                    <p><?=$user["country"]?></p>
-                    <p>Posts <?=$postsCount["posts_count"]?></p>
-                    <div data-user_id="<?=$user["user_id"]?>">
-                        <p>Followers <span id="followersNumber"><?=$followersCount["total_count"]?></span></p>
-                        <p>Following <?=$followsCount["total_count"]?></p>
-                        <button id="followBtn" type="button" data-user="<?= $followerCheck ?>" name="follow">Follow</button>
+        <div class="page-content">
+            <h1 class="heading-1"><?=$user["username"]?></h1>
+            <div class="profile-container">
+                <div class="photo-container">
+                    <figure>
+                        <img class="user-photo" id="userPhoto" src="/images/users/<?=$user["photo"]?>" alt="">
+                    </figure>
+                </div>
+                <div class="details-container">
+                    <p class="username"><?=$user["username"]?></p>
+                    <p class="country"><?=$user["country"]?></p>
+                    <p class="posts-count">Posts <span id="postsCount"><?=$postsCount["posts_count"]?></span></p>
+                    <div class="profile-action" data-user_id="<?=$user["user_id"]?>">
+                        <p class="followers">Followers <span id="followersNumber"><?=$followersCount["total_count"]?></span></p>
+                        <p class="following">Following <?=$followsCount["total_count"]?></p>
+                        <button class="follow-button" id="followBtn" type="button" data-user="<?= $followerCheck ?>" name="follow">Follow</button>
                     </div>
                 </div>
             </div>
 <?php
     require("templates/posts.php");
 ?>
-            <form action="/profile/<?=$user["user_id"]?>/" method="get">
+            <form class="see-more" action="/profile/<?=$user["user_id"]?>/" method="get">
                 <input type="hidden" data-last_page="<?= $pages_number ?>">
-                <button type="submit" name="page_number" value="<?= $next_page ?>">See More</button>
+                <button class="see-more-button" type="submit" name="page_number" value="<?= $next_page ?>">See More <?=$user["username"]?> Posts</button>
             </form>
         </div>
 <?php
