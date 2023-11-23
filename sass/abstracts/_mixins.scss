@@ -1,5 +1,5 @@
 @mixin redButton {
-    @include body-18;
+    @include heading-18;
     letter-spacing: 0.5px;
     color: $white;
     text-align: center;
@@ -11,7 +11,7 @@
 }
 
 @mixin blueButton {
-    @include body-18;
+    @include heading-18;
     letter-spacing: 0.5px;
     color: $white;
     text-align: center;
@@ -23,7 +23,7 @@
 }
 
 @mixin whiteButton {
-    @include body-18;
+    @include heading-18;
     letter-spacing: 0.5px;
     color: $blue;
     text-align: center;

@@ -147,9 +147,9 @@ body {
   margin-bottom: 64px;
 }
 .post-container .action .like-button {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -165,9 +165,9 @@ body {
   color: #407BBE;
 }
 .post-container .action a .comment-button {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #407BBE;
   text-align: center;
@@ -183,9 +183,9 @@ body {
   color: #E6E8E4;
 }
 .post-container .action a .report-button {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -196,9 +196,9 @@ body {
   cursor: pointer;
 }
 .post-container .action .delete-button {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -223,9 +223,9 @@ body {
   text-decoration: none;
 }
 .profile-container a .change-photo {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #407BBE;
   text-align: center;
@@ -268,9 +268,9 @@ body {
   text-decoration: none;
 }
 .profile-container .details-container a .update-details {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -283,9 +283,9 @@ body {
   max-width: 180px;
 }
 .profile-container .details-container a .delete-account {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -328,9 +328,9 @@ body {
   margin: 24px auto 8px auto;
 }
 .comment-form .send-comment {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -547,9 +547,9 @@ img, picture, svg, video {
   margin-bottom: 32px;
 }
 .form .form-button {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -558,6 +558,7 @@ img, picture, svg, video {
   border-radius: 5px;
   border-style: none;
   cursor: pointer;
+  margin-bottom: 32px;
 }
 
 .heading-1 {
@@ -592,9 +593,9 @@ img, picture, svg, video {
   justify-content: space-around;
 }
 .see-more .see-more-button {
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #407BBE;
   text-align: center;
@@ -650,9 +651,9 @@ img, picture, svg, video {
 }
 .login-container .form-container .login-button {
   width: 360px;
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -680,9 +681,9 @@ img, picture, svg, video {
 }
 .login-container .form-container .reg-button-container a .register-button {
   width: 280px;
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -746,9 +747,9 @@ img, picture, svg, video {
 }
 .register-container .form-container .register-button {
   width: 360px;
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
@@ -768,9 +769,9 @@ img, picture, svg, video {
 }
 .register-container .form-container .login-button-container a .login-button {
   width: 280px;
-  font-family: "Onest-Regular", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;

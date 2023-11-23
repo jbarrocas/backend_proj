@@ -18,7 +18,7 @@
     }
 ?>
         <div class="page-content">
-            <h1 class="heading-1">Post <?= $post["title"] ?></h1>
+            <h1 class="heading-1"><?= $post["title"] ?></h1>
                 <div class="posts-comments-wrapper">
                     <article class="post-container">
                         <div class="post" data-post_id="<?= $post["post_id"]?>" id="post">
