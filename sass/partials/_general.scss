@@ -10,3 +10,12 @@ body {
     padding-top: 60px;
     padding-left: 550px;
 }
+
+.error-message {
+    @include body-18;
+    color: $red;
+
+    a {
+        color: $white;
+    }
+}

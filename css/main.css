@@ -50,6 +50,16 @@ body {
   padding-left: 550px;
 }
 
+.error-message {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #D93327;
+}
+.error-message a {
+  color: #E6E8E4;
+}
+
 .menu-container {
   max-width: 365px;
   min-width: 365px;
