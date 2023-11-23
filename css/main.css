@@ -536,6 +536,30 @@ img, picture, svg, video {
   line-height: 20px;
 }
 
+.form .form-input {
+  min-width: 416px;
+  margin: 0 auto 32px auto;
+  border-radius: 5px;
+  border-style: none;
+  padding: 8px;
+}
+.form .form-file {
+  margin-bottom: 32px;
+}
+.form .form-button {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+
 .heading-1 {
   font-family: "Onest-Bold", sans-serif;
   font-size: 36px;
@@ -549,6 +573,15 @@ img, picture, svg, video {
   font-size: 28px;
   line-height: 36px;
   color: #407BBE;
+  margin-bottom: 28px;
+  letter-spacing: 1px;
+}
+
+.heading-4 {
+  font-family: "Onest-Bold", sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  color: #E6E8E4;
   margin-bottom: 28px;
   letter-spacing: 1px;
 }

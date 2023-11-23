@@ -1,0 +1,18 @@
+.form {
+    
+    .form-input {
+        min-width: 416px;
+        margin: 0 auto 32px auto;
+        border-radius: 5px;
+        border-style: none;
+        padding: 8px;
+    }
+
+    .form-file {
+        margin-bottom: 32px;
+    }
+
+    .form-button {
+        @include blueButton;
+    }
+}
