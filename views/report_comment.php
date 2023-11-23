@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Comment</title>
+    <link rel="stylesheet" href="/css/main.css">
     <script src="/js/form_hide.js"></script>
 </head>
 <body>
@@ -16,14 +17,16 @@
         require("templates/menu.php");
     }
 ?>
-        <h1>Report Comment</h1>
+        <div class="page-content">
+            <h1 class="heading-1">Report Comment</h1>
 <?php
     if( isset($message)) {
         echo ' <p id="message" role="alert">' .$message .'</p>';
     }
 ?>
-        <form method="POST" action="/report_comment/<?= $comment["comment_id"] ?>" name="form">
-            <select class="report-select" name="subject" required>
+            <form class="form" method="POST" action="/report_comment/<?= $comment["comment_id"] ?>" name="form">
+                <div>
+                    <select class="form-input report-select" name="subject" required>
 <?php
     foreach($subjects as $subject) {
 
@@ -32,9 +35,13 @@
         ';
     }
 ?>
-            </select>
-            <button type="submit" name="send">Report</button>
-        </form>
+                    </select>
+                </div>
+                <div>
+                    <button class="form-red-button" type="submit" name="send">Report</button>
+                </div>
+            </form>
+        </div>
 <?php
     require("templates/footer.php");
 ?>
