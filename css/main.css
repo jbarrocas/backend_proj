@@ -835,4 +835,64 @@ a .form-whiteButton {
   border-style: none;
   cursor: pointer;
   margin: 12px auto 0px auto;
+}
+
+.admin-action-area {
+  margin-bottom: 64px;
+}
+
+ul {
+  list-style: none;
+}
+ul li {
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+ul .admin-blue-button {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+ul .admin-blue-button a {
+  color: #E6E8E4;
+}
+ul .admin-white-button {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #407BBE;
+  text-align: center;
+  background-color: #E6E8E4;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+ul .admin-white-button a {
+  color: #407BBE;
+}
+ul .admin-red-button {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #D93327;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+ul .admin-red-button a {
+  color: #E6E8E4;
 }/*# sourceMappingURL=main.css.map */

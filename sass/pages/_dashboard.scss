@@ -1,0 +1,37 @@
+.admin-action-area {
+    margin-bottom: 64px;
+}
+
+ul {
+    list-style: none;
+
+    li {
+        max-width: 280px;
+        margin-bottom: 24px;
+    }
+
+    .admin-blue-button {
+        @include blueButton;
+
+        a {
+            color: $white;
+        }
+    }
+
+    .admin-white-button {
+        @include whiteButton;
+
+        a {
+            color: $blue;
+        }
+    }
+
+    .admin-red-button {
+        @include redButton;
+
+        a {
+            color: $white;
+        }
+    }
+}
+
