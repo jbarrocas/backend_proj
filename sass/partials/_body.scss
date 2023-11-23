@@ -3,5 +3,10 @@
 body {
     background-color: $gray;
     color: $white;
-    @include body-18;
+    @include body-16;
+}
+
+.page-content {
+    padding-top: 60px;
+    padding-left: 550px;
 }

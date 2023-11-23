@@ -20,14 +20,16 @@
         require("templates/menu.php");
     }
 ?>
-        <h1 class="heading-1">Most Recent Posts</h1>
+        <div class="page-content">
+            <h1 class="heading-1">Most Recent Posts</h1>
 <?php
     require("templates/posts.php");
 ?>
-        <form action="/home/" method="get" class="see-more">
-            <input type="hidden" data-last_page="<?= $pages_number ?>">
-            <button class="see-more-button" type="submit" name="page_number" value="<?= $next_page ?>">See More Posts</button>
-        </form>
+            <form action="/home/" method="get" class="see-more">
+                <input type="hidden" data-last_page="<?= $pages_number ?>">
+                <button class="see-more-button" type="submit" name="page_number" value="<?= $next_page ?>">See More Posts</button>
+            </form>
+        </div>
 <?php
     require("templates/footer.php");
 ?>

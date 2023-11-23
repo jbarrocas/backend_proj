@@ -1,105 +1,98 @@
 @font-face {
-    font-family: 'Onest', sans-serif;
-    src: url(./Onest-Regular.ttf);
+    font-family: 'Onest-Light';
+    src: url(../../sass/base/Onest-Light.ttf);
 }
 
 @font-face {
-    font-family: 'Onest', sans-serif;
-    src: url(./Onest-SemiBold.ttf);
+    font-family: 'Onest-Regular';
+    src: url(../../sass/base/Onest-Regular.ttf);
 }
 
 @font-face {
-    font-family: 'Onest', sans-serif;
-    src: url(./Onest-Bold.ttf);
+    font-family: 'Onest-SemiBold';
+    src: url(../../sass/base/Onest-SemiBold.ttf);
 }
 
 @font-face {
-    font-family: 'Onest', sans-serif;
-    src: url(./Onest-Black.ttf);
+    font-family: 'Onest-Bold';
+    src: url(../../sass/base/Onest-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Onest-Black';
+    src: url(../../sass/base/Onest-Black.ttf);
 }
 
 @mixin display {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Black', sans-serif;
     font-size: 56px;
     line-height: 64px;
-    font-weight: 900;
 }
 
 @mixin heading-48 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Black', sans-serif;
     font-size: 48px;
     line-height: 64px;
-    font-weight: 900;
 }
 
 @mixin heading-36 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Bold', sans-serif;
     font-size: 36px;
     line-height: 48px;
-    font-weight: 700;
 }
 
 @mixin heading-28 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Bold', sans-serif;
     font-size: 28px;
     line-height: 36px;
-    font-weight: 700;
 }
 
 @mixin heading-24 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Bold', sans-serif;
     font-size: 24px;
     line-height: 32px;
-    font-weight: 700;
 }
 
 @mixin heading-20 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Bold', sans-serif;
     font-size: 20px;
     line-height: 32px;
-    font-weight: 600;
 }
 
 // buttons font
 @mixin heading-18 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-SemiBold', sans-serif;
     font-size: 18px;
     line-height: 24px;
-    font-weight: 600;
 }
 
 @mixin heading-16 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-SemiBold', sans-serif;
     font-size: 16px;
     line-height: 24px;
-    font-weight: 600;
 }
 
 // menu hover font
 @mixin body-18 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Regular', sans-serif;
     font-size: 18px;
     line-height: 28px;
-    font-weight: 400;
 }
 
 @mixin body-16 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Regular', sans-serif;
     font-size: 16px;
     line-height: 28px;
-    font-weight: 400;
 }
 
 @mixin body-14 {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-Regular', sans-serif;
     font-size: 14px;
     line-height: 20px;
-    font-weight: 400;
 }
 
 @mixin label {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Onest-SemiBold', sans-serif;
     font-size: 14px;
     line-height: 20px;
-    font-weight: 600;
 }

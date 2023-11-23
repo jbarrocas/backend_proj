@@ -1,5 +1,6 @@
 @mixin redButton {
-    @include heading-18;
+    @include body-18;
+    letter-spacing: 0.5px;
     color: $white;
     text-align: center;
     background-color: $red;
@@ -10,7 +11,8 @@
 }
 
 @mixin blueButton {
-    @include heading-18;
+    @include body-18;
+    letter-spacing: 0.5px;
     color: $white;
     text-align: center;
     background-color: $blue;
@@ -21,11 +23,46 @@
 }
 
 @mixin whiteButton {
-    @include heading-18;
+    @include body-18;
+    letter-spacing: 0.5px;
     color: $blue;
     text-align: center;
     background-color: $white;
     padding: 8px 18px;
+    border-radius: 5px;
+    border-style: none;
+    border: solid 3px $blue;
+    cursor: pointer;
+}
+
+@mixin smallRedButton {
+    @include body-16;
+    color: $white;
+    text-align: center;
+    background-color: $red;
+    padding: 2px 12px;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+}
+
+@mixin smallBlueButton {
+    @include body-16;
+    color: $white;
+    text-align: center;
+    background-color: $blue;
+    padding: 2px 12px;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+}
+
+@mixin smallWhiteButton {
+    @include body-16;
+    color: $blue;
+    text-align: center;
+    background-color: $white;
+    padding: 2px 12px;
     border-radius: 5px;
     border-style: none;
     cursor: pointer;

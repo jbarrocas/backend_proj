@@ -1,9 +1,8 @@
 .profile-container {
-    padding-top: 60px;
-    padding-left: 550px;
     max-width: 1250px;
     display: flex;
     align-items: flex-end;
+    margin-bottom:64px;
 
     .user-photo {
         border-radius: 50%;
@@ -15,7 +14,7 @@
 
         .change-photo {
             @include whiteButton;
-            max-width: 160px;
+            max-width: 180px;
             margin: 0 auto 0 auto;
         }
     }
@@ -53,12 +52,12 @@
             .update-details {
                 @include blueButton;
                 margin-bottom: 20px;
-                max-width: 176px;
+                max-width: 180px;
             }
 
             .delete-account {
                 @include redButton;
-                max-width: 176px;
+                max-width: 180px;
             }
         }
     }

@@ -18,28 +18,36 @@ img, picture, svg, video {
 }
 
 @font-face {
-  font-family: "Onest", sans-serif;
-  src: url(./Onest-Regular.ttf);
+  font-family: "Onest-Light";
+  src: url(../../sass/base/Onest-Light.ttf);
 }
 @font-face {
-  font-family: "Onest", sans-serif;
-  src: url(./Onest-SemiBold.ttf);
+  font-family: "Onest-Regular";
+  src: url(../../sass/base/Onest-Regular.ttf);
 }
 @font-face {
-  font-family: "Onest", sans-serif;
-  src: url(./Onest-Bold.ttf);
+  font-family: "Onest-SemiBold";
+  src: url(../../sass/base/Onest-SemiBold.ttf);
 }
 @font-face {
-  font-family: "Onest", sans-serif;
-  src: url(./Onest-Black.ttf);
+  font-family: "Onest-Bold";
+  src: url(../../sass/base/Onest-Bold.ttf);
+}
+@font-face {
+  font-family: "Onest-Black";
+  src: url(../../sass/base/Onest-Black.ttf);
 }
 body {
   background-color: #282B2A;
   color: #E6E8E4;
-  font-family: "Onest", sans-serif;
-  font-size: 18px;
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 16px;
   line-height: 28px;
-  font-weight: 400;
+}
+
+.page-content {
+  padding-top: 60px;
+  padding-left: 550px;
 }
 
 .menu-container {
@@ -62,19 +70,15 @@ body {
 .menu-container .menu-ul a {
   text-decoration: none;
   color: #E6E8E4;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
   line-height: 28px;
-  font-weight: 400;
+  letter-spacing: 1px;
 }
 .menu-container .menu-ul .menu-items {
   margin-bottom: 32px;
 }
 
-.post-container {
-  padding-top: 60px;
-  padding-left: 550px;
-}
 .post-container .post {
   display: flex;
   flex-direction: column;
@@ -85,15 +89,16 @@ body {
   background-color: #E6E8E4;
   color: #282B2A;
   margin-bottom: 16px;
+  border-radius: 8px;
 }
 .post-container .post .content-wrapper .post-image {
   margin-bottom: 12px;
+  border-radius: 5px;
 }
 .post-container .post .content-wrapper .post-title {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Bold", sans-serif;
   font-size: 24px;
   line-height: 32px;
-  font-weight: 700;
   margin-bottom: 12px;
 }
 .post-container .post .content-wrapper .post-content {
@@ -106,10 +111,9 @@ body {
   color: #282B2A;
 }
 .post-container .post-signature .post-date {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 14px;
   line-height: 20px;
-  font-weight: 600;
 }
 .post-container .post-signature .author {
   display: flex;
@@ -120,10 +124,9 @@ body {
   border-radius: 50%;
 }
 .post-container .post-signature .author .post-author {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 18px;
   line-height: 24px;
-  font-weight: 600;
   margin-left: 16px;
 }
 .post-container .post-signature .author .post-author a {
@@ -138,16 +141,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 600;
+  margin-bottom: 64px;
 }
 .post-container .action .like-button {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #407BBE;
@@ -162,16 +165,17 @@ body {
   color: #407BBE;
 }
 .post-container .action a .comment-button {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #407BBE;
   text-align: center;
   background-color: #E6E8E4;
   padding: 8px 18px;
   border-radius: 5px;
   border-style: none;
+  border: solid 3px #407BBE;
   cursor: pointer;
 }
 .post-container .action a {
@@ -179,10 +183,10 @@ body {
   color: #E6E8E4;
 }
 .post-container .action a .report-button {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #D93327;
@@ -192,10 +196,10 @@ body {
   cursor: pointer;
 }
 .post-container .action .delete-button {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #D93327;
@@ -206,11 +210,10 @@ body {
 }
 
 .profile-container {
-  padding-top: 60px;
-  padding-left: 550px;
   max-width: 1250px;
   display: flex;
   align-items: flex-end;
+  margin-bottom: 64px;
 }
 .profile-container .user-photo {
   border-radius: 50%;
@@ -220,36 +223,35 @@ body {
   text-decoration: none;
 }
 .profile-container a .change-photo {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #407BBE;
   text-align: center;
   background-color: #E6E8E4;
   padding: 8px 18px;
   border-radius: 5px;
   border-style: none;
+  border: solid 3px #407BBE;
   cursor: pointer;
-  max-width: 160px;
+  max-width: 180px;
   margin: 0 auto 0 auto;
 }
 .profile-container .details-container {
   margin-left: 48px;
 }
 .profile-container .details-container .username {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Bold", sans-serif;
   font-size: 36px;
   line-height: 48px;
-  font-weight: 700;
   margin-bottom: 12px;
   color: #D93327;
 }
 .profile-container .details-container .country {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Bold", sans-serif;
   font-size: 24px;
   line-height: 32px;
-  font-weight: 700;
   margin-bottom: 30px;
   color: #407BBE;
 }
@@ -266,10 +268,10 @@ body {
   text-decoration: none;
 }
 .profile-container .details-container a .update-details {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #407BBE;
@@ -278,13 +280,13 @@ body {
   border-style: none;
   cursor: pointer;
   margin-bottom: 20px;
-  max-width: 176px;
+  max-width: 180px;
 }
 .profile-container .details-container a .delete-account {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #D93327;
@@ -292,7 +294,123 @@ body {
   border-radius: 5px;
   border-style: none;
   cursor: pointer;
-  max-width: 176px;
+  max-width: 180px;
+}
+
+.hide {
+  display: none;
+}
+
+.comment-error-message {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #D93327;
+}
+
+.reply-error-message {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #D93327;
+}
+
+.comment-form {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+.comment-form .comment-content-input {
+  max-width: 700px;
+  padding: 8px;
+  border-radius: 8px;
+  border-style: none;
+  margin: 24px auto 8px auto;
+}
+.comment-form .send-comment {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  margin: 8px auto 0px auto;
+}
+
+.comment {
+  max-width: 700px;
+  padding: 16px;
+  background-color: #4A4F4E;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+.comment .comment-content {
+  margin-bottom: 6px;
+  padding: 8px;
+}
+.comment .comment-signature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.comment .comment-signature .author {
+  display: flex;
+  align-items: center;
+}
+.comment .comment-signature .user-photo {
+  max-width: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+.comment .comment-signature .user-country {
+  text-transform: lowercase;
+}
+.comment .comment-signature .comment-date {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.comment-reply {
+  max-width: 620px;
+  margin-left: 80px;
+}
+
+.comment-action {
+  display: flex;
+}
+.comment-action .reply-button {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 2px 12px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+.comment-action a {
+  text-decoration: none;
+  margin: auto 0px auto auto;
+}
+.comment-action a .report-comment {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #D93327;
+  padding: 2px 12px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
 }
 
 * *, * ::before, * ::after {
@@ -315,20 +433,24 @@ img, picture, svg, video {
 }
 
 @font-face {
-  font-family: "Onest", sans-serif;
-  src: url(./Onest-Regular.ttf);
+  font-family: "Onest-Light";
+  src: url(../../sass/base/Onest-Light.ttf);
 }
 @font-face {
-  font-family: "Onest", sans-serif;
-  src: url(./Onest-SemiBold.ttf);
+  font-family: "Onest-Regular";
+  src: url(../../sass/base/Onest-Regular.ttf);
 }
 @font-face {
-  font-family: "Onest", sans-serif;
-  src: url(./Onest-Bold.ttf);
+  font-family: "Onest-SemiBold";
+  src: url(../../sass/base/Onest-SemiBold.ttf);
 }
 @font-face {
-  font-family: "Onest", sans-serif;
-  src: url(./Onest-Black.ttf);
+  font-family: "Onest-Bold";
+  src: url(../../sass/base/Onest-Bold.ttf);
+}
+@font-face {
+  font-family: "Onest-Black";
+  src: url(../../sass/base/Onest-Black.ttf);
 }
 .footer {
   max-width: 400px;
@@ -340,56 +462,55 @@ img, picture, svg, video {
 }
 .footer .copyright {
   text-align: center;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-SemiBold", sans-serif;
   font-size: 14px;
   line-height: 20px;
-  font-weight: 600;
 }
 
 .heading-1 {
-  font-family: "Onest", sans-serif;
-  font-size: 28px;
-  line-height: 36px;
-  font-weight: 700;
-  padding-top: 60px;
-  padding-left: 550px;
+  font-family: "Onest-Bold", sans-serif;
+  font-size: 36px;
+  line-height: 48px;
+  margin-bottom: 36px;
+  letter-spacing: 1px;
 }
 
 .heading-2 {
-  font-family: "Onest", sans-serif;
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 700;
-  padding-top: 60px;
-  padding-left: 550px;
+  font-family: "Onest-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 36px;
   color: #407BBE;
+  margin-bottom: 28px;
+  letter-spacing: 1px;
 }
 
 .see-more {
-  padding-top: 60px;
-  padding-left: 550px;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-around;
 }
 .see-more .see-more-button {
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #407BBE;
   text-align: center;
   background-color: #E6E8E4;
   padding: 8px 18px;
   border-radius: 5px;
   border-style: none;
+  border: solid 3px #407BBE;
   cursor: pointer;
+  border: solid 3px #407BBE;
 }
 
 .body-login {
   background-color: #282B2A;
   color: #E6E8E4;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 16px;
   line-height: 28px;
-  font-weight: 400;
   padding-top: 129px;
 }
 
@@ -409,10 +530,9 @@ img, picture, svg, video {
 }
 .login-container .logo-container .site-motto {
   text-align: center;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Bold", sans-serif;
   font-size: 24px;
   line-height: 32px;
-  font-weight: 700;
   margin-bottom: 68px;
   letter-spacing: 1.2px;
 }
@@ -428,10 +548,10 @@ img, picture, svg, video {
 }
 .login-container .form-container .login-button {
   width: 360px;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #D93327;
@@ -458,10 +578,10 @@ img, picture, svg, video {
 }
 .login-container .form-container .reg-button-container a .register-button {
   width: 280px;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #407BBE;
@@ -475,10 +595,9 @@ img, picture, svg, video {
 .body-register {
   background-color: #282B2A;
   color: #E6E8E4;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 16px;
   line-height: 28px;
-  font-weight: 400;
   padding-top: 60px;
 }
 
@@ -497,10 +616,9 @@ img, picture, svg, video {
 }
 .register-container .logo-container .site-motto {
   text-align: center;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Bold", sans-serif;
   font-size: 24px;
   line-height: 32px;
-  font-weight: 700;
   margin-bottom: 68px;
   letter-spacing: 1.2px;
 }
@@ -526,10 +644,10 @@ img, picture, svg, video {
 }
 .register-container .form-container .register-button {
   width: 360px;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #D93327;
@@ -548,10 +666,10 @@ img, picture, svg, video {
 }
 .register-container .form-container .login-button-container a .login-button {
   width: 280px;
-  font-family: "Onest", sans-serif;
+  font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
   color: #E6E8E4;
   text-align: center;
   background-color: #407BBE;

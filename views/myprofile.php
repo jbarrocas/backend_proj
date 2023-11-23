@@ -22,33 +22,35 @@
         require("templates/menu.php");
     }
 ?>
-        <h1 class="heading-1">My Profile</h1>
-        <div class="profile-container">
-            <div class="photo-container">
-                <figure>
-                    <img class="user-photo" id="userPhoto" src="/images/users/<?=$user["photo"]?>" alt="">
-                </figure>
-                <a href="/updatephoto/"><div class="change-photo">Change Photo</div></a>
-            </div>
-            <div class="details-container">
-                <p class="username"><?=$user["username"]?></p>
-                <p class="country"><?=$user["country"]?></p>
-                <p class="posts-count">Posts <span id="postsCount"><?=$postsCount["posts_count"]?></span></p>
-                <div class="profile-action" data-user_id="<?=$user["user_id"]?>">
-                    <p class="followers">Followers <span id="followersNumber"><?=$followersCount["total_count"]?></span></p>
-                    <p class="following">Following <?=$followsCount["total_count"]?></p>
-                    <a href="/updatedetails/"><div class="update-details">Update Details</div></a>
-                    <a href="/deleteaccount/"><div class="delete-account">Delete Account</div></a>
+        <div class="page-content">
+            <h1 class="heading-1">My Profile</h1>
+            <div class="profile-container">
+                <div class="photo-container">
+                    <figure>
+                        <img class="user-photo" id="userPhoto" src="/images/users/<?=$user["photo"]?>" alt="">
+                    </figure>
+                    <a href="/updatephoto/"><div class="change-photo">Change Photo</div></a>
+                </div>
+                <div class="details-container">
+                    <p class="username"><?=$user["username"]?></p>
+                    <p class="country"><?=$user["country"]?></p>
+                    <p class="posts-count">Posts <span id="postsCount"><?=$postsCount["posts_count"]?></span></p>
+                    <div class="profile-action" data-user_id="<?=$user["user_id"]?>">
+                        <p class="followers">Followers <span id="followersNumber"><?=$followersCount["total_count"]?></span></p>
+                        <p class="following">Following <?=$followsCount["total_count"]?></p>
+                        <a href="/updatedetails/"><div class="update-details">Update Details</div></a>
+                        <a href="/deleteaccount/"><div class="delete-account">Delete Account</div></a>
+                    </div>
                 </div>
             </div>
-        </div>
 <?php
     require("templates/posts.php");
 ?>
-        <form action="/myprofile/<?=$user["user_id"]?>/" method="get" class="see-more">
-            <input type="hidden" data-last_page="<?= $pages_number ?>">
-            <button class="see-more-button" type="submit" name="page_number" value="<?= $next_page ?>">See More Posts</button>
-        </form>
+            <form action="/myprofile/<?=$user["user_id"]?>/" method="get" class="see-more">
+                <input type="hidden" data-last_page="<?= $pages_number ?>">
+                <button class="see-more-button" type="submit" name="page_number" value="<?= $next_page ?>">See More Posts</button>
+            </form>
+        </div>
 <?php
     require("templates/footer.php");
 ?>

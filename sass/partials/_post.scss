@@ -1,6 +1,4 @@
 .post-container {
-    padding-top: 60px;
-    padding-left: 550px;
 
     .post {
         display: flex;
@@ -12,11 +10,13 @@
         background-color: $white;
         color: $gray;
         margin-bottom: 16px;
+        border-radius: 8px;
 
         .content-wrapper {
 
             .post-image {
                 margin-bottom: 12px;
+                border-radius: 5px;
             }
 
             .post-title {
@@ -71,6 +71,7 @@
         justify-content: space-between;
         align-items: center;
         @include heading-16;
+        margin-bottom: 64px;
 
         .like-button {
             @include blueButton;

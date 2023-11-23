@@ -19,15 +19,17 @@
         require("templates/menu.php");
     }
 ?>
-        <h1 class="heading-1">Most Liked Posts</h1>
-        <h2 class="heading-2">Most Liked Posts of The Month</h2>
+        <div class="page-content">
+            <h1 class="heading-1">Most Liked Posts</h1>
+            <h2 class="heading-2">Most Liked Posts of The Month</h2>
 <?php
     require("templates/posts.php");
 ?>
-        <h2 class="heading-2">Most Liked Posts of The Week</h2>
+            <h2 class="heading-2">Most Liked Posts of The Week</h2>
 <?php
     require("templates/posts_aux.php");
 ?>
+        </div>
 <?php
     require("templates/footer.php");
 ?>

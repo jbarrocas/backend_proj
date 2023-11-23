@@ -19,7 +19,9 @@
         require("templates/menu.php");
     }
 ?>
-        <h1 class="heading-1">Your favorites</h1>
+        <div class="page-content">
+            <h1 class="heading-1">Your favorites</h1>
+
 <?php
     require("templates/posts.php");
 
@@ -27,6 +29,7 @@
         echo '<p role="alert">' .$info_message. '</p>';
     }
 ?>
+        </div>
 <?php
     require("templates/footer.php");
 ?>

@@ -77,8 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const token = form.firstElementChild.nextElementSibling.value;
 
-            console.log(form);
-
             fetch("/requests/", {
                 method: "POST",
                 headers: {

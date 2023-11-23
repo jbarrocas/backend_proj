@@ -19,27 +19,29 @@
         require("templates/menu.php");
     }
 ?>
-        <h1>Profile</h1>
         <div>
-            <img src="/images/users/<?=$user["photo"]?>" alt="">
+            <h1>Profile</h1>
             <div>
-                <p ><?=$user["username"]?></p>
-                <p><?=$user["country"]?></p>
-                <p>Posts <?=$postsCount["posts_count"]?></p>
-                <div data-user_id="<?=$user["user_id"]?>">
-                    <p>Followers <span id="followersNumber"><?=$followersCount["total_count"]?></span></p>
-                    <p>Following <?=$followsCount["total_count"]?></p>
-                    <button id="followBtn" type="button" data-user="<?= $followerCheck ?>" name="follow">Follow</button>
+                <img src="/images/users/<?=$user["photo"]?>" alt="">
+                <div>
+                    <p ><?=$user["username"]?></p>
+                    <p><?=$user["country"]?></p>
+                    <p>Posts <?=$postsCount["posts_count"]?></p>
+                    <div data-user_id="<?=$user["user_id"]?>">
+                        <p>Followers <span id="followersNumber"><?=$followersCount["total_count"]?></span></p>
+                        <p>Following <?=$followsCount["total_count"]?></p>
+                        <button id="followBtn" type="button" data-user="<?= $followerCheck ?>" name="follow">Follow</button>
+                    </div>
                 </div>
             </div>
-        </div>
 <?php
     require("templates/posts.php");
 ?>
-        <form action="/profile/<?=$user["user_id"]?>/" method="get">
-            <input type="hidden" data-last_page="<?= $pages_number ?>">
-            <button type="submit" name="page_number" value="<?= $next_page ?>">See More</button>
-        </form>
+            <form action="/profile/<?=$user["user_id"]?>/" method="get">
+                <input type="hidden" data-last_page="<?= $pages_number ?>">
+                <button type="submit" name="page_number" value="<?= $next_page ?>">See More</button>
+            </form>
+        </div>
 <?php
     require("templates/footer.php");
 ?>
