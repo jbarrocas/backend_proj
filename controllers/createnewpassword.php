@@ -36,50 +36,54 @@ if( isset($_POST["createpassword"]) ) {
     
             $actual_date = strtotime(date("Y/m/d H:i:s"));
 
-            $timeWindow = (strtotime($reset["created_at"]) + (30 * 60));
-    
-            if(
-                $actual_date > $timeWindow ||
-                !password_verify($token, $reset["token"])
-            ) {
-                $message = "Invalid token. Ask for a new one <a href='/resetpassword/'>here</a>.";
+            if(empty($reset["created_at"])) {
+                $message = "You already have defined a new password. Ask for a new link <a href='/resetpassword/'>here</a>.";
             }
             else {
-    
+
+                $timeWindow = (strtotime($reset["created_at"]) + (30 * 60));
+
                 if(
-                    empty($_POST["new_password"]) ||
-                    empty($_POST["new_password_confirm"])
+                    $actual_date > $timeWindow ||
+                    !password_verify($token, $reset["token"])
                 ) {
-                    $message = "Fill in all the fields";
+                    $message = "Invalid token. Ask for a new one <a href='/resetpassword/'>here</a>.";
                 }
                 else {
-            
+        
                     if(
-                        $_POST["new_password"] !== $_POST["new_password_confirm"]
+                        empty($_POST["new_password"]) ||
+                        empty($_POST["new_password_confirm"])
                     ) {
-                        $message = "Your new password does not match with the confirmation";
+                        $message = "Fill in all the fields";
                     }
                     else {
-            
+                
                         if(
-                            mb_strlen($_POST["new_password"]) < 8 ||
-                            mb_strlen($_POST["new_password"]) > 1000 ||
-                            mb_strlen($_POST["new_password_confirm"]) < 8 ||
-                            mb_strlen($_POST["new_password_confirm"]) > 1000
+                            $_POST["new_password"] !== $_POST["new_password_confirm"]
                         ) {
-                            $message = "Password must have at least 8 digits";
+                            $message = "Your new password does not match with the confirmation";
                         }
                         else {
-                            $model = new Users();
-                            $model->updatePassword($_POST, $user["user_id"]);
-
-                            $modelResets->deletePasswordReset($_GET["email"]);
-
-                            $_SESSION["user_id"] = $user["user_id"];
-
-                            http_response_code(201);
-            
-                            header("Location: /");
+                
+                            if(
+                                mb_strlen($_POST["new_password"]) < 8 ||
+                                mb_strlen($_POST["new_password"]) > 1000 ||
+                                mb_strlen($_POST["new_password_confirm"]) < 8 ||
+                                mb_strlen($_POST["new_password_confirm"]) > 1000
+                            ) {
+                                $message = "Password must have at least 8 digits";
+                            }
+                            else {
+                                $model = new Users();
+                                $model->updatePassword($_POST, $user["user_id"]);
+    
+                                $modelResets->deletePasswordReset($_GET["email"]);
+    
+                                $_SESSION["user_id"] = $user["user_id"];                            
+                
+                                // header("Location: /");
+                            }
                         }
                     }
                 }

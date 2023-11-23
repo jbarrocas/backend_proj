@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
     <title>Reset Password</title>
     <script src="/js/form_hide.js"></script>
 </head>
@@ -16,16 +17,22 @@
         require("templates/menu.php");
     }
 ?>
-        <h1>Reset your password</h1>
+        <div class="page-content">
+            <h1 class="heading-1">Reset your password</h1>
 <?php
     if( isset($message)) {
-        echo ' <p id="message" role="alert">' .$message.' </p>';
+        echo ' <p class="error-message" id="message" role="alert">' .$message.' </p>';
     }
 ?>       
-        <form method="POST" action="/resetpassword/" name="form">
-            <input class="reset-email-input" type="email" name="email" placeholder="Email" required>
-            <button type="submit" name="reset_password">Receive Email to Reset Password</button>
-        </form>
+            <form class="form" method="POST" action="/resetpassword/" name="form">
+                <div>
+                    <input class="form-input" type="email" name="email" placeholder="Email" required>
+                </div>
+                <div>
+                    <button class="form-button" type="submit" name="reset_password">Receive Email to Reset Password</button>
+                </div>
+            </form>
+        </div>
 <?php
     require("templates/footer.php");
 ?>
