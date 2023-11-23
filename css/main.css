@@ -175,7 +175,6 @@ body {
   padding: 8px 18px;
   border-radius: 5px;
   border-style: none;
-  border: solid 3px #407BBE;
   cursor: pointer;
 }
 .post-container .action a {
@@ -233,7 +232,6 @@ body {
   padding: 8px 18px;
   border-radius: 5px;
   border-style: none;
-  border: solid 3px #407BBE;
   cursor: pointer;
   max-width: 180px;
   margin: 0 auto 0 auto;
@@ -560,6 +558,20 @@ img, picture, svg, video {
   cursor: pointer;
   margin-bottom: 32px;
 }
+.form .form-red-button {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #D93327;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  margin-bottom: 32px;
+}
 
 .heading-1 {
   font-family: "Onest-Bold", sans-serif;
@@ -603,7 +615,6 @@ img, picture, svg, video {
   padding: 8px 18px;
   border-radius: 5px;
   border-style: none;
-  border: solid 3px #407BBE;
   cursor: pointer;
   border: solid 3px #407BBE;
 }

@@ -16,4 +16,9 @@
         @include blueButton;
         margin-bottom: 32px;
     }
+
+    .form-red-button {
+        @include redButton;
+        margin-bottom: 32px;
+    }
 }
