@@ -582,6 +582,7 @@ img, picture, svg, video {
   border-style: none;
   cursor: pointer;
   margin-bottom: 32px;
+  margin-top: 32px;
 }
 .form .form-red-button {
   font-family: "Onest-SemiBold", sans-serif;
@@ -595,6 +596,21 @@ img, picture, svg, video {
   border-radius: 5px;
   border-style: none;
   cursor: pointer;
+  margin-bottom: 32px;
+}
+.form .form-white-button {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #407BBE;
+  text-align: center;
+  background-color: #E6E8E4;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  max-width: 200px;
   margin-bottom: 32px;
 }
 
