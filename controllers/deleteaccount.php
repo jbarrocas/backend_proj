@@ -57,7 +57,10 @@ else {
 
             require("models/posts.php");
             $modelPosts = new Posts();
-            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $_SESSION["user_id"]);
+            $postsCount = $modelPosts->getPostsCountByUser($_SESSION["user_id"]);
+            $limit = $postsCount["posts_count"];
+            $offset = 0;
+            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $_SESSION["user_id"], $limit, $offset);
 
             foreach($posts as $post) {
 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
     <title>Delete Account</title>
 </head>
 <body>
@@ -15,15 +16,17 @@
         require("templates/menu.php");
     }
 ?>
-        <h1>Delete Account</h1>
+        <div class="page-content">
+            <h1 class="heading-1">Delete Account</h1>
 <?php
     if( isset($message)) {
         echo ' <p id="message" role="alert">' .$message .'</p>';
     }
 ?>
-        <form class="" method="POST" action="/deleteaccount/" name="form">
-            <label for="subject">What's the reason?</label>
-            <select class="report-select" name="subject_id" required>
+            <form class="form" method="POST" action="/deleteaccount/" name="form">
+                <label for="subject">What's the reason?</label>
+                <div>
+                    <select class="form-input" name="subject_id" required>
 <?php
     foreach($subjects as $subject) {
 
@@ -32,10 +35,16 @@
         ';
     }
 ?>
-            </select>
-            <textarea name="delete_motive" id="motive" placeholder="Tell us why (optional)" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
-            <button type="submit" name="delete">Delete</button>
-        </form>
+                    </select>
+                </div>
+                <div>
+                    <textarea class="form-input" name="delete_motive" id="motive" placeholder="Tell us why (optional)" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
+                </div>
+                <div>
+                    <button class="form-red-button" type="submit" name="delete">Delete</button>
+                </div>
+            </form>
+        </div>
 <?php
     require("templates/footer.php");
 ?>
