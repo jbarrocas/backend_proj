@@ -14,7 +14,7 @@
     <?php
         if(isset($_SESSION["user_id"])){
     ?>
-            <li><a href="/logout/">Logout</a></li>
+            <li class="menu-items"><a href="/logout/">Logout</a></li>
     <?php
         }
     ?>
