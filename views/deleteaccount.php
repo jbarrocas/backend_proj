@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
     <title>Delete Account</title>
+
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <main>
@@ -38,7 +39,7 @@
                     </select>
                 </div>
                 <div>
-                    <textarea class="form-input" name="delete_motive" id="motive" placeholder="Tell us why (optional)" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
+                    <textarea class="form-input" name="delete_motive" id="motive" placeholder="Tell us why (optional)" aria-label="Tell Us Why" cols="74" rows="3" minlength="10" maxlength="222"></textarea>
                 </div>
                 <div>
                     <button class="form-red-button" type="submit" name="delete">Delete</button>

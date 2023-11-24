@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Most Liked Posts</title>
+    
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/likes.js"></script>
     <script src="/js/menu.js"></script>

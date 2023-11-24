@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
+
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/likes.js"></script>
     <script src="/js/menu.js"></script>
@@ -25,7 +26,7 @@
             <h1 class="heading-1" id="heading">Search Content</h1>
             <form class="form" action="/search/" method="get" id="searchForm">
                 <div>
-                    <input class="form-input" type="text" name="search" id="searchText" minlength="3" maxlength="30">
+                    <input class="form-input" type="text" name="search" id="searchText" aria-label="Text to Search" minlength="3" maxlength="30">
                 </div>
                 <div>
                     <button class="form-button" type="submit" name="submit">Search</button>

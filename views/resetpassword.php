@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
     <title>Reset Password</title>
+
+    <link rel="stylesheet" href="/css/main.css">
     <script src="/js/form_hide.js"></script>
 </head>
 <body>
@@ -26,7 +27,7 @@
 ?>       
             <form class="form" method="POST" action="/resetpassword/" name="form">
                 <div>
-                    <input class="form-input" type="email" name="email" placeholder="Email" required>
+                    <input class="form-input" type="email" name="email" aria-label="Email" placeholder="Email" required>
                 </div>
                 <div>
                     <button class="form-button" type="submit" name="reset_password">Receive Email to Reset Password</button>

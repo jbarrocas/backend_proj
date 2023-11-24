@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Login</title>
+
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="body-login">
@@ -22,10 +23,10 @@
 ?>
                 <form class="login-form" method="POST" action="/login/">
                     <div>
-                        <input class="login-input" type="email" name="email" placeholder="Email" required>
+                        <input class="login-input" type="email" name="email" placeholder="Email" aria-label="Email" required>
                     </div>
                     <div>
-                        <input class="login-input" type="password" name="password" placeholder="Password" required minlength="8" maxlength="1000">                        
+                        <input class="login-input" type="password" name="password" placeholder="Password" aria-label="Password" required minlength="8" maxlength="1000">                        
                     </div>
                     <div>
                         <input type="hidden" name="token" value="<?= $_SESSION["token"] ?>">

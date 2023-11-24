@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Comment</title>
+
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/form_hide.js"></script>
 </head>
@@ -26,7 +27,7 @@
 ?>
             <form class="form" method="POST" action="/report_comment/<?= $comment["comment_id"] ?>" name="form">
                 <div>
-                    <select class="form-input report-select" name="subject" required>
+                    <select class="form-input report-select" name="subject" aria-label="Report Subject" required>
 <?php
     foreach($subjects as $subject) {
 

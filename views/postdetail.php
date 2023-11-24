@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post - <?= $post["title"] ?></title>
+
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/comments.js"></script>
 </head>
@@ -45,7 +46,7 @@
 ?>
                     <p class="comment-error-message" id="commentErrorMessage" role="alert"></p>
                     <form class="comment-form" id="commentForm" action="/requests/">
-                        <textarea class="comment-content-input" id="commentContent" type="text" placeholder="Write your comment" cols="72" rows="3" minlength="3" maxlength="222" name="content"></textarea>
+                        <textarea class="comment-content-input" id="commentContent" type="text" placeholder="Write your comment" aria-label="Write your comment" cols="72" rows="3" minlength="3" maxlength="222" name="content"></textarea>
                         <input type="hidden" name="commentToken" value="<?= $_SESSION["token"] ?>">
                         <button class="send-comment" id="sendComment" type="button" name="sendComment">Send Comment</button>
                     </form>
@@ -77,7 +78,7 @@
                     </div>
                 </div>
                 <form id="replyForm" class="reply-form hide" action="/requests/" data-reply_check="' .$comment["parent_id"]. '">
-                    <textarea class="reply-input" id="replyContent" data-comment_id="' .$comment["comment_id"]. '" type="text" placeholder="Write your reply" cols="72" rows="3" minlength="3" maxlength="222" name="replyContent"></textarea>
+                    <textarea class="reply-input" id="replyContent" data-comment_id="' .$comment["comment_id"]. '" aria-label="Write you reply" type="text" placeholder="Write your reply" cols="72" rows="3" minlength="3" maxlength="222" name="replyContent"></textarea>
                     <input type="hidden" name="replyToken" value="' .$_SESSION["token"]. '">
                     <button class="send-reply-button" id="sendReply" type="button" name="sendReply">Send Reply</button>
                 </form>

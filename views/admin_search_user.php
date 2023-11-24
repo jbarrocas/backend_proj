@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
     <title>Search User</title>
+
+    <link rel="stylesheet" href="/css/main.css">
     <script src="/js/search.js"></script>
 </head>
 <body>
@@ -16,7 +17,7 @@
             <h1 class="heading-1" id="heading">Search User</h1>
             <form class="form" action="/admin_search_user/" method="get" id="searchForm">
                 <div>
-                    <input class="form-input" type="text" name="search" id="searchText" minlength="3" maxlength="30">
+                    <input class="form-input" type="text" name="search" id="searchText" aria-label="Search" minlength="3" maxlength="30">
                 </div>
                 <div>
                     <button class="form-button" type="submit" name="submit">Search</button>

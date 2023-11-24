@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
     <title>User Details - <?= $user["username"] ?></title>
+
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <main>
@@ -25,16 +26,16 @@
 ?>
             <form class="form" class="details-form" method="POST" action="/updatedetails/">
                 <div>
-                    <input class="form-input" type="text" name="first_name" placeholder="First Name" value="<?= $user["first_name"] ?>" required minlength="3" maxlength="22">
+                    <input class="form-input" type="text" name="first_name" placeholder="First Name" aria-label="First Name" value="<?= $user["first_name"] ?>" required minlength="3" maxlength="22">
                 </div>
                 <div>
-                    <input class="form-input" type="text" name="last_name" placeholder="Last Name" value="<?= $user["last_name"] ?>" required minlength="2" maxlength="22">
+                    <input class="form-input" type="text" name="last_name" placeholder="Last Name" aria-label="Last Name" value="<?= $user["last_name"] ?>" required minlength="2" maxlength="22">
                 </div>
                 <div>
-                    <input class="form-input" type="email" name="email" placeholder="Email" value="<?= $user["email"] ?>" required>
+                    <input class="form-input" type="email" name="email" placeholder="Email" aria-label="Email" value="<?= $user["email"] ?>" required>
                 </div>
                 <div>
-                    <select class="form-input" name="country_id" required>
+                    <select class="form-input" name="country_id" aria-label="Country" required>
 <?php
     foreach($countries as $country) {
         $userCountry = $user["country_id"];
