@@ -31,7 +31,7 @@ if( isset($_POST["send"]) ) {
             require("models/users.php");
             $modelUsers = new Users();
             $user = $modelUsers->getByEmail($_POST["email"]);
-    
+
             if(
                 !empty($user) &&
                 password_verify($_POST["password"], $user["password"])

@@ -153,9 +153,6 @@ body {
   text-decoration: none;
   color: #282B2A;
 }
-.post-container .post-signature .author .post-author .post-country {
-  text-transform: lowercase;
-}
 .post-container .action {
   max-width: 700px;
   display: flex;

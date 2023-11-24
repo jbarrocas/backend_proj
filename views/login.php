@@ -15,6 +15,11 @@
                 <img class="post-pics" src="/images/assets/PicCollage_600px.png" alt="Posts examples">
             </div>
             <div class="form-container">
+<?php
+    if( isset($message)) {
+        echo ' <p id="message" role="alert">' .$message .'</p>';
+    }
+?>
                 <form class="login-form" method="POST" action="/login/">
                     <div>
                         <input class="login-input" type="email" name="email" placeholder="Email" required>

@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                    followButton.setAttribute("data-follow", "followed");
 
-                   followButton.textContent = "Followed";
+                   followButton.textContent = "Unfollow";
 
                     const followersNumber = document.getElementById("followersNumber");
 
