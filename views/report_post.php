@@ -19,11 +19,11 @@
 ?>
         <div class="page-content">
             <h1 class="heading-1">Report Post</h1>
-        <?php
-            if( isset($message)) {
-                echo ' <p id="message" role="alert">' .$message .'</p>';
-            }
-        ?>
+<?php
+    if( isset($message)) {
+        echo ' <p id="message" role="alert">' .$message .'</p>';
+    }
+?>
             <form class="form" method="POST" action="/report_post/<?= $post["post_id"] ?>" name="form">
                 <div>
                     <select class="form-input report-select" name="subject" required>

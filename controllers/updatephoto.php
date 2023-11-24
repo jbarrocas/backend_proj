@@ -41,7 +41,7 @@ else {
     
                 $model->updatePhoto($post, $_SESSION["user_id"]);  
     
-                header("Location: /myprofile/");
+                header("Location: /profile/" . $_SESSION["user_id"]);
             }
             else {
                 $message = "File size must be less than 10 MB";

@@ -9,7 +9,6 @@ require("models/posts.php");
 $modelPosts = new Posts();
 $post = $modelPosts->getPostById($id);
 
-
 $reportsSubjects = [];
 foreach($subjects as $subject){
     $reportsSubjects[] = $subject["report_subject_id"];
@@ -44,10 +43,6 @@ else {
             $message = "Choose a subject for report";
         }
     }
-
-    
-
-
 }
 
 require("views/report_post.php");
