@@ -6,6 +6,7 @@
     <title>Search</title>
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/likes.js"></script>
+    <script src="/js/menu.js"></script>
     <script src="/js/search.js"></script>
     <script src="/js/posts_buttons.js"></script>
     <script src="/js/post_delete.js"></script>

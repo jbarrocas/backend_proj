@@ -81,19 +81,22 @@ body {
   margin-top: 60px;
   margin-bottom: 60px;
 }
-.menu-container .menu-ul {
-  list-style: none;
+.menu-container .menu-items {
+  margin-bottom: 32px;
 }
-.menu-container .menu-ul a {
+.menu-container .menu-items a {
   text-decoration: none;
-  color: #E6E8E4;
+  color: inherit;
   font-family: "Onest-Regular", sans-serif;
   font-size: 18px;
   line-height: 28px;
   letter-spacing: 1px;
 }
-.menu-container .menu-ul .menu-items {
-  margin-bottom: 32px;
+.menu-container .selected {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #407BBE;
 }
 
 .post-container .post {

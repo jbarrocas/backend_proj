@@ -13,21 +13,23 @@
         margin-bottom: 60px;
     }
 
-    .menu-ul {
-        list-style: none;
+    .menu-items {
+        margin-bottom: 32px;
 
         a {
             text-decoration: none;
-            color: $white;
+            color: inherit;
             @include body-18;
             letter-spacing: 1px;
         }
-
-        .menu-items {
-            margin-bottom: 32px;
-        }
+    }
+    .selected {
+        @include body-18;
+        color: $blue;
     }
 }
+
+
 
 
 

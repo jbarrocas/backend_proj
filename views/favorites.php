@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorite Posters</title>
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/menu.js"></script>
     <script src="/js/likes.js"></script>
     <script src="/js/posts_buttons.js"></script>
     <script src="/js/post_delete.js"></script>
