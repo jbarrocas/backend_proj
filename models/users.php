@@ -128,6 +128,8 @@ class Users extends Base
                 countries AS c USING(country_id)
             WHERE
                 is_admin = ?
+            ORDER BY
+                is_super_admin, is_admin, admin_status_updated_at DESC
         ");
 
         $query->execute([

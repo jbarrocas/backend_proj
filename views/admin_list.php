@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
     <title>Admins List</title>
 </head>
 <body>
@@ -10,22 +11,22 @@
 <?php
     require("templates/adminmenu.php");
 ?>
-        <h1>Admins List</h1>
+        <div class="page-content">
+            <h1 class="heading-1">Admins List</h1>
 <?php
     foreach($admins as $admin) {
         echo '
-            <div>
+            <div class="user-detail">
                 <p>Name: ' .$admin["first_name"]. " " .$admin["last_name"].'</p>
                 <p>Username: ' .$admin["username"]. '</p>
                 <p>Email: ' .$admin["email"]. '</p>
                 <p>Country: ' .$admin["country"]. '</p>
-                <div>
-                    <a href="/admin_updateadminstatus/' .$admin["user_id"]. '">View Detail and Update Status</a>
-                </div>
+                <a href="/admin_updateadminstatus/' .$admin["user_id"]. '"><div class="link-whiteButton">View Detail and Update Status</div></a>
             </div>
         ';
     }
 ?>
+        </div>
 <?php
     require("templates/footer.php");
 ?>
