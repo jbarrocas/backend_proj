@@ -50,7 +50,7 @@ class Post_Reports extends Base{
             INNER JOIN report_subjects AS rs ON pr.subject_id = rs.report_subject_id
             LEFT JOIN users ON users.user_id = pr.user_id AND users.user_id = p.user_id
             WHERE
-                p.post_id = ?
+                pr.post_id = ?
         ");
 
         $query->execute([$id]);
@@ -75,6 +75,27 @@ class Post_Reports extends Base{
             $data,
             $admin_id,
             $post_id
+        ]);
+
+    }
+
+    public function updateReportByUser($data, $admin_id, $post_author_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                post_reports
+            SET
+                procedure_id = ?,
+                reviewed_at = CURRENT_TIMESTAMP,
+                reviewed_by = ?
+            WHERE
+                post_author_id = ?
+            ");
+
+        $query->execute([
+            $data,
+            $admin_id,
+            $post_author_id
         ]);
 
     }

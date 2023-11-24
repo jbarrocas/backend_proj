@@ -48,7 +48,7 @@ class Comments_Reports extends Base{
             INNER JOIN report_subjects AS rs ON cr.subject_id = rs.report_subject_id
             LEFT JOIN users ON users.user_id = cr.user_id AND users.user_id = c.user_id
             WHERE
-                c.comment_id = ?
+                cr.comment_id = ?
         ");
 
         $query->execute([$id]);
@@ -77,19 +77,51 @@ class Comments_Reports extends Base{
 
     }
 
-    public function createReport($comment_id, $user_id, $data) {
+    public function updateReportByUser($data, $admin_id, $comment_author_id) {
+
+        $query = $this->db->prepare("
+            UPDATE
+                comments_reports
+            SET
+                procedure_id = ?,
+                reviewed_at = CURRENT_TIMESTAMP,
+                reviewed_by = ?
+            WHERE
+                comment_author_id = ?
+            ");
+
+        $query->execute([
+            $data,
+            $admin_id,
+            $comment_author_id
+        ]);
+
+    }
+
+    public function createReport($comment_id, $user_id, $data, $comment_author_id) {
 
         $query = $this->db->prepare("
             INSERT INTO comments_reports
-            (comment_id, user_id, subject_id)
-            VALUES(?, ?, ?)
+            (comment_id, user_id, subject_id, comment_author_id)
+            VALUES(?, ?, ?, ?)
         ");
 
         $query->execute([
             $comment_id,
             $user_id,
-            $data
+            $data,
+            $comment_author_id
         ]);
+    }
+
+    public function deleteReport($comment_author_id) {
+
+        $query = $this->db->prepare("
+            DELETE FROM comments_reports
+            WHERE comment_author_id = ?
+        ");
+
+        $query->execute([$comment_author_id]);
     }
 }
 

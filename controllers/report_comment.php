@@ -9,7 +9,6 @@ require("models/comments.php");
 $modelComments = new Comments();
 $comment = $modelComments->getCommentById($id);
 
-
 $reportsSubjects = [];
 foreach($subjects as $subject){
     $reportsSubjects[] = $subject["report_subject_id"];
@@ -40,7 +39,7 @@ else {
 
             require("models/comments_reports.php");
             $model = new Comments_Reports();
-            $model->createReport($id, $_SESSION["user_id"], $_POST["subject"]);
+            $model->createReport($id, $_SESSION["user_id"], $_POST["subject"], $comment["comment_author"]);
 
             $message = "Report sent. Thanks for your cooperation.";
             http_response_code(202);

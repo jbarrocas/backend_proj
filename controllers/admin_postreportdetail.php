@@ -146,7 +146,7 @@ else {
 
             $procedure = $modelAction[2];
 
-            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);
+            $modelPostReports->updateReportByUser($procedure["procedure_id"], $_SESSION["user_id"], $postedBy["user_id"]);
 
             $modelBan = new User_Bans();
             $modelBan->createUserBan($user["email"], $_SESSION["user_id"]);
@@ -195,8 +195,6 @@ else {
                 unlink($postPhoto);
                 $modelPosts->delete($post["post_id"]);                
             }
-
-            $modelPostReports->deleteReport($postedBy["user_id"]);
 
             $userPhoto = "images/users/" . $postedBy["photo"];
             unlink($userPhoto);

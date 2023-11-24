@@ -108,9 +108,9 @@ else {
 
             sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
 
-            $createdBy = $modelUsers->getById($commentReport["comment_author"]);
+            $commentedBy = $modelUsers->getById($commentReport["comment_author"]);
 
-            $prevaricator_f_name = $createdBy["first_name"];
+            $prevaricator_f_name = $commentedBy["first_name"];
 
             $subject = "Comment Complaint.";
 
@@ -125,7 +125,7 @@ else {
             <p>Thank you for choosing Postapol.</p>            
             <p>The Postapol team</p>";
 
-            sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
+            sendEmail($commentedBy["email"], $commentedBy["first_name"], $commentedBy["last_name"], $subject, $message);
 
             header("Location: /admin_commentreports/");
         }
@@ -138,8 +138,12 @@ else {
 
             $procedure = $modelAction[2];
 
-            $modelCommentReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $commentReport["comment_id"]);
+            $modelCommentReports->updateReportByUser($procedure["procedure_id"], $_SESSION["user_id"], $commentReport["comment_author"]);
 
+            var_dump($procedure["procedure_id"]);
+            var_dump($_SESSION["user_id"]);
+            var_dump($commentReport["comment_author"]);
+            
             $modelBan = new User_Bans();
             $modelBan->createUserBan($user["email"], $_SESSION["user_id"]);
 
@@ -161,9 +165,9 @@ else {
 
             sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
 
-            $createdBy = $modelUsers->getById($commentReport["comment_author"]);
+            $commentedBy = $modelUsers->getById($commentReport["comment_author"]);
 
-            $prevaricator_f_name = $createdBy["first_name"];
+            $prevaricator_f_name = $commentedBy["first_name"];
 
             $subject = "Comment Complaint.";
 
@@ -176,14 +180,14 @@ else {
             <p>We hope you understand our position.</p>            
             <p>The Postapol team</p>";
 
-            sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
+            sendEmail($commentedBy["email"], $commentedBy["first_name"], $commentedBy["last_name"], $subject, $message);
 
             require("models/posts.php");
             $modelPosts = new Posts();
-            $postsCount = $modelPosts->getPostsCountByUser($_SESSION["user_id"]);
-            $limit = $postsCount["posts_count"];
+            $postsCount = $modelPosts->getPostsCountByUser($commentedBy["user_id"]);
+            $limit = intval($postsCount["posts_count"]);
             $offset = 0;
-            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $_SESSION["user_id"], $limit, $offset);
+            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $commentedBy["user_id"], $limit, $offset);
 
             foreach($posts as $post) {
 
@@ -192,12 +196,10 @@ else {
                 $modelPosts->delete($post["post_id"]);                
             }
 
-            $userPhoto = "images/users/" . $createdBy["photo"];
+            $userPhoto = "images/users/" . $commentedBy["photo"];
             unlink($userPhoto);
 
-            $modelUsers->deleteUser($commentReport["comment_author"]);
-
-            http_response_code(202);
+            $modelUsers->deleteUser($commentedBy["user_id"]);
 
             header("Location: /admin_commentreports/");
         }

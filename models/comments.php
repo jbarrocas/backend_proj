@@ -45,7 +45,9 @@ class Comments extends Base
                 c.comment_id,
                 c.content,
                 c.comment_date,
+                c.user_id AS comment_author,
                 p.post_id,
+                p.user_id,
                 u.username
             FROM
                 comments AS c

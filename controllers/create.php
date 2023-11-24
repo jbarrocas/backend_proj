@@ -63,9 +63,9 @@ else {
                         else {
         
                             if(
-                                $_FILES["photo"]["size"] > 2 * 1024 * 1024
+                                $_FILES["photo"]["size"] > 10 * 1024 * 1024
                             ) {
-                                $message = "File size must be less than 2 MB";
+                                $message = "File size must be less than 10 MB";
                             }
                             else {
                     
