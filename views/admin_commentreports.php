@@ -16,21 +16,21 @@
                 <div class="comment-reports">
                     <table>
                         <tr>
-                            <th>Comment ID</th>
-                            <th>Subject</th>
-                            <th>Reported By</th>
-                            <th>Reported At</th>
-                            <th>Report Detail</th>
+                            <th class="th-user">Comment ID</th>
+                            <th class="th-user">Subject</th>
+                            <th class="th-user">Reported By</th>
+                            <th class="th-user">Reported At</th>
+                            <th class="th-user">Report Detail</th>
                         </tr>
         <?php
             foreach($commentReports as $commentReport) {
                 echo '
                     <tr">
-                        <td>' .$commentReport["comment_id"]. '</td>
-                        <td>' .$commentReport["name"]. '</td>
-                        <td>' .$commentReport["username"]. '</td>
-                        <td>' .$commentReport["reported_at"]. '</td>
-                        <td><a href="/admin_commentreportdetail/' .$commentReport["comment_id"]. '">See Report Detail</a></td>
+                        <td class="td-user">' .$commentReport["comment_id"]. '</td>
+                        <td class="td-user">' .$commentReport["name"]. '</td>
+                        <td class="td-user">' .$commentReport["username"]. '</td>
+                        <td class="td-user">' .$commentReport["reported_at"]. '</td>
+                        <td class="td-user"><a href="/admin_commentreportdetail/' .$commentReport["comment_id"]. '">See Report Detail</a></td>
                     </tr>
                 ';
             }

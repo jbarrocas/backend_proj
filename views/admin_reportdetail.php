@@ -16,7 +16,7 @@
             <h1 class="heading-1">Admin Report Detail - <?= $report["username"] ?></h1>
             <div class="report-container" name="report">
                 <p>Message: <?=$report["admin_message"]?></p>
-                <p>Author: <?=$report["username"]?></p>
+                <p>Reported by: <?=$report["username"]?></p>
                 <form class="form" method="post" action="/admin_reportdetail/<?= $report["admin_report_id"] ?>" name="form">
                     <button class="form-button" type="submit" name="archive">Archive Report</button>
                 </form>

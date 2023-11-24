@@ -31,7 +31,7 @@ require("templates/adminmenu.php");
                     <a href="/admin_list/"><li class="admin-blue-button">Admins List</li></a>
                     <a href="/admin_reports/"><li class="admin-white-button">Admins Reports</li></a>
                     <a href="/admin_search_user/"><li class="admin-red-button">Search User</li></a>
-                    <a href="/admin_accountreports/"><li class="admin-blue-button">Deleted Accounts Reports</li></a>
+                    <a href="/admin_deletedaccountreports/"><li class="admin-blue-button">Deleted Accounts Reports</li></a>
                 </ul>
             </section>
         ';

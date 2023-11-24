@@ -16,19 +16,19 @@
             <div class="admin-reports">
                 <table>
                     <tr>
-                        <th>Report ID</th>
-                        <th>Reported By</th>
-                        <th>Reported At</th>
-                        <th>Report Detail</th>
+                        <th class="th-admin">Report ID</th>
+                        <th class="th-admin">Reported By</th>
+                        <th class="th-admin">Reported At</th>
+                        <th class="th-admin">Report Detail</th>
                     </tr>
 <?php
     foreach($adminReports as $adminReport) {
         echo '
             <tr>
-                <td>' .$adminReport["admin_report_id"]. '</td>
-                <td>' .$adminReport["username"]. '</td>
-                <td>' .$adminReport["created_at"]. '</td>
-                <td><a href="/admin_reportdetail/' .$adminReport["admin_report_id"]. '">See Report Detail</a></td>
+                <td class="td-admin">' .$adminReport["admin_report_id"]. '</td>
+                <td class="td-admin">' .$adminReport["username"]. '</td>
+                <td class="td-admin">' .$adminReport["created_at"]. '</td>
+                <td class="td-admin"><a href="/admin_reportdetail/' .$adminReport["admin_report_id"]. '">See Report Detail</a></td>
             </tr>
         ';
     }

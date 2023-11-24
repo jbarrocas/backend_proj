@@ -1,0 +1,52 @@
+.th-admin:nth-child(1) {
+    width: 15%;
+}
+  
+.th-admin:nth-child(2) {
+    width: 30%;
+}
+  
+.th-admin:nth-child(3) {
+    width: 30%;
+}
+
+.th-admin:nth-child(4) {
+    width: 25%;
+}
+  
+.th-admin, .td-admin {
+    padding: 16px;
+    border-bottom: 1px solid $blue;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.td-admin {
+    a{
+        @include whiteButton;
+    }
+}
+
+.th-admin-3:nth-child(1) {
+    width: 50%;
+}
+  
+.th-admin-3:nth-child(2) {
+    width: 25%;
+}
+  
+.th-admin-3:nth-child(3) {
+    width: 25%;
+}
+
+.th-admin-3, .td-admin-3 {
+    padding: 16px;
+    border-bottom: 1px solid $blue;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #4A4F4E;
+}
+  
