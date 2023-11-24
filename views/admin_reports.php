@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
     <title>Admin Reports</title>
 </head>
 <body>
@@ -10,15 +11,16 @@
 <?php
     require("templates/adminmenu.php");
 ?>
-        <h1>Admin Reports</h1>
-        <div class="admin-reports">
-            <table>
-                <tr>
-                    <th>Report ID</th>
-                    <th>Reported By</th>
-                    <th>Reported At</th>
-                    <th>Report Detail</th>
-                </tr>
+        <div class="page-content">
+            <h1 class="heading-1">Admin Reports</h1>
+            <div class="admin-reports">
+                <table>
+                    <tr>
+                        <th>Report ID</th>
+                        <th>Reported By</th>
+                        <th>Reported At</th>
+                        <th>Report Detail</th>
+                    </tr>
 <?php
     foreach($adminReports as $adminReport) {
         echo '
@@ -31,7 +33,8 @@
         ';
     }
 ?>
-            </table>
+                </table>
+            </div>
         </div>
 <?php
     require("templates/footer.php");
