@@ -11,3 +11,20 @@
         }
     }
 }
+
+.admin-photo {
+    border-radius: 50%;
+    margin-bottom: 32px;
+}
+
+.update-admin-container {
+
+    p {
+        margin-bottom: 8px;
+    }
+}
+
+.blue-button {
+    @include blueButton;
+    margin-top: 16px;
+}

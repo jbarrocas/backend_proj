@@ -704,6 +704,30 @@ td a {
   margin: 16px auto 48px 0;
 }
 
+.admin-photo {
+  border-radius: 50%;
+  margin-bottom: 32px;
+}
+
+.update-admin-container p {
+  margin-bottom: 8px;
+}
+
+.blue-button {
+  font-family: "Onest-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #E6E8E4;
+  text-align: center;
+  background-color: #407BBE;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
 .heading-1 {
   font-family: "Onest-Bold", sans-serif;
   font-size: 36px;

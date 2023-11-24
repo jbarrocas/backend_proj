@@ -17,9 +17,9 @@ require("templates/adminmenu.php");
                 <section class="admin-action-area">
                     <h2 class="heading-2">Admin Action Area</h2>
                     <ul>
-                        <li class="admin-blue-button"><a href="/admin_postreports/">Posts Reports</a></li>
-                        <li class="admin-white-button"><a href="/admin_commentreports/">Comments Reports</a></li>
-                        <li class="admin-red-button"><a href="/admin_report/">Report to Administration</a></li>
+                        <a href="/admin_postreports/"><li class="admin-blue-button">Posts Reports</li></a>
+                        <a href="/admin_commentreports/"><li class="admin-white-button">Comments Reports</li></a>
+                        <a href="/admin_report/"><li class="admin-red-button">Report to Administration</li></a>
                     </ul>
                 </section>
 <?php
@@ -28,10 +28,10 @@ require("templates/adminmenu.php");
             <section class="super-admin-area">
                 <h2 class="heading-2">Super Admin Area</h2>
                 <ul>
-                    <li class="admin-blue-button"><a href="/admin_list/">Admins List</a></li>
-                    <li class="admin-white-button"><a href="/admin_reports/">Admins Reports</a></li>
-                    <li class="admin-red-button"><a href="/admin_search_user/">Search User</a></li>
-                    <li class="admin-blue-button"><a href="/admin_accountreports/">Deleted Accounts Reports</a></li>
+                    <a href="/admin_list/"><li class="admin-blue-button">Admins List</li></a>
+                    <a href="/admin_reports/"><li class="admin-white-button">Admins Reports</li></a>
+                    <a href="/admin_search_user/"><li class="admin-red-button">Search User</li></a>
+                    <a href="/admin_accountreports/"><li class="admin-blue-button">Deleted Accounts Reports</li></a>
                 </ul>
             </section>
         ';
