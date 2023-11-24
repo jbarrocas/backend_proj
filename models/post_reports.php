@@ -79,19 +79,30 @@ class Post_Reports extends Base{
 
     }
 
-    public function createReport($post_id, $user_id, $data) {
+    public function createReport($post_id, $user_id, $data, $post_author_id) {
 
         $query = $this->db->prepare("
             INSERT INTO post_reports
-            (post_id, user_id, subject_id)
-            VALUES(?, ?, ?)
+            (post_id, user_id, subject_id, post_author_id)
+            VALUES(?, ?, ?, ?)
         ");
 
         $query->execute([
             $post_id,
             $user_id,
-            $data
+            $data,
+            $post_author_id
         ]);
+    }
+
+    public function deleteReport($post_author_id) {
+
+        $query = $this->db->prepare("
+            DELETE FROM post_reports
+            WHERE post_author_id = ?
+        ");
+
+        $query->execute([$post_author_id]);
     }
 }
 

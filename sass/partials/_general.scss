@@ -19,3 +19,8 @@ body {
         color: $white;
     }
 }
+
+.success-message {
+    @include body-18;
+    color: $blue;
+}

@@ -37,8 +37,6 @@ else {
                 $model->createAdminReport($_SESSION["user_id"], $_POST["adminMessage"]);
 
                 $message = "Report sent. Thanks for your input.";
-    
-                http_response_code(202);
             }
             else {
                 $message = "The report must have between 3 and 1000 characters.";

@@ -197,6 +197,8 @@ else {
 
             $modelUsers->deleteUser($commentReport["comment_author"]);
 
+            http_response_code(202);
+
             header("Location: /admin_commentreports/");
         }
     }

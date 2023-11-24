@@ -114,9 +114,9 @@ else {
 
             sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
 
-            $createdBy = $modelUsers->getById($postReport["post_author"]);
+            $postedBy = $modelUsers->getById($postReport["post_author"]);
 
-            $prevaricator_f_name = $createdBy["first_name"];
+            $prevaricator_f_name = $postedBy["first_name"];
 
             $subject = "Post Complaint.";
 
@@ -131,7 +131,7 @@ else {
             <p>Thank you for choosing Postapol.</p>            
             <p>The Postapol team</p>";
 
-            sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
+            sendEmail($postedBy["email"], $postedBy["first_name"], $postedBy["last_name"], $subject, $message);
 
             http_response_code(202);
 
@@ -167,9 +167,9 @@ else {
 
             sendEmail($reportedBy["email"], $reportedBy["first_name"], $reportedBy["last_name"], $subject, $message);
 
-            $createdBy = $modelUsers->getById($postReport["post_author"]);
+            $postedBy = $modelUsers->getById($postReport["post_author"]);
 
-            $prevaricator_f_name = $createdBy["first_name"];
+            $prevaricator_f_name = $postedBy["first_name"];
 
             $subject = "Post Complaint.";
 
@@ -182,12 +182,12 @@ else {
             <p>We hope you understand our position.</p>            
             <p>The Postapol team</p>";
 
-            sendEmail($createdBy["email"], $createdBy["first_name"], $createdBy["last_name"], $subject, $message);
+            sendEmail($postedBy["email"], $postedBy["first_name"], $postedBy["last_name"], $subject, $message);
 
-            $postsCount = $modelPosts->getPostsCountByUser($_SESSION["user_id"]);
-            $limit = $postsCount["posts_count"];
+            $postsCount = $modelPosts->getPostsCountByUser($postedBy["user_id"]);
+            $limit = intval($postsCount["posts_count"]);
             $offset = 0;
-            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $_SESSION["user_id"], $limit, $offset);
+            $posts = $modelPosts->getPostsByUser($_SESSION["user_id"], $postedBy["user_id"], $limit, $offset);
 
             foreach($posts as $post) {
 
@@ -196,12 +196,12 @@ else {
                 $modelPosts->delete($post["post_id"]);                
             }
 
-            $userPhoto = "images/users/" . $createdBy["photo"];
+            $modelPostReports->deleteReport($postedBy["user_id"]);
+
+            $userPhoto = "images/users/" . $postedBy["photo"];
             unlink($userPhoto);
 
-            $modelUsers->deleteUser($postReport["post_author"]);
-
-            http_response_code(202);
+            $modelUsers->deleteUser($postedBy["user_id"]);
 
             header("Location: /admin_postreports/");
         }

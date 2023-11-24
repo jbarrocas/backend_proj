@@ -35,7 +35,7 @@ else {
 
             require("models/post_reports.php");
             $model = new Post_Reports();
-            $model->createReport($id, $_SESSION["user_id"], $_POST["subject"]);
+            $model->createReport($id, $_SESSION["user_id"], $_POST["subject"], $post["user_id"]);
 
             $message = "Report sent. Thanks for your cooperation.";
             http_response_code(202);

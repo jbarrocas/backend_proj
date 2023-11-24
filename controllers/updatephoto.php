@@ -23,7 +23,7 @@ else {
             if(
                 $_FILES["photo"]["error"] === 0 &&
                 $_FILES["photo"]["size"] > 0 &&
-                $_FILES["photo"]["size"] <= 2 * 1024 * 1024                
+                $_FILES["photo"]["size"] <= 10 * 1024 * 1024                
             ) {
     
                 $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
@@ -39,13 +39,12 @@ else {
 
                 $post["photo"] = $filename;
     
-                $model->updatePhoto($post, $_SESSION["user_id"]);
-                http_response_code(202);  
+                $model->updatePhoto($post, $_SESSION["user_id"]);  
     
                 header("Location: /myprofile/");
             }
             else {
-                $message = "File size must be less than 2 MB";
+                $message = "File size must be less than 10 MB";
             }
         }
         else {

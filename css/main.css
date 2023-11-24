@@ -60,6 +60,13 @@ body {
   color: #E6E8E4;
 }
 
+.success-message {
+  font-family: "Onest-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #407BBE;
+}
+
 .menu-container {
   max-width: 365px;
   min-width: 365px;
