@@ -85,7 +85,7 @@ else {
 
             $procedure = $modelAction[1];
 
-            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);
+            $modelPostReports->updateReport($procedure["procedure_id"], $_SESSION["user_id"], $postReport["post_id"]);            
 
             $modelRestriction = new User_Restrictions();
             $modelRestriction->createUserRestriction($postReport["post_author"]);
@@ -146,7 +146,7 @@ else {
 
             $procedure = $modelAction[2];
 
-            $modelPostReports->updateReportByUser($procedure["procedure_id"], $_SESSION["user_id"], $postedBy["user_id"]);
+            $modelPostReports->updateReportByUser($procedure["procedure_id"], $_SESSION["user_id"], $user["user_id"]);
 
             $modelBan = new User_Bans();
             $modelBan->createUserBan($user["email"], $_SESSION["user_id"]);
